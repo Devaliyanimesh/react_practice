@@ -1,6 +1,7 @@
 import React from "react"
 import  ReactDOM  from "react-dom/client"
-import  Funcom from
+import Funcom from "./componets/functional/Funcom"
+/
 let x=<h1>What is this...?</h1>
 let arry=["urvish","jeel","nimesh"]
 let obj={name:"Nimesh"}
@@ -14,5 +15,7 @@ root.render(
     return <h1>{e}</h1>
 })} */}
 {obj.name}
+<Funcom/>
+
 </React.StrictMode>
 )
