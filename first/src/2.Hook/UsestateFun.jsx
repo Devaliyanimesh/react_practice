@@ -8,7 +8,7 @@ const colorarr=["red","black","yellow","blue","pink",]
 let [index,setIndex]= useState(0)
 const changeIndex=()=>
 {
-  if(index== null);
+  if(index== null){
    
   
     
