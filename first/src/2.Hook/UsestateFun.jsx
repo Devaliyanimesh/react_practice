@@ -4,16 +4,19 @@ import { Button } from 'react-bootstrap'
 
 
 export default function UsestateFun() {
-const colorarr=["red","black","yellow","blue","pink",]
+const colorarr=["red","black","yellow","blue","pink"]
 let [index,setIndex]= useState(0)
 const changeIndex=()=>
 {
-  if(index== null){
-   
+  if (index==4) {
+    console.log("--->");
   
-    
+
   }
-  setIndex(index+1)
+ 
+
+setIndex(index+1)
+   
 }
     return (
 
