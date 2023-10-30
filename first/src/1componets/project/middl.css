@@ -5,8 +5,8 @@
     margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
- place-content: center;
- color: aliceblue;
+    place-content: center;
+    color: aliceblue;
 
 }
 
@@ -18,8 +18,8 @@
     margin-left: 10px;
     display: flex;
     flex-wrap: wrap;
- place-content: center;
-  
+    place-content: center;
+
 
 
 }
