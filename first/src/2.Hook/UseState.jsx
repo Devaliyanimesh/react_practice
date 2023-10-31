@@ -19,7 +19,7 @@ const incre =()=>{
   return (
     <div className='appcontainer'><h1>Count is {count}</h1>
     
-<Button color="danger" onClick={()=>incre()}>Click here</Button>
+<Button disabled:false color="danger"   onClick={()=>incre()}>Click here</Button>
 </div>
 
   )

@@ -3,6 +3,7 @@ import Final from './1componets/project/Final'
 import UseState from './2.Hook/UseState'
 import Usestatepro from './2.Hook/Usestatepro'
 import UsestateFun from './2.Hook/Usestatefun'
+import UsestateClass from './2.Hook/UsestateClass'
 
 
 
@@ -16,7 +17,8 @@ export default function main() {
 {/* <UseState/> */}
 
 {/* <Usestatepro/> */}
-<UsestateFun/>
+{/* <UsestateFun/> */}
+<UsestateClass/>
 
     </div>
   )
