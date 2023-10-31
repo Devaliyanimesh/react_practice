@@ -5,22 +5,30 @@ export default class UsestateClass extends Component {
     constructor() {
         super()
         this.colorarr = ["red", "black", "yellow", "blue", "pink"]
+        this.texValue = ["yellow", "blue", "pink","red", "black", ]
+
         this.state={
-            count:0,
+            countIndex:0,
         }
+        this.texColor={
+            texIndex:1,
+        }
+        
+
     }
  clickButton(){
-    this.setState({count: this.state.count +1})
-}
-
+    this.setState({countIndex: this.state.countIndex +1})
+  this.setState({texIndex: this.texColor.texIndex+1}),
+  console.log("--->");
+ }
 
     render() {
         return (
             <div style={{ 
-                backgroundColor: this.colorarr[this.state.count], 
-                color:'white'
+                backgroundColor: this.colorarr[this.state.countIndex], 
+                color: this.texValue[this.texColor.texIndex],
                 }}>
-                <h1>Hii color {this.state.count}</h1>
+                <h1>Hii color</h1>
                 <Button onClick={() => this.clickButton()}>Click me</Button>
             </div>
 
