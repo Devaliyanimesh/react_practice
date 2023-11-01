@@ -11,14 +11,14 @@ export default class UsestateClass extends Component {
             countIndex:0,
         }
         this.texColor={
-            texIndex:1,
+            texIndex:0,
         }
         
 
     }
  clickButton(){
     this.setState({countIndex: this.state.countIndex +1})
-  this.setState({texIndex: this.texColor.texIndex+1}),
+  this.setState({texIndex: this.texColor.texIndex +1}),
   console.log("--->");
  }
 
