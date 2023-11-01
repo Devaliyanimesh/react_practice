@@ -14,9 +14,11 @@ export default function UsestateFun() {
     }
     
   else if(confirm("do you want to procced")=== true ){
-    setIndex(index+1)
     alert("you press contine")
+    setIndex(index+1)
     console.log("--->");
+    
+    
     
   }
 
@@ -47,7 +49,7 @@ export default function UsestateFun() {
       >
 
         <h1 >Hello Nimesh</h1></div>
-      <Button color='danger' onClick={() => changeIndex()}>Change Color</Button>
+      <Button  color='danger' onClick={() => changeIndex()}>Change Color</Button>
     </div>
 
   )

@@ -17,8 +17,8 @@ export default function main() {
 {/* <UseState/> */}
 
 {/* <Usestatepro/> */}
-{/* <UsestateFun/> */}
-<UsestateClass/>
+<UsestateFun/>
+{/* <UsestateClass/> */}
 
     </div>
   )
