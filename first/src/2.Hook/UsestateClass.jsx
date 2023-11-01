@@ -9,28 +9,31 @@ export default class UsestateClass extends Component {
 
         this.state={
             countIndex:0,
-        }
-        this.texColor={
             texIndex:0,
+
         }
+        
         
 
     }
  clickButton(){
     this.setState({countIndex: this.state.countIndex +1})
-  this.setState({texIndex: this.texColor.texIndex +1}),
+  this.setState({texIndex: this.state.texIndex +1}),
   console.log("--->");
  }
 
     render() {
         return (
+            <>
+            
             <div style={{ 
                 backgroundColor: this.colorarr[this.state.countIndex], 
-                color: this.texValue[this.texColor.texIndex],
-                }}>
+                color: this.texValue[this.state.texIndex],
+            }}>
                 <h1>Hii color</h1>
                 <Button onClick={() => this.clickButton()}>Click me</Button>
             </div>
+                    </>
 
         )
     }
