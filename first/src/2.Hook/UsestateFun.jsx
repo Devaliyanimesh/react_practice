@@ -7,20 +7,27 @@ export default function UsestateFun() {
   const colorarr = ["red", "black", "yellow", "blue", "pink"]
   let [index, setIndex] = useState(0)
   const changeIndex = () => {
-   
- if (index < colorarr.length - 1) {
+    
+    if (index === colorarr.length-1) {
       setIndex(index + 1)
+      
+      let co=window.confirm("do you want to procced")
+      if(co){
+       setIndex(index+1)
+       console.log("--->");
+        
+      }
+     
+      else{
+        setIndex(0)
+      }
      
     }
+    else{
+      setIndex(index+1)
+    }
     
-  else if(confirm("do you want to procced")=== true ){
-    alert("you press contine")
-    setIndex(index+1)
-    console.log("--->");
-    
-    
-    
-  }
+ 
 
 
   
