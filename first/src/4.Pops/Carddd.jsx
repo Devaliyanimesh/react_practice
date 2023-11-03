@@ -42,10 +42,16 @@ import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react
 export default function Carddd(props) {
     let discout=props.data.discountPercentage
     let price=props.data.price
-    let final=  price*discoun
-    // console.log(" final:", final)
+    let one=  price-(price*(discout/100))
+    let final=one.toFixed(2)
+    // to fixed use .pachi 2 value  lavava mate
     
     
+    // console.log("props",props);
+    // var valueInString = "2383";
+    // var num = parseFloat(valueInString);
+    // var val = num - (num * .35);
+    // console.log(val);
       return (
         <>
         <Card
@@ -64,14 +70,15 @@ export default function Carddd(props) {
            {props?.data?.title || "Title unavilable"}
           </CardTitle>
           <CardSubtitle
-            className="mb-2 text-muted"
+            className="mb-2 text-muted d-flex"
             tag="h6"
           >
-          Rs. {props?.data?.price }/
+          <p> <i class="bi bi-badge-4k"></i>&#8377;{final ?? price } </p>
+          <p className='px-2 'style={{textDecoration:"line-through"}}> &#8377;{props?.data?.price }</p>
+          <p style={{color:"green"}}>{discout ||"discount not availabel"}% OFF</p>
           
-          <p>After di:-{final}</p>
           </CardSubtitle>
-          <CardText>
+          <CardText style={{}}>
             {props?.data?.description}
           </CardText>
           <Button className='bg-danger w-100 border-0'>
