@@ -44,15 +44,7 @@ export default function Carddd(props) {
     let price=props.data.price
     let one=  price-(price*(discout/100))
     let final=one.toFixed(2)
-    // to fixed use .pachi 2 value  lavava mate
-    
-    
-    // console.log("props",props);
-    // var valueInString = "2383";
-    // var num = parseFloat(valueInString);
-    // var val = num - (num * .35);
-    // console.log(val);
-      return (
+          return (
         <>
         <Card
         style={{
