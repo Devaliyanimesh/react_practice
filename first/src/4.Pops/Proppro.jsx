@@ -6,10 +6,21 @@ export default function Proppro() {
   console.log(Data);
   return (
    <>
+   <div className='d-flex flex-wrap gap-2 px-3  ' style={{backgroundColor:"lightblue"}}>
    {Data.map((e)=>{
-    return <h1>{e.title}</h1>
+  
+   return  <Carddd data={e}/>
+
+
+  //  withiout object
+  //  <Carddd name={e.title}
+  //   price={e.price}
+  //    discriptionn={e.description}
+  //    />
    })}
-   <Carddd/>
+   </div>
    </>
   )
 }
+
+{/* <h1>{e.title}</h1> */}
