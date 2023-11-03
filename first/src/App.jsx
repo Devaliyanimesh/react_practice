@@ -24,10 +24,10 @@ export default function main() {
 {/* <UsestateClass/>
 <Fragment/>
 <MapKey/>  */}
-<FunProps name={"nimesh"} age={23} color={"red"}/>
-<FunProps name={"saif"}age={25}  color={"green"}/>
+{/* <FunProps name={"nimesh"} age={23} color={"red"} colo={"green"}/>
+<FunProps name={"saif"}age={25}  color={"red"} colo={"green"}/> */}
 
-
+<FunProps name={"Nimesh"} age ={25}/>
 
     </div>
   )
