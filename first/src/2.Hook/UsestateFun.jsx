@@ -8,23 +8,19 @@ export default function UsestateFun() {
   let [index, setIndex] = useState(0)
   const changeIndex = () => {
     
-    if (index === colorarr.length-1) {
+  
+    if(index<ColorArr.length-1 ){
       setIndex(index + 1)
-      
-      let co=window.confirm("do you want to procced")
-      if(co){
-       setIndex(index+1)
-       console.log("--->");
-        
-      }
-     
-      else{
-        setIndex(0)
-      }
-     
     }
+  
+      else if(window.confirm("do you procced")===true){
+        setIndex(index + 1)
+      }
+
+    
     else{
-      setIndex(index+1)
+      setIndex(0)
+      
     }
     
  
