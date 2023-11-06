@@ -38,7 +38,7 @@ export default function main() {
 <ClassPropss/> */}
 {/* <Proppro/> */}
 {/* <Mdbcardd/> */}
-<Propschange  chang={"nimesh"} name={"saif"}/>
+<Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/>
 
 
 
