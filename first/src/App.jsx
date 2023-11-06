@@ -11,6 +11,7 @@ import ClassPropss from './4.Pops/class/ClassPropss'
 import Proppro from './4.Pops/Proppro'
 import Mdbcardd from './0.mdbinstallbootstrap/Mdbcardd'
 import Propschange from './4.Pops/Fun/propschange'
+import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
 
 
 
@@ -38,7 +39,8 @@ export default function main() {
 <ClassPropss/> */}
 {/* <Proppro/> */}
 {/* <Mdbcardd/> */}
-<Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/>
+{/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
+<LifecycleMethod/>
 
 
 

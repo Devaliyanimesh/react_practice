@@ -11,8 +11,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 // let arry=["urvish","jeel","nimesh"]
 // let obj={name:"Nimesh"}
 const root=ReactDOM.createRoot(document.getElementById("root")).render(
-<React.StrictMode>
+
 
 <App/>
-</React.StrictMode>
+
 )
