@@ -9,7 +9,7 @@ export default function UsestateFun() {
   const changeIndex = () => {
     
   
-    if(index<ColorArr.length-1 ){
+    if(index<colorarr.length-1 ){
       setIndex(index + 1)
     }
   

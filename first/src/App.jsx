@@ -9,6 +9,9 @@ import UsestateFun from './2.Hook/UsestateFun'
 import FunProps from './4.Pops/Fun/FunProps'
 import ClassPropss from './4.Pops/class/ClassPropss'
 import Proppro from './4.Pops/Proppro'
+import Mdbcardd from './0.mdbinstallbootstrap/Mdbcardd'
+import Propschange from './4.Pops/Fun/propschange'
+
 
 
 
@@ -33,7 +36,9 @@ export default function main() {
 {/* <ClassPropss  data={{name:"nimesh",greeting:"Good Morning"}}/> */}
 {/* <hr />
 <ClassPropss/> */}
-<Proppro/>
+{/* <Proppro/> */}
+{/* <Mdbcardd/> */}
+<Propschange  chang={"nimesh"} name={"saif"}/>
 
 
 
