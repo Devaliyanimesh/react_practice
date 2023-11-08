@@ -1,4 +1,3 @@
-import React from 'react'
 import Data from '../../Product/packeg.json'
 
 import Carddd from './Carddd'
@@ -10,7 +9,7 @@ export default function Proppro() {
    <div className='d-flex flex-wrap gap-2 px-3  ' style={{backgroundColor:"lightblue"}}>
    {Data.map((e)=>{
   
-   return  <Carddd data={e}/>
+   return  <Carddd  data={e}/>
 
 
   //  withiout object

@@ -12,6 +12,7 @@ import Proppro from './4.Pops/Proppro'
 import Mdbcardd from './0.mdbinstallbootstrap/Mdbcardd'
 import Propschange from './4.Pops/Fun/propschange'
 import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
+import Mainaa from './4.Pops/class/class cardproject/mainaa'
 
 
 
@@ -35,12 +36,13 @@ export default function main() {
 
 {/* <FunProps name={"Nimesh"} age ={25}/> */}
 {/* <ClassPropss  data={{name:"nimesh",greeting:"Good Morning"}}/> */}
-{/* <hr />
-<ClassPropss/> */}
+<hr />
+{/* <ClassPropss/> */}
 {/* <Proppro/> */}
 {/* <Mdbcardd/> */}
 {/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
-<LifecycleMethod/>
+{/* <LifecycleMethod/> */}
+<Mainaa/>
 
 
 
