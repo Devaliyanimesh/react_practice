@@ -21,7 +21,7 @@ export default function UsestateFun() {
     else{
       setIndex(0)
       
-    }
+    } 
     
  
 
@@ -51,7 +51,7 @@ export default function UsestateFun() {
 
       >
 
-        <h1 >Hello Nimesh</h1></div>
+        <h1 >Hello Nimesh{index}</h1></div>
       <Button  color='danger' onClick={() => changeIndex()}>Change Color</Button>
     </div>
 

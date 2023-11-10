@@ -13,6 +13,7 @@ import Mdbcardd from './0.mdbinstallbootstrap/Mdbcardd'
 import Propschange from './4.Pops/Fun/propschange'
 import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
 import Mainaa from './4.Pops/class/class cardproject/mainaa'
+import Maintask from './4.Pops/Fun/Maintask'
 
 
 
@@ -22,11 +23,12 @@ import Mainaa from './4.Pops/class/class cardproject/mainaa'
 
 export default function main() {
   return (
+    
     <div>
 {/* <Final/>
 <UseState/>
 <Usestatepro/> */}
-{/* <UsestateFun/> */}
+<UsestateFun/>
 
 {/* <UsestateClass/>
 <Fragment/>
@@ -42,7 +44,8 @@ export default function main() {
 {/* <Mdbcardd/> */}
 {/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
 {/* <LifecycleMethod/> */}
-<Mainaa/>
+{/* <Mainaa/> */}
+{/* <Maintask name={"Nimesh"}/> */}
 
 
 

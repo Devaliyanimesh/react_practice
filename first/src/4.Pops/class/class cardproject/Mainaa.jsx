@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { Component, useId } from 'react'
 import Carddclass from './carddclass'
 import Data from './../../../../Product/packeg.json'
 
 
-export default function Mainaa() {
-  console.log(Data);
-  return (
-    <>
+
+export default class Mainaa extends Component {
+  constructor(){
+    super()
+  }
+  render() {
+    return (
+      <>
       <div style={{
         display: "flex",
         flexWrap: "wrap",
@@ -14,14 +18,18 @@ export default function Mainaa() {
         padding: "20px 50px",
         background: "green"
 
-      }} >
+      }} 
+      >
+        
         {Data.map((e) => {
-          return <Carddclass data={e} />
+        
+          return <Carddclass  data={e} />
 
         })
 
         }
       </div>
     </>
-  )
+    )
+  }
 }

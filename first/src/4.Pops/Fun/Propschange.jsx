@@ -3,12 +3,16 @@ import { Button } from 'react-bootstrap'
 
 export default function Propschange(props) {
  let[changee,setChangee]=useState(props?.name)
+let[changgg,setChang]=useState(false)
+
   const changename=()=>{
-    setChangee(props?.chang)
+    setChangee("nimesh")
     
   }
 const changevalue=()=>{
-  props.namee= "User";
+  setChangee(changgg ? props.name:"user")
+  setChang(!changee)
+  
 }
  
   return (<>
@@ -20,7 +24,7 @@ const changevalue=()=>{
 <hr />
 
 <div className='m-3'>
-<h1>Hello, {props.namee}</h1>
+<h1>Hello, {changgg}</h1>
 <Button  onClick={changevalue} className='danger'>Click here</Button>
 </div>
   </>
