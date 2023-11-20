@@ -2,6 +2,10 @@ import React from 'react'
 import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'reactstrap';
 
 export default function One(props) {
+  let dfd=props?.data?.discountPercentage
+  let price=props?.data?.price
+  let final= price -(price*(dfd/100))
+  
    return (
    <>
    
@@ -24,6 +28,8 @@ export default function One(props) {
       tag="h6"
     >
       Rs.{props?.data?.price || "not avai"}
+      <h6>Discount:-{dfd}</h6>
+      <h6>FinalPrice:-{final}</h6>
     </CardSubtitle>
     <CardText>
      {props?.data?.description || "not avai"}
