@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Usestate1 from './1.Hook/Usestate1'
 import UsestateClass from './1.Hook/UsestateClass'
+import Two from './2.Props/Function/Two'
 
 
 
@@ -11,7 +12,8 @@ function App() {
     <>
    
    {/* <Usestate1/> */}
-   <UsestateClass/>
+   {/* <UsestateClass/> */}
+   <Two/>
    
     </>
   )
