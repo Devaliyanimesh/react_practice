@@ -9,7 +9,7 @@ import '../App.css'
 export default function Nav() {
   return (
     <>
-      <div className='d-flex gap-5 align-items-center p-3   '>
+      <div className='d-flex gap-5 align-items-center p-3 bg-black'>
         <div className="Logo col-1" color='danger ' style={{ marginRight: "20px" }}>
           <img src={ImgUrl} alt="" />
         </div>
