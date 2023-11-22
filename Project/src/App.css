@@ -1,6 +1,9 @@
 input:focus-visible{
     outline: none;
 }
-.Rotate{
-    transform: rotate(90deg);
+.Rotate{ 
+    transform: rotate(270deg) !important;
+
+    background-color: rgb(255, 255, 255);
+  
 }

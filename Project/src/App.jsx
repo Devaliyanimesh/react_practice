@@ -1,5 +1,7 @@
 import React from 'react'
-import Nav from './Navbar/Nav'
+import Nav from './First/Nav'
+import Second from './Second/Second'
+
 
 
 function App() {
@@ -8,7 +10,8 @@ function App() {
   return (
    <>
    <Nav/>
-   `</>
+   <Second/>
+   </>
   )
 }
 
