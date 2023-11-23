@@ -36,3 +36,23 @@ margin-left:  -166px;
 margin-left:  166px;
 
 }
+.dropdown-toggle {
+    white-space: nowrap;
+    font-size: 25px !important;
+    transform: rotate(90deg);
+
+}
+.dropdown:hover .ror::before  {
+    transform: rotate(180deg) !important;
+
+}
+
+.dropdown-toggle::after {
+    content: unset !important;
+}
+.lol{
+    transform: rotate(0deg);
+    
+    border: none !important;
+
+}
