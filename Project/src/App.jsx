@@ -1,7 +1,12 @@
 import React from 'react'
-import Nav from './First/Nav'
 import Second from './Second/Second'
-import Sliderr from './Third/sliderr'
+import Crousel from './Third/Crousel'
+import Nav from './First/Nav'
+
+
+
+
+
 
 
 
@@ -12,7 +17,12 @@ function App() {
    <>
    <Nav/>
    <Second/>
-   <Sliderr/>
+  <Crousel/>
+ 
+
+
+  
+  
    </>
   )
 }

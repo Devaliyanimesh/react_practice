@@ -21,7 +21,7 @@ import Img8 from '../assets/bikee.webp'
 export default function Second() {
   return (
     <>
-      <div className='my-2   overflow-hidden' style={{backgroundColor:' rgb(255, 255, 255)'}}>
+      <div className='my-2   overflow-hidden' style={{backgroundColor:' rgb(255, 255, 255)',padding:"20px 0px"}}>
 
         <div className='d-flex align-items-center ' style={{ gap: '40px', margin: "0px 90px", textAlign: 'center', }}>
           <div>
