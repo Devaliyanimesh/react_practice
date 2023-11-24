@@ -1,0 +1,21 @@
+ -->props
+ 
+ props ma parent to child data pass kari sakiye
+ value change na thai,
+ props ni value change karvanu key to usestate makari nakhvani
+ 
+--> Hook
+ function
+ props
+ use state thi apre state banavi sakiya,
+ ->state one type of variable che jo state ni value change thai to page rerender thai
+ method thi apre set kari sakiye che
+---> class
+ state ma farijayt null & object dai sakiye biji koi value api sakta nathi
+ tene set krva mate this apvana ave che
+ map-key
+ unique identi apva mate id apva ma ave che id={}
+ --->compponent 
+ website page alag part ma devid kare che
+ piese of code rakhva mate tene upyog thai che
+ task login  admin user,aditor pachi filter kare ke admin batav admin nu dekhavu joye

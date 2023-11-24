@@ -14,6 +14,9 @@ import Propschange from './4.Pops/Fun/propschange'
 import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
 import Mainaa from './4.Pops/class/class cardproject/mainaa'
 import Maintask from './4.Pops/Fun/Maintask'
+import LifePro from './5.Lifecycle/LifePro'
+import UseEffect from './2.1UseEffect/UseEffect'
+
 
 
 
@@ -28,7 +31,7 @@ export default function main() {
 {/* <Final/>
 <UseState/>
 <Usestatepro/> */}
-<UsestateFun/>
+{/* <UsestateFun/> */}
 
 {/* <UsestateClass/>
 <Fragment/>
@@ -44,12 +47,19 @@ export default function main() {
 {/* <Mdbcardd/> */}
 {/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
 {/* <LifecycleMethod/> */}
+
 {/* <Mainaa/> */}
 {/* <Maintask name={"Nimesh"}/> */}
+
+{/* <LifePro/>   */}
+{/* <UseEffect/> */}
 
 
 
     </div>
   )
 }
+
+ 
+
 

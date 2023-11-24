@@ -7,12 +7,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 
-// let x=<h1>What is this...?</h1>
-// let arry=["urvish","jeel","nimesh"]
-// let obj={name:"Nimesh"}
+
 const root=ReactDOM.createRoot(document.getElementById("root")).render(
 
-<StrictMode>
+<>
 <App/>
-</StrictMode>
+</>
 )
