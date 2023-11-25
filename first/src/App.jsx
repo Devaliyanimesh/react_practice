@@ -9,13 +9,15 @@ import UsestateFun from './2.Hook/UsestateFun'
 import FunProps from './4.Pops/Fun/FunProps'
 import ClassPropss from './4.Pops/class/ClassPropss'
 import Proppro from './4.Pops/Proppro'
-import Mdbcardd from './0.mdbinstallbootstrap/Mdbcardd'
+
 import Propschange from './4.Pops/Fun/propschange'
 import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
 import Mainaa from './4.Pops/class/class cardproject/mainaa'
 import Maintask from './4.Pops/Fun/Maintask'
 import LifePro from './5.Lifecycle/LifePro'
 import UseEffect from './2.1UseEffect/UseEffect'
+import UseEffetproject from './2.1UseEffect/UseEffetproject'
+import Task from './2.1UseEffect/Task'
 
 
 
@@ -55,11 +57,12 @@ export default function main() {
 {/* <UseEffect/> */}
 
 
-
+{/* <UseEffetproject/> */}
+<Task/>
     </div>
   )
 }
 
- 
+
 
 
