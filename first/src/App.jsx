@@ -19,6 +19,8 @@ import UseEffect from './2.1UseEffect/UseEffect'
 import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 
+import Inpput from './6.input/Inpput'
+
 
 
 
@@ -58,7 +60,8 @@ export default function main() {
 
 
 {/* <UseEffetproject/> */}
-<Task/>
+{/* <Task/> */}
+<Inpput />
     </div>
   )
 }
