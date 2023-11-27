@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import Clockk from "./Clock/Clockk"
 
 
 function App() {
-  
+
 
   return (
-    <>
-    </>
+<>
+<Clockk/>
+</>
   )
 }
 
