@@ -21,6 +21,8 @@ import Task from './2.1UseEffect/Task'
 
 
 import Inputt from './6.input/Inputt'
+import Inputtpro from './6.input/Inputtpro'
+import Prac from './6.input/prac'
 
 
 
@@ -63,7 +65,9 @@ export default function main() {
 {/* <UseEffetproject/> */}
 {/* <Task/> */}
 {/* <Inpput /> */}
-<Inputt/>
+{/* <Inputt/> */}
+<Inputtpro/>
+{/* <Prac/> */}
     </div>
   )
 }

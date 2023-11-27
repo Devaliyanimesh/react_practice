@@ -35,6 +35,7 @@ export default function Inputt() {
                         <Input value={food} className='bg-danger text-white'
                             // second e.ma input ni value male atle
                             onChange={(e) => change(e)} />
+                            
                     </div>
                     <div className="col-4">
 
