@@ -21,8 +21,9 @@ import Task from './2.1UseEffect/Task'
 
 
 import Inputt from './6.input/Inputt'
-import Inputtpro from './6.input/Inputtpro'
-import Prac from './6.input/prac'
+
+
+import MultipleValue from './6.input/MultipleValue'
 
 
 
@@ -65,9 +66,9 @@ export default function main() {
 {/* <UseEffetproject/> */}
 {/* <Task/> */}
 {/* <Inpput /> */}
-{/* <Inputt/> */}
-<Inputtpro/>
-{/* <Prac/> */}
+
+<MultipleValue/>
+
     </div>
   )
 }
