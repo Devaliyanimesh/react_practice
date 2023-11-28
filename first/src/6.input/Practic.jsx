@@ -3,8 +3,7 @@ import { Button, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 
-
-export default function MultipleValue() {
+export default function Practic() {
   let [User, setuser] = useState({
     name: "", fathername: "",
     Mothername: "", city: "",age:""
@@ -36,7 +35,6 @@ export default function MultipleValue() {
           </Label>
           <Input
             value={User.name}
-          
             id="exampleEmail"
             name="name"
             type="text"
@@ -95,15 +93,11 @@ export default function MultipleValue() {
 
           />
         </FormGroup>
-        
 
 
-        <Button className='w-100' onClick={(e) => addata(e)}>
+        <Button onClick={(e) => addata(e)}>
           Submit
         </Button>
-        <MdDelete />
-        
-    
 
 
       </Form>
@@ -132,9 +126,6 @@ export default function MultipleValue() {
             <th>
               age
             </th>
-            <th>
-
-            </th>
           </tr>
         </thead>
         <tbody>
@@ -147,7 +138,6 @@ export default function MultipleValue() {
                 <td>{e.Mothername}</td>
                 <td>{e.city}</td>
                 <td>{e.age}</td>
-                <td><Button className='bi bi-1-square-fill'></Button></td>
 
               </tr>
             })

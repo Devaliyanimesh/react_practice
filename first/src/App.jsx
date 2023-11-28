@@ -24,6 +24,7 @@ import Inputt from './6.input/Inputt'
 
 
 import MultipleValue from './6.input/MultipleValue'
+import Practic from './6.input/Practic'
 
 
 
@@ -66,7 +67,7 @@ export default function main() {
 {/* <UseEffetproject/> */}
 {/* <Task/> */}
 {/* <Inpput /> */}
-
+{/* <Practic/> */}
 <MultipleValue/>
 
     </div>
