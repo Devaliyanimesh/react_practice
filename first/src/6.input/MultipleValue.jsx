@@ -1,5 +1,5 @@
 import { MDBIcon } from 'mdb-react-ui-kit'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
@@ -33,6 +33,8 @@ export default function MultipleValue() {
     toast.success("data delet")
 
   }
+
+
 
   return (
     <>
