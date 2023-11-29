@@ -20,11 +20,12 @@ import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 
 
-import Inputt from './6.input/Inputt'
+
 
 
 import MultipleValue from './6.input/MultipleValue'
 import Practic from './6.input/Practic'
+import Practiccc from './6.input/Practic/Practiccc'
 
 
 
@@ -66,9 +67,10 @@ export default function main() {
 
 {/* <UseEffetproject/> */}
 {/* <Task/> */}
-{/* <Inpput /> */}
+{/* <Inputt /> */}
 {/* <Practic/> */}
-<MultipleValue/>
+{/* <MultipleValue/> */}
+<Practiccc/>
 
     </div>
   )

@@ -115,6 +115,9 @@ export default function Practic() {
               Name
             </th>
             <th>
+              age
+            </th>
+            <th>
               Father Name
             </th>
             <th>
@@ -123,23 +126,43 @@ export default function Practic() {
             <th>
               City
             </th>
-            <th>
-              age
-            </th>
           </tr>
         </thead>
         <tbody>
           {
             Userdata.map((e, index) => {
-              return <tr key={index}>
+//  sty ma condittion
+            //   return <tr key={index} style={e.age <18?{border:"2px solid red"}:{border:"2px solid black"}} >
+            //   <th>{index + 1}</th>
+            //   <td>{e.name}</td>
+            //   <td>{e.age}</td>
+            //   <td>{e.fathername}</td>
+            //   <td>{e.Mothername}</td>
+            //   <td>{e.city}</td>
+
+            // </tr>
+              if(e.age<18){
+              return <tr key={index} style={{border:"2px solid red"}} >
+                <th >{index + 1}</th>
+                <td >{e.name}</td>
+                <td style={{color:"white", backgroundColor:"red"}}>{e.age}</td>
+                <td >{e.fathername}</td>
+                <td >{e.Mothername}</td>
+                <td >{e.city}</td>
+
+              </tr>
+              }
+              else{
+                return <tr key={index} style={{border:"2px solid black"}} >
                 <th>{index + 1}</th>
                 <td>{e.name}</td>
+                <td>{e.age}</td>
                 <td>{e.fathername}</td>
                 <td>{e.Mothername}</td>
                 <td>{e.city}</td>
-                <td>{e.age}</td>
 
               </tr>
+              }
             })
           }
 
