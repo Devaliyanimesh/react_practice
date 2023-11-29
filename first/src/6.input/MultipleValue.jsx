@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import { MDBIcon } from 'mdb-react-ui-kit'
+import React, { useRef, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
@@ -7,7 +8,7 @@ import { Form, FormGroup, Input, Label } from 'reactstrap'
 export default function MultipleValue() {
   let [User, setuser] = useState({
     name: "", fathername: "",
-    Mothername: "", city: "",age:""
+    Mothername: "", city: "", age: ""
   })
   let [Userdata, SetUserdata] = useState([])
   const addata = (e) => {
@@ -18,14 +19,20 @@ export default function MultipleValue() {
         toast.success("data save")
       setuser({
         name: "", fathername: "",
-        Mothername: "", city: "",age:""
+        Mothername: "", city: "", age: ""
       })
     } else {
       toast.error("please fill  form")
     }
   }
   // Userdata >biji var apre data lakhva mate ...Userdata
+  const deletvalue = (index) => {
+    const userdd = [...Userdata]
+    userdd.splice(index, 1)
+    SetUserdata(userdd)
+    toast.success("data delet")
 
+  }
 
   return (
     <>
@@ -36,7 +43,7 @@ export default function MultipleValue() {
           </Label>
           <Input
             value={User.name}
-          
+
             id="exampleEmail"
             name="name"
             type="text"
@@ -48,7 +55,7 @@ export default function MultipleValue() {
             Age
           </Label>
           <Input
-          // className={ User.age !== "" && User.age <18 ? toast.error("you are not eligible"):'border border-none'} 
+            // className={ User.age !== "" && User.age <18 ? toast.error("you are not eligible"):'border border-none'} 
             value={User.age}
             id="exampleEmail"
             name="name"
@@ -95,23 +102,23 @@ export default function MultipleValue() {
 
           />
         </FormGroup>
-        
+
 
 
         <Button className='w-100' onClick={(e) => addata(e)}>
           Submit
         </Button>
-        <MdDelete />
-        
-    
+
+
+
 
 
       </Form>
 
 
       {Userdata != 0 ? <Table>
-      
-        
+
+
         <thead>
           <tr>
             <th>
@@ -141,13 +148,14 @@ export default function MultipleValue() {
           {
             Userdata.map((e, index) => {
               return <tr key={index}>
+
                 <th>{index + 1}</th>
                 <td>{e.name}</td>
                 <td>{e.fathername}</td>
                 <td>{e.Mothername}</td>
                 <td>{e.city}</td>
                 <td>{e.age}</td>
-                <td><Button className='bi bi-1-square-fill'></Button></td>
+                <td><Button className='bg-danger' onClick={() => deletvalue(index)} ><MDBIcon fas icon="trash" /></Button></td>
 
               </tr>
             })
@@ -156,8 +164,8 @@ export default function MultipleValue() {
 
         </tbody>
       </Table> : <h5 className='border border-2 border-black w-25 m-auto mt-5 text-center '>Please fill the form</h5>
-      }      
- 
+      }
+
     </>
   )
 }
