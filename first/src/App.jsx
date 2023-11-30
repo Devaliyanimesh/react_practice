@@ -18,14 +18,8 @@ import LifePro from './5.Lifecycle/LifePro'
 import UseEffect from './2.1UseEffect/UseEffect'
 import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
-
-
-
-
-
 import MultipleValue from './6.input/MultipleValue'
-import Practic from './6.input/Practic'
-import Practiccc from './6.input/Practic/Practiccc'
+
 
 
 
@@ -69,8 +63,8 @@ export default function main() {
 {/* <Task/> */}
 {/* <Inputt /> */}
 {/* <Practic/> */}
-{/* <MultipleValue/> */}
-<Practiccc/>
+<MultipleValue/>
+{/* <Practiccc/> */}
 
     </div>
   )
