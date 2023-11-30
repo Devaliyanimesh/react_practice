@@ -9,7 +9,6 @@ import UsestateFun from './2.Hook/UsestateFun'
 import FunProps from './4.Pops/Fun/FunProps'
 import ClassPropss from './4.Pops/class/ClassPropss'
 import Proppro from './4.Pops/Proppro'
-
 import Propschange from './4.Pops/Fun/propschange'
 import LifecycleMethod from './5.Lifecycle/LifecycleMethod'
 import Mainaa from './4.Pops/class/class cardproject/mainaa'
@@ -20,17 +19,9 @@ import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 import MultipleValue from './6.input/MultipleValue'
 
-
-
-
-
-
-
-
-
 export default function main() {
   return (
-    
+
     <div>
 {/* <Final/>
 <UseState/>
