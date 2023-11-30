@@ -4,6 +4,8 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Button } from 'reactstrap'
 import '../App.css'
 import img from '../assets/plus.svg'
+import Forme from '../Form/LoginForm';
+import NewLogin from '../Form/NewLogin';
 
 
 export default function Nav() {
@@ -29,8 +31,8 @@ export default function Nav() {
 
             <Dropdown.Menu >
               <div className='d-flex  align-items-center'>
-                <Dropdown.Item href="#/action-1"><span>New User ?</span></Dropdown.Item>
-                <Dropdown.Item href="#/action-1"><span>Sign UP</span></Dropdown.Item>
+                <Dropdown.Item href="#/action-1"><span><NewLogin/></span></Dropdown.Item>
+                <Dropdown.Item href="#/action-1"><span><Forme/></span></Dropdown.Item>
               </div>
               <hr />
               <div style={{marginTop:"-15px"}}>

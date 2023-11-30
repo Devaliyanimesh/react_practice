@@ -22,7 +22,7 @@ import MultipleValue from './6.input/MultipleValue'
 export default function main() {
   return (
 
-    <div>
+  <div>
 {/* <Final/>
 <UseState/>
 <Usestatepro/> */}
