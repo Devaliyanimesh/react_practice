@@ -1,43 +1,48 @@
-
-input:focus-visible{
+input:focus-visible {
     outline: none;
 }
 
 .carousel-control-prev-icon {
     display: inline-block;
     width: 3rem;
-    height:80px !important;
+    height: 80px !important;
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 100%;
     background-color: black;
-margin-left:  -166px;
+    margin-left: -166px;
 
-/* background-color: aliceblue; */
+    /* background-color: aliceblue; */
 
 
 
 }
+.ror{
+    transform: rotate(90deg);
+}
 
-.carousel-control-next-icon, .carousel-control-next-icon {
+.carousel-control-next-icon,
+.carousel-control-next-icon {
     display: inline-block;
     width: 3rem;
-    height:100px !important;
+    height: 100px !important;
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: 100% 100%;
     background-color: black;
 
-margin-left:  166px;
+    margin-left: 166px;
 
 }
+
 .dropdown-toggle {
     white-space: nowrap;
     font-size: 25px !important;
     transform: rotate(90deg);
 
 }
-.dropdown:hover .ror::before  {
+
+.dropdown:hover .ror::before {
     transform: rotate(180deg) !important;
 
 }
@@ -45,9 +50,10 @@ margin-left:  166px;
 .dropdown-toggle::after {
     content: unset !important;
 }
-.lol{
+
+.lol {
     transform: rotate(0deg);
-    
+
     border: none !important;
 
 }
