@@ -7,11 +7,11 @@ export default function Update() {
     let [value, setvalue] = useState({ Email: "", Password: "" })
     let [save, setsave] = useState([])
     let [index, setindex] = useState(null)
-    const adddata = () => {
-        // e.priventDefault()
+    const adddata = (e, index) => {
         if (value.Email.length > 0 && value.Password.length > 0) {
             setsave([...save, value])
             setvalue({ Email: "", Password: "" })
+            { value.Email === save[0]?.Email ? toast.info("alerdy email build") : null }
             e.preventDefault()
         }
         else {
@@ -31,7 +31,7 @@ export default function Update() {
         setindex(null)
 
     }
-    
+
     const delet = (ii) => {
         // save.splice(ii,1)
         // setsave([...save])
@@ -39,9 +39,11 @@ export default function Update() {
         // console.log("--->");
 
         // second
-       let allda= save.filter((e,i)=>i!==ii)
+        let allda = save.filter((e, i) => {
+            return i !== ii
+        })
         setsave(allda)
-        
+
     }
     return (
         <>
