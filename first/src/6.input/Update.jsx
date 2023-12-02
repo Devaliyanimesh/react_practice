@@ -6,26 +6,43 @@ import { Input, Label, Form, FormGroup, Button, Table } from 'reactstrap'
 export default function Update() {
     let [value, setvalue] = useState({ Email: "", Password: "" })
     let [save, setsave] = useState([])
-    let [index,setindex]=useState(null)
+    let [index, setindex] = useState(null)
     const adddata = () => {
+        // e.priventDefault()
         if (value.Email.length > 0 && value.Password.length > 0) {
             setsave([...save, value])
             setvalue({ Email: "", Password: "" })
+            e.preventDefault()
         }
         else {
             toast("plase fill value")
         }
     }
-    const uppass = (e,i) => {
+    // Update
+    const uppass = (e, i) => {
         setvalue(e)
         setindex(i)
     }
-    const updatebutton=()=>{
-        save.splice(index,1,value)
+
+    const updatebutton = () => {
+        save.splice(index, 1, value)
         setsave([...save])
+        setvalue({ Email: "", Password: "" })
+        setindex(null)
 
     }
+    
+    const delet = (ii) => {
+        // save.splice(ii,1)
+        // setsave([...save])
+        // console.log(ii);
+        // console.log("--->");
 
+        // second
+       let allda= save.filter((e,i)=>i!==ii)
+        setsave(allda)
+        
+    }
     return (
         <>
             <Form className='border border-black border-2 w-25 m-auto p-4 rounded-5 bg-primary ' autoComplete='off'>
@@ -60,10 +77,17 @@ export default function Update() {
                 </FormGroup>
 
 
-                <Button className='bg-danger w-100  text-white ' onClick={() => adddata()}>
-                    Submit
-                </Button>
-                <Button onClick={()=>updatebutton()}>Update</Button>
+                {
+                    index || index === 0
+                        ?
+                        <Button onClick={() => updatebutton()} className='w-100'>Update</Button> :
+                        <Button className='bg-danger w-100  text-white ' onClick={(e) => adddata(e)}>
+                            Submit
+                        </Button>
+                }
+
+
+
             </Form>
             <Table
             >
@@ -79,16 +103,19 @@ export default function Update() {
                             Password
                         </th>
                         <th>Action</th>
+                        <th>Action</th>
+
 
                     </tr>
                 </thead>
                 <tbody>
                     {save.map((e, i) => {
-                        return <tr key={i}>
+                        return <tr key={i} >
                             <th>{i + 1}</th>
                             <td>{e.Email}</td>
                             <td>{e.Password}</td>
-                            <td><Button onClick={() => uppass(e,i)}>Update</Button></td>
+                            <td><Button color='primary' onClick={() => uppass(e, i)}>Update</Button></td>
+                            <td><Button color='danger' onClick={() => delet(i)}>Delet</Button></td>
 
                         </tr>
                     })
