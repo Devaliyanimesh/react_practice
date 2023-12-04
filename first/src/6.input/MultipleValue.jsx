@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { Form, FormGroup, Input, Label } from 'reactstrap'
 
 
+
 export default function MultipleValue() {
   let [User, setuser] = useState({
     name: "", fathername: "",
@@ -12,7 +13,7 @@ export default function MultipleValue() {
   })
   let [Userdata, SetUserdata] = useState([])
   const addata = (e) => {
-    if (User.name.length > 0 && User.fathername.length > 0 && User.Mothername.length > 0 && User.city.length > 0) {
+    if (User.name.length > 0 && User.fathername.length > 0 && User.Mothername.length > 0 && User.city.length > 0 ) {
 
       e.preventDefault(),
         SetUserdata([...Userdata, User]),
@@ -24,6 +25,7 @@ export default function MultipleValue() {
     } else {
       toast.error("please fill  form")
     }
+  
   }
   // Userdata >biji var apre data lakhva mate ...Userdata
   const deletvalue = (index) => {

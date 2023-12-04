@@ -11,25 +11,31 @@ export default function Update() {
         if (value.Email.length > 0 && value.Password.length > 0) {
             setsave([...save, value])
             setvalue({ Email: "", Password: "" })
-            { value.Email === save[0]?.Email ? toast.info("alerdy email build") : null }
+            // {  ? toast.info("alerdy email build") : null }
+       
             e.preventDefault()
         }
+   
         else {
             toast("plase fill value")
         }
+     
     }
-    // Update
+    
+
     const uppass = (e, i) => {
         setvalue(e)
         setindex(i)
     }
 
     const updatebutton = () => {
-        save.splice(index, 1, value)
+        {save.length <= 1? toast.error("Please fill up"): save.splice(index, 1, value)
         setsave([...save])
         setvalue({ Email: "", Password: "" })
+        console.log(save.length);
         setindex(null)
-
+}
+       
     }
 
     const delet = (ii) => {
