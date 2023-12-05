@@ -11,10 +11,20 @@ export default function Inprac() {
 
   //  submit button
   const adddattaa = (e) => {
+    let mathch=addvalue.some((e)=>{
+      return e?.name ===value.name
+    })
     if (value.name.length > 0 && value.password.length > 0) {
-      e.preventDefault()
-      setaddvalue([...addvalue, value])
-      setvalue({ name: "", password: "" })
+      if (mathch) {
+        toast.error("value mathc")
+        console.log(mathch);
+      }
+      else{
+        e.preventDefault()
+        setaddvalue([...addvalue, value])
+        setvalue({ name: "", password: "" })
+      }
+ 
     }
     else {
       toast.error("please fill up")
@@ -34,7 +44,9 @@ export default function Inprac() {
 
   }
   const adddataall = () => {
+  
     if (value.name.length > 0 && value.password.length > 0) {
+     
       addvalue.splice(ind, 1, value)
       setaddvalue([...addvalue])
       setvalue({ name: "", password: "" })
@@ -44,7 +56,7 @@ export default function Inprac() {
       toast.error("please fill up")
     }
 
-    
+
   }
   return (
     <>
