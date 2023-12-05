@@ -1,3 +1,4 @@
+import "./index.css"
 import React, { StrictMode } from "react"
 import  ReactDOM  from "react-dom/client"
 import App from "./App"
@@ -9,7 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { ToastContainer } from "react-toastify";
-import "../src/index.css"
 
 
 

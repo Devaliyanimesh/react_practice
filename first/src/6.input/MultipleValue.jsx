@@ -190,7 +190,7 @@ export default function MultipleValue() {
 
 
         </tbody>
-      </Table> : <h5 className='border border-2 border-black w-25 m-auto mt-5 text-center '>Please fill the form</h5>
+      </Table> : <h5 className='border  border-black w-25 m-auto mt-5 text-center '>Please fill the form</h5>
       }
 
     </>
