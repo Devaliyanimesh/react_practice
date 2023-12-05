@@ -19,45 +19,47 @@ import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 import MultipleValue from './6.input/MultipleValue'
 import Update from './6.input/Update'
+import Inprac from './6.input/Practice/Inprac'
 
 export default function main() {
   return (
 
-  <div>
-{/* <Final/>
+    <div>
+      {/* <Final/>
 <UseState/>
 <Usestatepro/> */}
-{/* <UsestateFun/> */}
+      {/* <UsestateFun/> */}
 
-{/* <UsestateClass/>
+      {/* <UsestateClass/>
 <Fragment/>
 <MapKey/>  */}
-{/* <FunProps name={"nimesh"} age={23} color={"red"} colo={"green"}/>
+      {/* <FunProps name={"nimesh"} age={23} color={"red"} colo={"green"}/>
 <FunProps name={"saif"}age={25}  color={"red"} colo={"green"}/> */}
 
-{/* <FunProps name={"Nimesh"} age ={25}/> */}
-{/* <ClassPropss  data={{name:"nimesh",greeting:"Good Morning"}}/> */}
-<hr />
-{/* <ClassPropss/> */}
-{/* <Proppro/> */}
-{/* <Mdbcardd/> */}
-{/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
-{/* <LifecycleMethod/> */}
+      {/* <FunProps name={"Nimesh"} age ={25}/> */}
+      {/* <ClassPropss  data={{name:"nimesh",greeting:"Good Morning"}}/> */}
+      <hr />
+      {/* <ClassPropss/> */}
+      {/* <Proppro/> */}
+      {/* <Mdbcardd/> */}
+      {/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
+      {/* <LifecycleMethod/> */}
 
-{/* <Mainaa/> */}
-{/* <Maintask name={"Nimesh"}/> */}
+      {/* <Mainaa/> */}
+      {/* <Maintask name={"Nimesh"}/> */}
 
-{/* <LifePro/>   */}
-{/* <UseEffect/> */}
+      {/* <LifePro/>   */}
+      {/* <UseEffect/> */}
 
 
-{/* <UseEffetproject/> */}
-{/* <Task/> */}
-{/* <Inputt /> */}
-{/* <Practic/> */}
-{/* <MultipleValue/> */}
-{/* <Practiccc/> */}
-<Update/>
+      {/* <UseEffetproject/> */}
+      {/* <Task/> */}
+      {/* <Inputt /> */}
+      {/* <Practic/> */}
+      {/* <MultipleValue/> */}
+      {/* <Practiccc/> */}
+      {/* <Update/> */}
+      <Inprac />
 
     </div>
   )

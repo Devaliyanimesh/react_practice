@@ -1,4 +1,5 @@
 import Data from '../../Product/packeg.json'
+import React from 'react';
 
 import Carddd from './Carddd'
 
@@ -12,7 +13,7 @@ export default function Proppro() {
    return  <Carddd  data={e}/>
 
 
-  //  withiout object
+  // //  withiout object
   //  <Carddd name={e.title}
   //   price={e.price}
   //    discriptionn={e.description}
