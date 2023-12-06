@@ -19,7 +19,8 @@ import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 import MultipleValue from './6.input/MultipleValue'
 import Update from './6.input/Update'
-import Inprac from './6.input/Practice/Inprac'
+
+import Practtt from './6.input/Practice/Practtt'
 
 export default function main() {
   return (
@@ -59,7 +60,7 @@ export default function main() {
       {/* <MultipleValue/> */}
       {/* <Practiccc/> */}
       {/* <Update/> */}
-      <Inprac />
+  <Practtt/>
 
     </div>
   )
