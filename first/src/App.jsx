@@ -21,6 +21,7 @@ import MultipleValue from './6.input/MultipleValue'
 import Update from './6.input/Update'
 
 import Practtt from './6.input/Practice/Practtt'
+import Localstoreg from './7.Localstoreg/Localstoreg'
 
 export default function main() {
   return (
@@ -60,7 +61,8 @@ export default function main() {
       {/* <MultipleValue/> */}
       {/* <Practiccc/> */}
       {/* <Update/> */}
-  <Practtt/>
+  {/* <Practtt/> */}
+  <Localstoreg/>
 
     </div>
   )
