@@ -49,15 +49,17 @@ export default function Localstoreg() {
         setindex(i)
 
     }
-    const updatevalue=(i)=>{
-        list.splice(i,1)
+    const updatevalue = (i) => {
+        list.splice(i, 1,value)
         setlist([...list])
-        localStorage.setItem("todolist",JSON.stringify([...list]))
+        setvalue("")
+        setindex(null)
+        localStorage.setItem("todolist", JSON.stringify([...list]))
     }
-const allclear=()=>{
-     setlist([value])
-    localStorage.clear()
-}
+    const allclear = () => {
+        setlist([])
+        localStorage.clear()
+    }
     return (
         <>
 
@@ -65,35 +67,34 @@ const allclear=()=>{
                 <h1 className='text-center'>Todo</h1>
                 <div className='d-flex gap-2'>
                     <Input value={value} onChange={(e) => setvalue(e?.target?.value)} />
+                    {console.log(index)}
                     {
-                        index === null? <Button onClick={() => addd()}>Add</Button>:     
-                        <Button onClick={()=> updatevalue()}>Update</Button>
+                        index===0 || index ?<Button onClick={() => updatevalue()}>Update</Button> :
+                        <Button onClick={() => addd()}>Add</Button>
                     }
-                    <Button className='' onClick={()=>allclear()}>Clear</Button>
-              
+                    <Button className='' onClick={() => allclear()}>Clear</Button>
+
                 </div>
             </div>
             {
-                list.length>0?console.log("yes"):console.log("no")
+                list.length > 0 ? console.log("yes") : console.log("no")
             }
             <div className='w-25 m-auto border border-dark mt-5 p-2 '>
                 <h5 className='text-center'>All todo List</h5>
                 <ul>
                     {list.map((e, i) => {
                         return (
-                            <div key={i}>  
-                            {
-                                console.log(i)
-                            }                          
-                            {i =0||i>0?  <div  className='d-flex align-item-center justify-content-between'>
-                                <li className='mt-2' key={i}>{e}</li>
-                                <Button className='mt-2'  color='danger ' onClick={() => deletee(i)}>Delet</Button>
-                                <Button className='mt-2'  color='danger ' onClick={() => update(e, i)}>update</Button>
+                            <div key={i}>
 
-                            </div>: <h4>Please fill todo</h4>}
+                                <div className='d-flex align-item-center justify-content-between'>
+                                    <li className='mt-2' key={i}>{e}</li>
+                                    <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
+                                    <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
+
+                                </div>
                             </div>
 
-                          
+
                         )
                     })}
                 </ul>
