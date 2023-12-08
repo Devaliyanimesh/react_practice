@@ -57,6 +57,7 @@ export default function Locallsto() {
             check.splice(i, 1)
             setcheck([...check])
             
+            
         }
         else {
 
@@ -66,7 +67,7 @@ export default function Locallsto() {
     }
     const logmessage = () => {
         console.log(check);
-        setcheck([])
+       
         
 
 
