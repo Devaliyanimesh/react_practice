@@ -35,8 +35,8 @@ export default function Localsecondtime() {
         setindex(null)
 
     }
-    const Deletall= ()=>{
-       setsave([])
+    const Deletall = () => {
+        setsave([])
         localStorage.clear()
     }
 
@@ -52,7 +52,7 @@ export default function Localsecondtime() {
                             <Button onClick={() => addd()}>Add</Button>
 
                     }
-                    <Button onClick={()=>Deletall()}>Clear</Button>
+                    <Button onClick={() => Deletall()}>Clear</Button>
 
                     {
                         console.log("--->", index)
@@ -66,7 +66,7 @@ export default function Localsecondtime() {
                     {
                         save.map((e, i) => {
                             return <div key={i} className='d-flex justify-content-between mt-2'>
-                             
+
                                 <li>{e}</li>
 
                                 <Button onClick={() => delett(i)}>Delet</Button>

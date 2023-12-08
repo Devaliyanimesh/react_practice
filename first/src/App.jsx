@@ -23,6 +23,7 @@ import Update from './6.input/Update'
 import Practtt from './6.input/Practice/Practtt'
 import Localstoreg from './7.Localstoreg/Localstoreg'
 import Localsecondtime from './7.Localstoreg/Localsecondtime'
+import Locallsto from './7.Localstoreg/Locallsto'
 
 export default function main() {
   return (
@@ -62,9 +63,10 @@ export default function main() {
       {/* <MultipleValue/> */}
       {/* <Practiccc/> */}
       {/* <Update/> */}
-  {/* <Practtt/> */}
-  {/* <Localstoreg/> */}
-  <Localsecondtime/>
+      {/* <Practtt/> */}
+      {/* <Localstoreg/> */}
+      {/* <Localsecondtime /> */}
+      <Locallsto/>
 
     </div>
   )
