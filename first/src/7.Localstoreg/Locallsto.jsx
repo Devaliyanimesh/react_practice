@@ -6,6 +6,16 @@ export default function Locallsto() {
     let [value, setvalue] = useState("")
     let [add, setadd] = useState([])
     let [index, setindex] = useState(null)
+    let [check, setcheck] = useState([])
+
+
+
+
+
+
+
+
+
 
     const adddata = () => {
         setadd([...add, value])
@@ -37,12 +47,33 @@ export default function Locallsto() {
         setvalue("")
         setindex(null)
     }
-    const deletall=()=>{
+    const deletall = () => {
         localStorage.clear()
         setadd([])
     }
+    const checkbox = (e, i) => {
+
+        if (check[i] == e) {
+            check.splice(i, 1)
+            setcheck([...check])
+            
+        }
+        else {
+
+            setcheck([...check,e])
+        }
+
+    }
+    const logmessage = () => {
+        console.log(check);
+        setcheck([])
+        
+
+
+    }
     return (
         <>
+            {check}
             <h1 className='text-center'>Todo list</h1>
             <div className='w-25 m-auto d-flex gap-2'>
                 <Input value={value} onChange={(e) => setvalue(e?.target?.value)} />
@@ -50,13 +81,14 @@ export default function Locallsto() {
                     index || index === 0 ? <Button onClick={() => uptodate()}>upadte</Button> :
                         <Button onClick={() => adddata()}>ADD</Button>
                 }
-                <Button onClick={()=> deletall()}>Delet all</Button>
+                <Button onClick={() => deletall()}>Delet all</Button>
+                <Button onClick={() => logmessage()}>log</Button>
 
 
             </div>
 
             <div>
-                <div className=' border border-dark w-25 m-auto mt-5  '>
+                <div className=' border border-dark w-50 m-auto mt-5  '>
                     <ul>
                         {add.map((e, i) => {
 
@@ -64,6 +96,8 @@ export default function Locallsto() {
                                 <li >{e}</li>
                                 <Button onClick={() => deletee(i)}>Delet</Button>
                                 <Button onClick={() => Updatee(e, i)}>update</Button>
+                                <input type="checkbox" onClick={() => checkbox(e, i)} />
+
                             </div>
 
                         })
@@ -71,6 +105,7 @@ export default function Locallsto() {
                     </ul>
                 </div>
             </div>
+
         </>
     )
 }

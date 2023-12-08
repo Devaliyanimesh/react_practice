@@ -71,6 +71,7 @@ export default function Localsecondtime() {
 
                                 <Button onClick={() => delett(i)}>Delet</Button>
                                 <Button onClick={() => upda(e, i)}>update</Button>
+                                
 
                             </div>
 
