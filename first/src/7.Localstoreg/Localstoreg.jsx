@@ -8,6 +8,10 @@ export default function Localstoreg() {
     let [value, setvalue] = useState("")
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
+    let [checkk, setCheck] = useState([])
+
+
+
 
     // localStorage.setItem(key)
     // removeItem(keyname)
@@ -50,7 +54,7 @@ export default function Localstoreg() {
 
     }
     const updatevalue = (i) => {
-        list.splice(i, 1,value)
+        list.splice(i, 1, value)
         setlist([...list])
         setvalue("")
         setindex(null)
@@ -60,25 +64,41 @@ export default function Localstoreg() {
         setlist([])
         localStorage.clear()
     }
+
+    const check = (e, i, th) => {
+        if (th.checked == true) {
+            // setCheck([...checkk, e])
+            console.log("fdfd");
+        }
+        else{
+            // checkk.splice(i,1)
+            // setCheck([...checkk])
+            console.log("not check")
+        }
+
+    }
+    const checkdata = () => {
+        console.log(checkk);
+
+    }
     return (
         <>
 
-            <div className='w-25 m-auto'>
+            <div className='w-50 m-auto'>
                 <h1 className='text-center'>Todo</h1>
                 <div className='d-flex gap-2'>
                     <Input value={value} onChange={(e) => setvalue(e?.target?.value)} />
-                    {console.log(index)}
-                    {
-                        index===0 || index ?<Button onClick={() => updatevalue()}>Update</Button> :
+
+                    {index === 0 || index ? <Button onClick={() => updatevalue()}>Update</Button> :
                         <Button onClick={() => addd()}>Add</Button>
                     }
                     <Button className='' onClick={() => allclear()}>Clear</Button>
+                    <Button className='' onClick={() => checkdata()}>Checkdata</Button>
+
 
                 </div>
             </div>
-            {
-                list.length > 0 ? console.log("yes") : console.log("no")
-            }
+
             <div className='w-25 m-auto border border-dark mt-5 p-2 '>
                 <h5 className='text-center'>All todo List</h5>
                 <ul>
@@ -90,6 +110,7 @@ export default function Localstoreg() {
                                     <li className='mt-2' key={i}>{e}</li>
                                     <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
                                     <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
+                                    <input type="checkbox" onChange={() => check(e, i, this)} />
 
                                 </div>
                             </div>

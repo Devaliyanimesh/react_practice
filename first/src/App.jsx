@@ -19,11 +19,8 @@ import UseEffetproject from './2.1UseEffect/UseEffetproject'
 import Task from './2.1UseEffect/Task'
 import MultipleValue from './6.input/MultipleValue'
 import Update from './6.input/Update'
-
-import Practtt from './6.input/Practice/Practtt'
 import Localstoreg from './7.Localstoreg/Localstoreg'
-import Localsecondtime from './7.Localstoreg/Localsecondtime'
-import Locallsto from './7.Localstoreg/Locallsto'
+import Inputmulti from './6.input/Practice/Inputmulti'
 
 export default function main() {
   return (
@@ -64,9 +61,8 @@ export default function main() {
       {/* <Practiccc/> */}
       {/* <Update/> */}
       {/* <Practtt/> */}
-      {/* <Localstoreg/> */}
-      {/* <Localsecondtime /> */}
-      <Locallsto/>
+      <Localstoreg/>
+      {/* <Inputmulti/> */}
 
     </div>
   )
