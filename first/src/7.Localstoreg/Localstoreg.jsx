@@ -5,13 +5,11 @@ import { Input } from 'reactstrap'
 import UseState from '../2.Hook/UseState'
 
 export default function Localstoreg() {
-    let [value, setvalue] = useState("")
+    let [value, setvalue] = useState("") 
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
-    let [checkk, setCheck] = useState([])
-
-
-
+    let [store, setstore] = useState([])
+    let [ind,setinde]=useState()
 
     // localStorage.setItem(key)
     // removeItem(keyname)
@@ -65,21 +63,26 @@ export default function Localstoreg() {
         localStorage.clear()
     }
 
-    const check = (e, i, th) => {
-        if (th.checked == true) {
-            // setCheck([...checkk, e])
-            console.log("fdfd");
-        }
-        else{
-            // checkk.splice(i,1)
-            // setCheck([...checkk])
-            console.log("not check")
-        }
+    const chekboxx = (change, e, i) => {
+        if (change === true) {
+            setstore([...store, e])
+           
 
+        }
+        else if (change === false) {
+            setinde(i)
+        }
+        else {
+
+        }
     }
-    const checkdata = () => {
-        console.log(checkk);
 
+    const checkdata = () => {
+      let strfill= store.filter((e,i)=>{
+        return  i!==ind
+      })
+      setstore(strfill)
+      console.log(strfill);
     }
     return (
         <>
@@ -110,7 +113,7 @@ export default function Localstoreg() {
                                     <li className='mt-2' key={i}>{e}</li>
                                     <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
                                     <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
-                                    <input type="checkbox" onChange={() => check(e, i, this)} />
+                                    <input type="checkbox" onChange={(change) => chekboxx(change.target.checked, e, i)} />
 
                                 </div>
                             </div>
