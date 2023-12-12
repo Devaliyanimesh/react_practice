@@ -20,7 +20,7 @@ import Task from './2.1UseEffect/Task'
 import MultipleValue from './6.input/MultipleValue'
 import Update from './6.input/Update'
 import Localstoreg from './7.Localstoreg/Localstoreg'
-import Inputmulti from './6.input/Practice/Inputmulti'
+
 import InputLast from './6.input/Practice/InputLast'
 
 export default function main() {
@@ -62,9 +62,9 @@ export default function main() {
       {/* <Practiccc/> */}
       {/* <Update/> */}
       {/* <Practtt/> */}
-      {/* <Localstoreg/> */}
-      {/* <Inputmulti/> */}
-      <InputLast/>
+      <Localstoreg/>
+   
+      {/* <InputLast/> */}
 
     </div>
   )

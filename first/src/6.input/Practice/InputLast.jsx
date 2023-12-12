@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 
@@ -12,6 +12,7 @@ export default function InputLast() {
     const deletItem = (i) => {
         let filterdata = save.filter((e, ind) => ind !== i)
         setSave(filterdata)
+        localStorage.setItem("todo",JSON.stringify(filterdata))
     }
     const handler = (e) => {
         if (value.name.length >= 0 && value.password >= 0) {
@@ -20,7 +21,7 @@ export default function InputLast() {
             e.preventDefault()
             setSave([...save, value]),
                 setValue({ name: "", password: "" })
-                localStorage.setItem("todo",JSON.stringify([...save, value]))
+            localStorage.setItem("todo", JSON.stringify([...save, value]))
 
         }
 
@@ -33,8 +34,15 @@ export default function InputLast() {
         save.splice(index, 1, value)
         setValue([...save])
         setValue({ name: "", password: "" })
+        localStorage.setItem("todo", JSON.stringify([...save]))
         setIndex(null)
     }
+
+    useEffect(() => {
+        let data = localStorage.getItem("todo")
+        let normal = JSON.parse(data)
+        setSave(normal || [])
+    }, [])
     return (
         <>
             <Form className='w-25 m-auto border border-3 border-dark m-3 p-4 rounded-7 '>
@@ -73,9 +81,7 @@ export default function InputLast() {
                         Submit
                     </Button>
                 }
-                {
-                    console.log(index)
-                }
+               
 
             </Form>
             <Table

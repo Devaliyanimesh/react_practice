@@ -3,14 +3,15 @@ import { Button } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import { Input } from 'reactstrap'
 import UseState from '../2.Hook/UseState'
+import { Check } from 'lucide-react'
 
 export default function Localstoreg() {
-    let [value, setvalue] = useState("") 
+    let [value, setvalue] = useState("")
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
     let [store, setstore] = useState([])
-    let [ind,setinde]=useState()
-
+    // let [allstore,setAllstore]=use
+    // let [ind, setinde] = useState()
     // localStorage.setItem(key)
     // removeItem(keyname)
     // clear ()badhu clear thai
@@ -63,26 +64,22 @@ export default function Localstoreg() {
         localStorage.clear()
     }
 
-    const chekboxx = (change, e, i) => {
-        if (change === true) {
-            setstore([...store, e])
-           
+    const chekboxx = (change, e) => {
+        if (change.target.checked === true) {
+            setstore([...store, e]);
+
+        } else {
+            const updatedStore = store.filter((item) => {
+                return item !== e
+            });
+            setstore(updatedStore);
 
         }
-        else if (change === false) {
-            setinde(i)
-        }
-        else {
+    };
 
-        }
-    }
 
     const checkdata = () => {
-      let strfill= store.filter((e,i)=>{
-        return  i!==ind
-      })
-      setstore(strfill)
-      console.log(strfill);
+        console.log(store);  
     }
     return (
         <>
@@ -113,7 +110,7 @@ export default function Localstoreg() {
                                     <li className='mt-2' key={i}>{e}</li>
                                     <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
                                     <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
-                                    <input type="checkbox" onChange={(change) => chekboxx(change.target.checked, e, i)} />
+                                    <input type="checkbox" onChange={(change) => chekboxx(change, e, i)} />
 
                                 </div>
                             </div>
