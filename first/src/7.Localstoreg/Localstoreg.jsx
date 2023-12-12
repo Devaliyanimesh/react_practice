@@ -3,15 +3,17 @@ import { Button } from 'react-bootstrap'
 import { toast } from 'react-toastify'
 import { Input } from 'reactstrap'
 import UseState from '../2.Hook/UseState'
-import { Check } from 'lucide-react'
+
 
 export default function Localstoreg() {
     let [value, setvalue] = useState("")
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
     let [store, setstore] = useState([])
-    // let [allstore,setAllstore]=use
-    // let [ind, setinde] = useState()
+    let[fal,setfal]=useState(false)
+    let[add,setAdd]=useState("")
+    let [alst, setAlst] = useState([])
+
     // localStorage.setItem(key)
     // removeItem(keyname)
     // clear ()badhu clear thai
@@ -63,10 +65,13 @@ export default function Localstoreg() {
         setlist([])
         localStorage.clear()
     }
-
+    // onchange method
     const chekboxx = (change, e) => {
         if (change.target.checked === true) {
             setstore([...store, e]);
+            setfal(change.target.checked)
+            setAdd(e)
+
 
         } else {
             const updatedStore = store.filter((item) => {
@@ -78,8 +83,9 @@ export default function Localstoreg() {
     };
 
 
+
     const checkdata = () => {
-        console.log(store);  
+      
     }
     return (
         <>
@@ -110,7 +116,8 @@ export default function Localstoreg() {
                                     <li className='mt-2' key={i}>{e}</li>
                                     <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
                                     <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
-                                    <input type="checkbox" onChange={(change) => chekboxx(change, e, i)} />
+                                    <input type="checkbox" onChange={(change) => chekboxx(change, e, i)} onclick={()=>addalldata()}
+                                    />
 
                                 </div>
                             </div>
@@ -120,6 +127,13 @@ export default function Localstoreg() {
                     })}
                 </ul>
             </div>
+            <ul>
+                {
+                    store.map((e, i) => {
+                        return <li key={i}>{e}</li>
+                    })
+                }
+            </ul>
         </>
     )
 }
