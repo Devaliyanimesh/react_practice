@@ -12,7 +12,7 @@ export default function Localstoreg() {
     let [store, setstore] = useState([])
     let [fal, setfal] = useState(false)
     let [add, setAdd] = useState("")
-    let [alst, setAlst] = useState([])
+   
 
     // localStorage.setItem(key)
     // removeItem(keyname)
