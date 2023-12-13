@@ -22,6 +22,8 @@ import Update from './6.input/Update'
 import Localstoreg from './7.Localstoreg/Localstoreg'
 
 import InputLast from './6.input/Practice/InputLast'
+import UserefCom from './2.Hook/Useref/UserefCom'
+import UsecotactMain from './2.Hook/UseContaxt/UsecotactMain'
 
 export default function main() {
   return (
@@ -52,7 +54,9 @@ export default function main() {
 
       {/* <LifePro/>   */}
       {/* <UseEffect/> */}
-
+      {/* useref                         */}
+      {/* <UserefCom/> */}
+      <UsecotactMain />
 
       {/* <UseEffetproject/> */}
       {/* <Task/> */}
@@ -62,8 +66,7 @@ export default function main() {
       {/* <Practiccc/> */}
       {/* <Update/> */}
       {/* <Practtt/> */}
-      <Localstoreg/>
-   
+      {/* <Localstoreg/> */}
       {/* <InputLast/> */}
 
     </div>
