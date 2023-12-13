@@ -56,7 +56,7 @@ export default function main() {
       {/* <UseEffect/> */}
       {/* useref                         */}
       {/* <UserefCom/> */}
-      <UsecotactMain />
+      {/* <UsecotactMain /> */}
 
       {/* <UseEffetproject/> */}
       {/* <Task/> */}
@@ -66,7 +66,7 @@ export default function main() {
       {/* <Practiccc/> */}
       {/* <Update/> */}
       {/* <Practtt/> */}
-      {/* <Localstoreg/> */}
+      <Localstoreg/>
       {/* <InputLast/> */}
 
     </div>

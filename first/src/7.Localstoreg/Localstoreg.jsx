@@ -10,8 +10,8 @@ export default function Localstoreg() {
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
     let [store, setstore] = useState([])
-    let[fal,setfal]=useState(false)
-    let[add,setAdd]=useState("")
+    let [fal, setfal] = useState(false)
+    let [add, setAdd] = useState("")
     let [alst, setAlst] = useState([])
 
     // localStorage.setItem(key)
@@ -85,7 +85,7 @@ export default function Localstoreg() {
 
 
     const checkdata = () => {
-      
+
     }
     return (
         <>
@@ -116,7 +116,7 @@ export default function Localstoreg() {
                                     <li className='mt-2' key={i}>{e}</li>
                                     <Button className='mt-2' color='danger ' onClick={() => deletee(i)}>Delet</Button>
                                     <Button className='mt-2' color='danger ' onClick={() => update(e, i)}>update</Button>
-                                    <input type="checkbox" onChange={(change) => chekboxx(change, e, i)} onclick={()=>addalldata()}
+                                    <input type="checkbox" onChange={(change) => chekboxx(change, e, i)}
                                     />
 
                                 </div>
