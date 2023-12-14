@@ -10,9 +10,12 @@ export default function Localstoreg() {
     let [list, setlist] = useState([])
     let [index, setindex] = useState(null)
     let [store, setstore] = useState([])
-    let [fal, setfal] = useState(false)
-    let [add, setAdd] = useState("")
-   
+    let [allstore, setAllstore] = useState([])
+
+
+
+
+
 
     // localStorage.setItem(key)
     // removeItem(keyname)
@@ -66,11 +69,12 @@ export default function Localstoreg() {
         localStorage.clear()
     }
     // onchange method
-    const chekboxx = (change, e) => {
+    const chekboxx = (change, e, i) => {
         if (change.target.checked === true) {
+            list.splice(i, 1)
+            setlist([...list])
             setstore([...store, e]);
-            setfal(change.target.checked)
-            setAdd(e)
+            setAllstore([...allstore, e])
 
 
         } else {
@@ -78,13 +82,14 @@ export default function Localstoreg() {
                 return item !== e
             });
             setstore(updatedStore);
-
         }
     };
 
 
 
     const checkdata = () => {
+        console.log(allstore);
+        console.log(store);
 
     }
     return (
@@ -128,11 +133,11 @@ export default function Localstoreg() {
                 </ul>
             </div>
             <ul>
-                {
+                {/* {
                     store.map((e, i) => {
                         return <li key={i}>{e}</li>
                     })
-                }
+                } */}
             </ul>
         </>
     )
