@@ -55,7 +55,7 @@ export default function main() {
       {/* <LifePro/>   */}
       {/* <UseEffect/> */}
       {/* useref                         */}
-      {/* <UserefCom/> */}
+      <UserefCom/>  
       {/* <UsecotactMain /> */}
 
       {/* <UseEffetproject/> */}
@@ -66,7 +66,7 @@ export default function main() {
       {/* <Practiccc/> */}
       {/* <Update/> */}
       {/* <Practtt/> */}
-      <Localstoreg/>
+      {/* <Localstoreg/> */}
       {/* <InputLast/> */}
 
     </div>
