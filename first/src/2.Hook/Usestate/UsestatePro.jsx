@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap'
 
 
 
-export default function UseState() {
+export default function UseStatePro() {
 
     let [color,SetColor]=useState("red")
     let [Text,textcol]=useState("black")

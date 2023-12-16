@@ -5,10 +5,12 @@ import { Button } from 'reactstrap'
 
 
 export const NameContaxt = createContext()
+export const SecondContax = createContext()
 
 export default function UsecotactMain() {
 
-  let [value, setValue] = useState("Nimesh")
+  let [value, setValue] = useState({name:"Nimesh"})
+  let [age, setAge] = useState(0)
   const chnage = () => {
     setValue("king")
   }
@@ -18,7 +20,10 @@ export default function UsecotactMain() {
         <ComB />
         <Button onClick={chnage}>Chnage</Button>
       </NameContaxt.Provider>
-      <ComA />
+      <SecondContax.Provider value={age}>
+
+        <ComA />
+      </SecondContax.Provider>
 
     </>
   )

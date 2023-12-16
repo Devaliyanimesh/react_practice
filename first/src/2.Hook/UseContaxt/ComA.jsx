@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SecondContax } from './UsecotactMain'
 
 export default function ComA() {
+  const data=useContext(SecondContax)
   return (
-    <div>ComA</div>
+    <div > My age is {data}</div>
   )
 }

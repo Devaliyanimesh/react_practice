@@ -11,7 +11,7 @@ export default function ComB3() {
           return <h1>{data}</h1>
         }}
       </NameContaxt.Consumer> */}
-      <h3>My name is {data}</h3>
+      <h3>My name is {data?.name}</h3>
 
     </>
   )

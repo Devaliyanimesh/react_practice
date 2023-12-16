@@ -1,11 +1,9 @@
 import React from 'react'
 import Final from './1componets/project/Final'
-import UseState from './2.Hook/UseState'
-import Usestatepro from './2.Hook/Usestatepro'
-import UsestateClass from './2.Hook/UsestateClass'
+
 import Fragment from './3.map-key-fragment/Fragment'
 import MapKey from './3.map-key-fragment/MapKey'
-import UsestateFun from './2.Hook/UsestateFun'
+
 import FunProps from './4.Pops/Fun/FunProps'
 import ClassPropss from './4.Pops/class/ClassPropss'
 import Proppro from './4.Pops/Proppro'
@@ -24,17 +22,23 @@ import Localstoreg from './7.Localstoreg/Localstoreg'
 import InputLast from './6.input/Practice/InputLast'
 import UserefCom from './2.Hook/Useref/UserefCom'
 import UsecotactMain from './2.Hook/UseContaxt/UsecotactMain'
+import Usereduse from './2.Hook/UseReduce/Usereduse'
+import UseState from './2.Hook/Usestate/UsestatePro'
+import UsestateClass from './2.Hook/Usestate/UsestateClass'
+import UsestateFun from './2.Hook/Usestate/UsestateFun'
 
 export default function main() {
   return (
 
     <div>
+      <UseState/>
+      <UsestateFun/>
       {/* <Final/>
 <UseState/>
-<Usestatepro/> */}
-      {/* <UsestateFun/> */}
+<UseStatePro/> */}
+      {/* <UsestateFun/>
 
-      {/* <UsestateClass/>
+     <UsestateClass
 <Fragment/>
 <MapKey/>  */}
       {/* <FunProps name={"nimesh"} age={23} color={"red"} colo={"green"}/>
@@ -55,8 +59,9 @@ export default function main() {
       {/* <LifePro/>   */}
       {/* <UseEffect/> */}
       {/* useref                         */}
-      <UserefCom/>  
+      {/* <UserefCom/>   */}
       {/* <UsecotactMain /> */}
+      <Usereduse />
 
       {/* <UseEffetproject/> */}
       {/* <Task/> */}
