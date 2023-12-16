@@ -31,8 +31,8 @@ export default function main() {
   return (
 
     <div>
-      <UseState/>
-      <UsestateFun/>
+      {/* <UseState/> */}
+      {/* <UsestateFun/> */}
       {/* <Final/>
 <UseState/>
 <UseStatePro/> */}
