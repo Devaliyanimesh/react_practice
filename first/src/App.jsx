@@ -65,8 +65,8 @@ export default function main() {
       {/* <UserefCom/>   */}
       {/* <UsecotactMain /> */}
       {/* <Usereduse /> */}
-      {/* <UseredusePayload /> */}
-      <UserreduceInputTask/>
+      <UseredusePayload />
+      {/* <UserreduceInputTask/> */}
 
 
       {/* <UseEffetproject/> */}
