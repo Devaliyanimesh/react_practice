@@ -26,6 +26,9 @@ import Usereduse from './2.Hook/UseReduce/Usereduse'
 import UseState from './2.Hook/Usestate/UsestatePro'
 import UsestateClass from './2.Hook/Usestate/UsestateClass'
 import UsestateFun from './2.Hook/Usestate/UsestateFun'
+import UseredusePayload from './2.Hook/UseReduce/UseredusePayload'
+import UserreduceInputTask from './2.Hook/UseReduce/UserreduceInputTask'
+
 
 export default function main() {
   return (
@@ -61,7 +64,10 @@ export default function main() {
       {/* useref                         */}
       {/* <UserefCom/>   */}
       {/* <UsecotactMain /> */}
-      <Usereduse />
+      {/* <Usereduse /> */}
+      {/* <UseredusePayload /> */}
+      <UserreduceInputTask/>
+
 
       {/* <UseEffetproject/> */}
       {/* <Task/> */}

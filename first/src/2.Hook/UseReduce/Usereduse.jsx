@@ -3,18 +3,19 @@ import { Button } from 'reactstrap'
 
 export default function Usereduse() {
     const reduser = (state, action) => {
-        if (action==="set") {
-       
-            return {name:"king"}
+        console.log(state, action);
+        if (action.active === "set") {
+            return state+5
         }
 
     }
 
-    let [value, dispatch] = useReducer(reduser, { name: "Nimesh" })
+    let [value, dispatch] = useReducer(reduser, 100)
     return (
         <>
-            <h1>My name is {value.name}</h1>
-            <Button onClick={() => dispatch("set")}>Addname</Button>
+            <h1>Count is {value}</h1>
+      
+            <Button onClick={() => dispatch({ active: "set" })}>Addname</Button>
         </>)
 
 }
