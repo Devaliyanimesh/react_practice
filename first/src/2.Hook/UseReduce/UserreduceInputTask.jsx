@@ -16,17 +16,28 @@ export default function UserreduceInputTask() {
   let change = (e) => {
     setadd(e.target.value);
   };
-  {
-    console.log(add);
+
+  let buttonclick=()=>{
+    if (add=="") {
+      toast.error("Please fill Input")
+    }
+    else{
+      dispatch({
+        actiontype: "inc",
+        payload: add,
+        remove: (adddiv.current.value = ""),
+        add: setadd(""),
+      });
+    }
   }
-  
 
   return (
     <>
       <div className="w-25 m-auto">
         <input type="text" onChange={(e) => change(e)} ref={adddiv} />
         <h1>Count is {count}</h1>
-        <Button
+        <Button onClick={()=>buttonclick()}>Add</Button>
+        {/* <Button
           onClick={() => {
             add == ""
               ? toast.error("Please fill Input")
@@ -40,7 +51,7 @@ export default function UserreduceInputTask() {
         >
           {" "}
           ADD
-        </Button>
+        </Button> */}
       </div>
     </>
   );
