@@ -28,6 +28,7 @@ import UsestateClass from './2.Hook/Usestate/UsestateClass'
 import UsestateFun from './2.Hook/Usestate/UsestateFun'
 import UseredusePayload from './2.Hook/UseReduce/UseredusePayload'
 import UserreduceInputTask from './2.Hook/UseReduce/UserreduceInputTask'
+import Router from './8.Router/Router'
 
 
 export default function main() {
@@ -65,7 +66,7 @@ export default function main() {
       {/* <UserefCom/>   */}
       {/* <UsecotactMain /> */}
       {/* <Usereduse /> */}
-      <UseredusePayload />
+      {/* <UseredusePayload /> */}
       {/* <UserreduceInputTask/> */}
 
 
@@ -79,6 +80,9 @@ export default function main() {
       {/* <Practtt/> */}
       {/* <Localstoreg/> */}
       {/* <InputLast/> */}
+
+      {/* Router ------>*/}
+      <Router/>
 
     </div>
   )
