@@ -67,7 +67,7 @@ export default function main() {
       {/* <UsecotactMain /> */}
       {/* <Usereduse /> */}
       {/* <UseredusePayload /> */}
-      <UserreduceInputTask/>
+      {/* <UserreduceInputTask/> */}
 
 
       {/* <UseEffetproject/> */}
@@ -82,7 +82,7 @@ export default function main() {
       {/* <InputLast/> */}
 
       {/* Router ------>*/}
-      {/* <Router/> */}
+      <Router/>
 
     </div>
   )
