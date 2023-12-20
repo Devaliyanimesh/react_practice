@@ -13,23 +13,21 @@ export default function Router() {
   return (
     <>
       <BrowserRouter>
-        <Header/>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-         <Route  path="/contact" >
-          <Route index Component={Contact} />
-          <Route path="bike" >
-          <Route index Component={Bike}/>
-          <Route path="sportbike" Component={SportBike}/>
-          <Route path="normalbike" Component={Normal}/>
-
+          <Route path="/contact">
+            <Route index Component={Contact} />
+            <Route path="bike">
+              <Route index Component={Bike} />
+              <Route path="sportbike" Component={SportBike} />
+              <Route path="normalbike" Component={Normal} />
+            </Route>
+            <Route path="/contact/Car" Component={Car} />
           </Route>
-          <Route path="/contact/Car" Component={Car}/>
-
-         </Route>
 
           {/* 1st method */}
-          { /* <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/contact" element={<Contact />} />
           <Route path="/contact/bike" Component={Bike}/>
           <Route path="/contact/car" Component={Car}/> */}
           <Route path="*" element={<Errropage />} />
