@@ -7,7 +7,7 @@ export default function User() {
     console.log(name);
   return (
     <>
-    <h1>Hello {name.name}</h1>
+    <h1>Hii {name.name}</h1>
     <Button onClick={()=>navigate("/")}>Back</Button>
     </>
   )
