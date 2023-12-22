@@ -9,6 +9,7 @@ import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./index.css"
 import LifeCylce from "./4.lifecycleMethod/LifeCylce"
+import Router from "./10.Router/Router"
 function App() {
 
 
@@ -25,7 +26,11 @@ function App() {
       {/*2.Multiplae vallue --------->  */}
       {/* <MultiInput/> */}
       {/* 4.LifeCylcleMethod */}
-      <LifeCylce/>
+      {/* <LifeCylce/> */}
+
+
+      {/* Router */}
+      <Router/>
       <ToastContainer />
     </>
   )
