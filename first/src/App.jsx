@@ -29,7 +29,7 @@ import UsestateFun from "./2.Hook/Usestate/UsestateFun";
 import UseredusePayload from "./2.Hook/UseReduce/UseredusePayload";
 import UserreduceInputTask from "./2.Hook/UseReduce/UserreduceInputTask";
 import RouterNormal from "./8.Router/01Normal/RouterNormal";
-
+import Routeruseparams from "./8.Router/02 usePrams/Routeruseparams";
 
 export default function main() {
   return (
@@ -79,8 +79,13 @@ export default function main() {
       {/* <Localstoreg/> */}
       {/* <InputLast/> */}
 
+      {/* normal Router */}
+      {/* <RouterNormal/> */}
 
-<RouterNormal/>
+      {/* Useparams */}
+      {/* <Routeruseparams/> */}
+
+      {/* SearchParamas */}
     </div>
   );
 }
