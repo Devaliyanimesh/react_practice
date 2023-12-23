@@ -28,9 +28,8 @@ import UsestateClass from "./2.Hook/Usestate/UsestateClass";
 import UsestateFun from "./2.Hook/Usestate/UsestateFun";
 import UseredusePayload from "./2.Hook/UseReduce/UseredusePayload";
 import UserreduceInputTask from "./2.Hook/UseReduce/UserreduceInputTask";
-import Router from "./8.Router/Router";
-import Data from "./8.Router/Task/Data";
-import Routerr from "./8.Router/Task/Roter/Router";
+import RouterNormal from "./8.Router/01Normal/RouterNormal";
+
 
 export default function main() {
   return (
@@ -80,12 +79,8 @@ export default function main() {
       {/* <Localstoreg/> */}
       {/* <InputLast/> */}
 
-      {/* Router ------>*/}
 
-      {/* <Router/> */}
-
-      {/* task Roter */}
-      <Routerr />
+<RouterNormal/>
     </div>
   );
 }

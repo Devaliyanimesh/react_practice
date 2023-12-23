@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Normal() {
   return (
-    <div>Normal Bike</div>
+    <div>Normal</div>
   )
 }
