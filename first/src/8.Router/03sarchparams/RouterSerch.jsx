@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Form from "./Form";
+
+import Data from "./Data";
 
 export default function RouterSerch() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" Component={Form} />
+          <Route path="/" Component={Data} />
         </Routes>
       </BrowserRouter>
     </>

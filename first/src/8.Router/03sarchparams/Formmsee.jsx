@@ -1,8 +1,10 @@
 import React from "react";
-import { Button, FormGroup } from "react-bootstrap";
-import { Input, Label } from "reactstrap";
+import { useSearchParams } from "react-router-dom";
 
-export default function Form() {
+import { Input, Label, Button, Form, FormGroup } from "reactstrap";
+
+export default function Formmsee() {
+  const [paramas] = useSearchParams();
   return (
     <>
       <Form>
@@ -10,21 +12,23 @@ export default function Form() {
           <Label for="exampleEmail">Email</Label>
           <Input
             id="exampleEmail"
-            name="email"
             placeholder="with a placeholder"
-            type="email"
+            type="text"
+            value={paramas.get("name")}
+            disabled={true}
           />
         </FormGroup>
         <FormGroup>
           <Label for="examplePassword">Password</Label>
           <Input
             id="examplePassword"
-            name="password"
+          
             placeholder="password placeholder"
-            type="password"
+            type="text"
+            value={paramas.get("age")}
+            disabled={true}
           />
         </FormGroup>
-        <Button>Submit</Button>
       </Form>
     </>
   );
