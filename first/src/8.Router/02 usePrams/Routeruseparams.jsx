@@ -10,9 +10,8 @@ export default function Routeruseparams() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Data />} />
-          <Route path="/name/:name" Component={Name}/>
-          <Route path="/age/:age" Component={Age}/>
-
+          <Route path="/name/:name" Component={Name} />
+          <Route path="/age/:age" Component={Age} />
         </Routes>
       </BrowserRouter>
     </>

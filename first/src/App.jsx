@@ -30,6 +30,7 @@ import UseredusePayload from "./2.Hook/UseReduce/UseredusePayload";
 import UserreduceInputTask from "./2.Hook/UseReduce/UserreduceInputTask";
 import RouterNormal from "./8.Router/01Normal/RouterNormal";
 import Routeruseparams from "./8.Router/02 usePrams/Routeruseparams";
+import RouterSerch from "./8.Router/03sarchparams/RouterSerch";
 
 export default function main() {
   return (
@@ -86,6 +87,7 @@ export default function main() {
       {/* <Routeruseparams/> */}
 
       {/* SearchParamas */}
+      <RouterSerch/>
     </div>
   );
 }
