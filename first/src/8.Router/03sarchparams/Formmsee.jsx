@@ -5,6 +5,7 @@ import { Input, Label, Button, Form, FormGroup } from "reactstrap";
 
 export default function Formmsee() {
   const [paramas] = useSearchParams();
+  console.log(paramas);
   return (
     <>
       <Form>

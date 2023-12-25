@@ -3,8 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 import Formmsee from "./Formmsee";
 
-
 export default function Modall({toggle,modal}) {
+
 
   return (
     <div>
