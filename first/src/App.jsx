@@ -32,6 +32,8 @@ import RouterNormal from "./8.Router/01Normal/RouterNormal";
 import Routeruseparams from "./8.Router/02 usePrams/Routeruseparams";
 import RouterSerch from "./8.Router/03sarchparams/RouterSerch";
 
+import Routerrr from "./9.Proteector_Router/Task/Routerrr";
+
 export default function main() {
   return (
     <div>
@@ -87,7 +89,10 @@ export default function main() {
       {/* <Routeruseparams/> */}
 
       {/* SearchParamas */}
-      <RouterSerch/>
+      {/* <RouterSerch/> */}
+
+      {/* Protected Router */}
+      <Routerrr />
     </div>
   );
 }
