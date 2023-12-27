@@ -33,10 +33,11 @@ import Routeruseparams from "./8.Router/02 usePrams/Routeruseparams";
 import RouterSerch from "./8.Router/03sarchparams/RouterSerch";
 
 import Routerrr from "./9.Proteector_Router/Task/Routerrr";
+import "./App.css"
 
 export default function main() {
   return (
-    <div>
+    <div className="appContainer " >
       {/* <UseState/> */}
       {/* <UsestateFun/> */}
       {/* <Final/>

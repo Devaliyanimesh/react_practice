@@ -41,6 +41,7 @@ import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle } from 'react
 
 // without object
 export default function Carddd(props) {
+ 
     let discout=props.data.discountPercentage
     let price=props.data.price
     let one=  price-(price*(discout/100))
@@ -61,6 +62,8 @@ export default function Carddd(props) {
         <CardBody>
           <CardTitle tag="h5">
            {props?.data?.title || "Title unavilable"}
+      
+          
           </CardTitle>
           <CardSubtitle
             className="mb-2 text-muted d-flex"
