@@ -1,4 +1,3 @@
-import { Home } from "lucide-react";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -8,14 +7,14 @@ import Employe from "./Employe";
 import User from "./User";
 import Homee from "./Homee";
 import Header from "./Header";
-import { UserRouter } from "./ProtectedRoute";
+import { EmployeProtected, ProtectedRoute } from "./ProtectedRoute";
 
 export default function Routerrr() {
   return (
     <>
       <BrowserRouter>
-      <Header/>
-    <div
+        <Header />
+        <div
           style={{
             width: "100vw",
             minHeight: "100vh",
@@ -23,14 +22,27 @@ export default function Routerrr() {
           }}
           className="d-flex justify-content-center align-items-center "
         >
-        <Routes>
-     
-          <Route path="/home" element={<Homee/>} />
-          <Route path="/admin" element={<Admin/>} />
-          <Route path="/employe" element={<Employe />} />
-          <Route path="/Superadmin" element={<SuperAdmin />} />
-          <Route path="/user" element={<UserRouter components={<User/>}  />} />
-        </Routes>
+          <Routes>
+            <Route
+              path="/home"
+              element={<ProtectedRoute componentsone={<Homee />} />}
+          
+            />
+            <Route path="/Superadmin" element={<SuperAdmin />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route
+              path="/employe"
+              element={
+                <EmployeProtected
+               componentsone={<ProtectedRoute componentsone={<Homee />}/>}
+                />
+              }
+            />
+            <Route
+              path="/user"
+              element={<ProtectedRoute components={<User />} />}
+            />
+          </Routes>
         </div>
       </BrowserRouter>
     </>

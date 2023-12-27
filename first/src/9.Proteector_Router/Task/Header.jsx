@@ -4,13 +4,14 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const add = () => {
-    localStorage.setItem("user", JSON.stringify({ user: "user" }));
-    // localStorage.setItem("employe", JSON.stringify({ employe: "emp" }));
+    // localStorage.setItem("user", JSON.stringify({ user: "user",type:"user" }));
+    localStorage.setItem("user", JSON.stringify({ user: "user",type:"employe" }));
+    
 
   };
   const remove = () => {
     localStorage.removeItem("user");
-    // localStorage.removeItem("employe");
+   
 
 
   };
