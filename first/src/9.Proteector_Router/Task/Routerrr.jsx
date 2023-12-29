@@ -7,7 +7,12 @@ import Employe from "./Employe";
 import User from "./User";
 import Homee from "./Homee";
 import Header from "./Header";
-import { EmployeProtected, ProtectedRoute } from "./ProtectedRoute";
+import {
+  AdminProtected,
+  EmployeProtected,
+  ProtectedRoute,
+  SuperAdminprotected,
+} from "./ProtectedRoute";
 
 export default function Routerrr() {
   return (
@@ -25,17 +30,16 @@ export default function Routerrr() {
           <Routes>
             <Route
               path="/home"
-              element={<ProtectedRoute componentsone={<Homee />} />}
+              element={<Homee />}
             />
-            <Route path="/Superadmin" element={<SuperAdmin />} />
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/Superadmin" element={<SuperAdminprotected component={<SuperAdmin/>} />} />
+            <Route
+              path="/admin"
+              element={<AdminProtected component={<Admin />} />}
+            />
             <Route
               path="/employe"
-              element={
-                <EmployeProtected
-                  componentsone={<EmployeProtected component={<Employe />} />}
-                />
-              }
+              element={<EmployeProtected componentsone={<Employe />} />}
             />
             <Route
               path="/user"

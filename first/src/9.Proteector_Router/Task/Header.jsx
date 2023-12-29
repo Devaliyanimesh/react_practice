@@ -4,16 +4,14 @@ import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const add = () => {
-    // localStorage.setItem("user", JSON.stringify({ user: "user",type:"user" }));
-    localStorage.setItem("user", JSON.stringify({ user: "user",type:"employe" }));
-    
+    localStorage.setItem("user", JSON.stringify({ user: "user",type:"user" }));
+    // localStorage.setItem("user",JSON.stringify({ user: "user", type: "employe" }))
+    // localStorage.setItem("user",JSON.stringify({ user: "user", type: "admin" }))
+    // localStorage.setItem("user",JSON.stringify({ user: "user", type: "superadmin" }))
 
   };
   const remove = () => {
     localStorage.removeItem("user");
-   
-
-
   };
   return (
     <>
@@ -40,8 +38,7 @@ export default function Header() {
               className=" rounded-3"
               role="button"
             >
-              <NavLink to={"/admin"} >
-              admin</NavLink>
+              <NavLink to={"/admin"}>admin</NavLink>
             </li>
             <li
               style={{
@@ -52,8 +49,7 @@ export default function Header() {
               className=" rounded-3"
               role="button"
             >
-              <NavLink to={"/employe"} >
-              employe </NavLink>
+              <NavLink to={"/employe"}>employe </NavLink>
             </li>
             <li
               style={{
@@ -64,8 +60,7 @@ export default function Header() {
               className=" rounded-3"
               role="button"
             >
-              <NavLink to={"/user"} >
-              user </NavLink>
+              <NavLink to={"/user"}>user </NavLink>
             </li>
             <li
               style={{
@@ -76,8 +71,7 @@ export default function Header() {
               className=" rounded-3"
               role="button"
             >
-              <NavLink to={"/home"} >
-              Home </NavLink>
+              <NavLink to={"/home"}>Home </NavLink>
             </li>
           </ul>
         </div>
