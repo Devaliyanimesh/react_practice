@@ -34,6 +34,9 @@ import RouterSerch from "./8.Router/03sarchparams/RouterSerch";
 
 import Routerrr from "./9.Proteector_Router/Task/Routerrr";
 import "./App.css"
+import Api from "./10.Api/Api";
+import ApiData from "./10.Api/ApiData";
+import Apidata from "./10.Api/SecondAPI/Apidata";
 
 export default function main() {
   return (
@@ -93,7 +96,10 @@ export default function main() {
       {/* <RouterSerch/> */}
 
       {/* Protected Router */}
-      <Routerrr />
+      {/* <Routerrr /> */}
+      {/* <Api/>
+      <ApiData/> */}
+      <Apidata/>
     </div>
   );
 }
