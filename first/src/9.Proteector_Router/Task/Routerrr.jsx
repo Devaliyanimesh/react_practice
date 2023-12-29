@@ -26,7 +26,6 @@ export default function Routerrr() {
             <Route
               path="/home"
               element={<ProtectedRoute componentsone={<Homee />} />}
-          
             />
             <Route path="/Superadmin" element={<SuperAdmin />} />
             <Route path="/admin" element={<Admin />} />
@@ -34,7 +33,7 @@ export default function Routerrr() {
               path="/employe"
               element={
                 <EmployeProtected
-               componentsone={<ProtectedRoute componentsone={<Homee />}/>}
+                  componentsone={<EmployeProtected component={<Employe />} />}
                 />
               }
             />

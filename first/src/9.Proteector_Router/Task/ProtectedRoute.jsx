@@ -9,7 +9,7 @@ export const ProtectedRoute = ({ components, componentsone }) => {
     let json = localStorage.getItem("user");
     let normal = JSON.parse(json);
     console.log(normal);
-    if (!normal || normal?.type !== "user") {
+    if (!normal || (normal?.type !== "user" &&  normal.type !=="employe"   )) {
       toast.warn("please login");
       navigate("/");
     }
@@ -30,7 +30,7 @@ useEffect(()=>{
   let json=localStorage.getItem("user")
   let normal=JSON.parse(json)
   console.log("-->",normal);
-  if (!normal || normal.type !=="employe") {
+  if (!normal || normal.type !=="employe"  ) {
     toast.warn("please login");
     navigate("/");
   }
@@ -38,7 +38,7 @@ useEffect(()=>{
   return (
     <>
     <h1>shash</h1>
-    {props.typefv}
+  
 
     </>
   )
