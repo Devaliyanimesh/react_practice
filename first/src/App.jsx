@@ -33,27 +33,23 @@ import Routeruseparams from "./8.Router/02 usePrams/Routeruseparams";
 import RouterSerch from "./8.Router/03sarchparams/RouterSerch";
 
 import Routerrr from "./9.Proteector_Router/Task/Routerrr";
-import "./App.css"
-import Api from "./10.Api/Api";
+import "./App.css";
 import ApiData from "./10.Api/ApiData";
-import Apidata from "./10.Api/SecondAPI/Apidata";
 
 export default function main() {
   return (
-    <div className="appContainer " >
+    <div className="appContainer ">
       {/* <UseState/> */}
       {/* <UsestateFun/> */}
       {/* <Final/>
-<UseState/>
-<UseStatePro/> */}
+      <UseState/>
+      <UseStatePro/> */}
       {/* <UsestateFun/>
-
      <UsestateClass
-<Fragment/>
-<MapKey/>  */}
+     <Fragment/>
+     <MapKey/>  */}
       {/* <FunProps name={"nimesh"} age={23} color={"red"} colo={"green"}/>
-<FunProps name={"saif"}age={25}  color={"red"} colo={"green"}/> */}
-
+      <FunProps name={"saif"}age={25}  color={"red"} colo={"green"}/> */}
       {/* <FunProps name={"Nimesh"} age ={25}/> */}
       {/* <ClassPropss  data={{name:"nimesh",greeting:"Good Morning"}}/> */}
       <hr />
@@ -62,19 +58,16 @@ export default function main() {
       {/* <Mdbcardd/> */}
       {/* <Propschange  chang={"nimesh"} name={"saif"} namee={"lorem"}/> */}
       {/* <LifecycleMethod/> */}
-
       {/* <Mainaa/> */}
       {/* <Maintask name={"Nimesh"}/> */}
-
       {/* <LifePro/>   */}
       {/* <UseEffect/> */}
-      {/* useref                         */}
+      {/* useref  */}
       {/* <UserefCom/>   */}
       {/* <UsecotactMain /> */}
       {/* <Usereduse /> */}
       {/* <UseredusePayload /> */}
       {/* <UserreduceInputTask/> */}
-
       {/* <UseEffetproject/> */}
       {/* <Task/> */}
       {/* <Inputt /> */}
@@ -85,21 +78,16 @@ export default function main() {
       {/* <Practtt/> */}
       {/* <Localstoreg/> */}
       {/* <InputLast/> */}
-
       {/* normal Router */}
       {/* <RouterNormal/> */}
-
       {/* Useparams */}
       {/* <Routeruseparams/> */}
-
       {/* SearchParamas */}
       {/* <RouterSerch/> */}
-
       {/* Protected Router */}
       {/* <Routerrr /> */}
-      {/* <Api/>
-      <ApiData/> */}
-      <Apidata/>
+      <ApiData />
+      
     </div>
   );
 }
