@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, FormGroup } from "react-bootstrap";
 import { Input, Label } from "reactstrap";
 
 export default function Register() {
   let [value, setValue] = useState({ email: "", password: "" });
+
   let [data, setData] = useState([]);
   const dataTranse = () => {
     setData([...data, value]);
     localStorage.setItem("data", JSON.stringify([...data, value]));
     setValue({ email: "", password: "" });
   };
+
+ 
 
   return (
     <>
@@ -39,8 +42,10 @@ export default function Register() {
         <Button className="w-100 mt-3" onClick={() => dataTranse()}>
           Submit
         </Button>
+        
       </Form>
-      {console.log(data)}
+    
+
     </>
   );
 }

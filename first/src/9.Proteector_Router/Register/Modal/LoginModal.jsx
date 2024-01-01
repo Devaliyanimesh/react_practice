@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Login from '../Login';
 
-function LoginModal({modal,toggle}) {
+function LoginModal({modal,toggle,valueee}) {
 
 
   return (
@@ -11,7 +11,7 @@ function LoginModal({modal,toggle}) {
       <Modal isOpen={modal} toggle={toggle} >
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-        <Login/>
+        <Login chek={valueee}/>
         </ModalBody>
       
       </Modal>

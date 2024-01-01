@@ -18,10 +18,10 @@ export default function RouterNormal() {
           {/* Neasted */}
           <Route path="/bike">
             <Route index Component={Bike} />
-            <Route path="normal" element={<Normal/>}/>
-            <Route path="sport" element={<Sportbike/>}/>
+            <Route path="normal" element={<Normal />} />
+            <Route path="sport" element={<Sportbike />} />
 
-            <Route/>
+            <Route />
           </Route>
           <Route path="/car" Component={Car} />
         </Routes>
