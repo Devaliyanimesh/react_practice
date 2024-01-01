@@ -9,11 +9,10 @@ export default function ApiData() {
       if (!fe) {
         alert("Data is not available");
       }
-      let da =  await fe.json();
+      let da = await fe.json();
       setData(da);
-   
     } catch (error) {
-      <h1>{error}</h1>
+      <h1>{error}</h1>;
     }
   };
   useEffect(() => {
