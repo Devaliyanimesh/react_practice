@@ -7,16 +7,16 @@ export default function Login({ chek }) {
 
   const chekData = () => {
     
-    chek?.find((e) => {
-      if (e?.email == value?.email && e?.password == value?.password) {
-        toast.success("login succesfully ");
-      }
-      
-       else {
-        toast.warn("wrong");
-      }
+     let main=chek?.find((e) => {
+      return e?.email == value?.email && e?.password == value?.password
     });
-  };
+  if (main) {
+    toast.success("data save")
+    
+  }
+  else{
+    toast.warn("you are not anable")
+  }
   return (
     <>
       <Form className="">
