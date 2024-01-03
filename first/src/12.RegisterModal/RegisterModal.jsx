@@ -20,7 +20,7 @@ function RegisterModal() {
   // console.log(emaldata);
   let [datasave, setdatasave] = useState([]);
   let [locall, setLocall] = useState(null)
-  let [loca, setLoca] = useState(null)
+  
 
   let [value, setValue] = useState({
     email: "",
@@ -30,21 +30,20 @@ function RegisterModal() {
     userType: "user",
   });
   useEffect(() => {
-    let Json = localStorage.getItem("add") ;
+    let Json = localStorage.getItem("add");
     let normal = JSON.parse(Json);
     setLocall(normal || []);
   }, []);
   console.log(locall);
   const transferData = (e) => {
     e?.preventDefault();
-    let email = locall?.some((e) => e.email === value.email  )
-    
-    let admintype=locall?.some((e) => e.userType === "admin")
+    let email = locall?.some((e) => e.email === value.email)
+    let admintype = locall?.some((e) => e.userType === "admin")
 
-    if ((email || value.email ==="") && admintype) {
+    if ((email || value.email === "") && admintype) {
       toast.error("data is match")
     }
- 
+
     else if (
 
       value.email === "" ||
