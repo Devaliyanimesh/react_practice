@@ -8,10 +8,10 @@ export default function LocalData() {
     let Json = localStorage.getItem("add") || [];
     let normal = JSON.parse(Json);
     setLocal(normal || []);
-  }, []);
+  },[]);
   return (
     <>
-      {console.log(local)}
+    
       <Table>
         <thead>
           <tr>

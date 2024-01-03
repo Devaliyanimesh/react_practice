@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, FormGroup } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Select from "react-select";
@@ -16,6 +16,12 @@ let gender = ["Male", "Female", "kid"];
 let hobby = ["Reading", "writting", "cricket"];
 
 function RegisterModal() {
+  // let [emaldata,setEmail]=useState(null)
+  // console.log(emaldata);
+  let [datasave, setdatasave] = useState([]);
+  let [locall, setLocall] = useState(null)
+  let [loca, setLoca] = useState(null)
+
   let [value, setValue] = useState({
     email: "",
     password: "",
@@ -23,20 +29,35 @@ function RegisterModal() {
     hobb: [],
     userType: "user",
   });
-  let [datasave, setdatasave] = useState([]);
-  console.log(datasave);
-
+  useEffect(() => {
+    let Json = localStorage.getItem("add") ;
+    let normal = JSON.parse(Json);
+    setLocall(normal || []);
+  }, []);
+  console.log(locall);
   const transferData = (e) => {
     e?.preventDefault();
-    if (
+    let email = locall?.some((e) => e.email === value.email  )
+    
+    let admintype=locall?.some((e) => e.userType === "admin")
+
+    if ((email || value.email ==="") && admintype) {
+      toast.error("data is match")
+    }
+ 
+    else if (
+
       value.email === "" ||
       value.password === "" ||
       value.gender === "" ||
       value.hobb.length === 0 ||
       value.userType === ""
     ) {
+
       toast.warn("Please fill data emi");
-    } else {
+    }
+
+    else {
       setdatasave([...datasave, value]);
       localStorage.setItem("add", JSON.stringify([...datasave, value]));
       toast.success("done");
@@ -150,7 +171,8 @@ function RegisterModal() {
                 <Select
                   onChange={(e) => setValue({ ...value, userType: e.value })}
                   options={options}
-                  value={options?.find((e)=>e.value === value?.userType)}
+                  value={options.find((e) => e.value === value.userType) || options[0]}
+
                 />
                 <Button className="w-100 mt-2" onClick={transferData}>
                   Submit
@@ -160,6 +182,7 @@ function RegisterModal() {
           </Modal>
         </div>
       </div>
+
     </>
   );
 }

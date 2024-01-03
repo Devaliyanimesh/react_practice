@@ -37,6 +37,7 @@ import "./App.css";
 import ApiData from "./10.Api/ApiData";
 import Register from "./9.Proteector_Router/Register/Register";
 import Mainpage from "./9.Proteector_Router/Register/Mainpage";
+import Router from "./12.RegisterModal/Router";
 
 export default function main() {
   return (
@@ -89,7 +90,8 @@ export default function main() {
       {/* Protected Router */}
       {/* <Routerrr /> */}
       {/* <ApiData /> */}
-     <Mainpage/>
+     {/* <Mainpage/> */}
+    <Router/> 
       
     </div>
   );
