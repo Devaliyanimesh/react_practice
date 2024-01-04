@@ -36,7 +36,10 @@ else{
     setName({...name,hobby:hobbyCheck})
 }
 }
-console.log(name.hobby);
+const handleSelectChange = (selectedOption) => {
+    setName({ ...name, userType: selectedOption.value });
+  };
+  
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -110,7 +113,7 @@ console.log(name.hobby);
               <Select
                options={options} 
                value={options?.find?.((user)=>user.value === name.userType)}
-           
+           onChange={handleSelectChange}
                 />
             </FormGroup>
             <Button color="danger" className="w-100">
