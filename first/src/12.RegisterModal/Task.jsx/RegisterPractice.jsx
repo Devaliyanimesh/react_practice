@@ -17,7 +17,7 @@ function RegisterPractice() {
     password: "",
     gender: "",
     hobby: [],
-    userType: "",
+    userType: "user",
   });
   let genderMap = ["male", "female", "kids"];
   let hobbyMap = ["Cricket", "Singing", "travelling"];
@@ -49,11 +49,7 @@ console.log(name.hobby);
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-          <p>{name?.email}</p>
-          <p>{name?.gender}</p>
-          <p>{name?.password}</p>
-          <p>{console.log(name?.hobby)}</p>
-          <p>{name?.userType}</p>
+          
 
           <Form>
             <FormGroup>
@@ -111,7 +107,11 @@ console.log(name.hobby);
               })}
             </div>
             <FormGroup>
-              <Select options={options} value={options[0]} />
+              <Select
+               options={options} 
+               value={options?.find?.((user)=>user.value === name.userType)}
+           
+                />
             </FormGroup>
             <Button color="danger" className="w-100">
               Submit
