@@ -38,6 +38,7 @@ import ApiData from "./10.Api/ApiData";
 import Register from "./9.Proteector_Router/Register/Register";
 import Mainpage from "./9.Proteector_Router/Register/Mainpage";
 import Router from "./12.RegisterModal/Router";
+import RegisterPractice from "./12.RegisterModal/Task.jsx/RegisterPractice";
 
 export default function main() {
   return (
@@ -91,8 +92,8 @@ export default function main() {
       {/* <Routerrr /> */}
       {/* <ApiData /> */}
      {/* <Mainpage/> */}
-    <Router/> 
-      
+    {/* <Router/> */}
+      <RegisterPractice/>
     </div>
   );
 }

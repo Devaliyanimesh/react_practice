@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
-
+import UserData from "./UserData";
+import { NavLink } from "react-router-dom";
 
 export default function LocalData() {
   let [local, setLocal] = useState(null);
@@ -8,9 +9,18 @@ export default function LocalData() {
     let Json = localStorage.getItem("add") || [];
     let normal = JSON.parse(Json);
     setLocal(normal || []);
-  },[]);
+  }, []);
+
+  let admintype = local?.some((e) => e.userType === "user");
+  
+
   return (
     <>
+      {admintype ?<UserData datta={local} />:null
+
+      }
+      
+     {/* <NavLink to={"/userdata"} > Local</NavLink> */}
     
       <Table>
         <thead>
@@ -38,6 +48,11 @@ export default function LocalData() {
           })}
         </tbody>
       </Table>
+
+
+      <h1>hiiiii</h1>
+     <UserData datta={local} />
+
     </>
   );
 }
