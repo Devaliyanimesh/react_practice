@@ -19,6 +19,7 @@ function RegisterPractice() {
     hobby: [],
     userType: "user",
   });
+  let [namesave, setNamesave] = useState([]);
   let genderMap = ["male", "female", "kids"];
   let hobbyMap = ["Cricket", "Singing", "travelling"];
   const options = [
@@ -26,20 +27,23 @@ function RegisterPractice() {
     { value: "admin", label: "Admin" },
     { value: "employe", label: "Employe" },
   ];
-const checkdata=(ee)=>{
-const hobbyCheck=name?.hobby?.includes(ee)
-if (hobbyCheck) {
-    const hobbyFilter=name?.hobby.filter((hobby)=> hobby !==ee)
-    setName({...name,hobby:[...name.hobby,hobbyFilter]})
-}
-else{
-    setName({...name,hobby:hobbyCheck})
-}
-}
-const handleSelectChange = (selectedOption) => {
+  const checkdata = (ee) => {
+    const hobbyCheck = name?.hobby?.includes(ee);
+    if (hobbyCheck) {
+      const updatedHobbies = name.hobby.filter((hobby) => hobby !== ee);
+      setName({ ...name, hobby: updatedHobbies });
+    } else {
+      setName({ ...name, hobby: [...name.hobby, ee] });
+    }
+  };
+
+  const handleSelectChange = (selectedOption) => {
     setName({ ...name, userType: selectedOption.value });
   };
-  
+  console.log(namesave);
+  const dataTransefer = () => {
+    setNamesave([...namesave, name]);
+  };
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -52,8 +56,6 @@ const handleSelectChange = (selectedOption) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-          
-
           <Form>
             <FormGroup>
               <Label for="exampleEmail">Email</Label>
@@ -111,12 +113,12 @@ const handleSelectChange = (selectedOption) => {
             </div>
             <FormGroup>
               <Select
-               options={options} 
-               value={options?.find?.((user)=>user.value === name.userType)}
-           onChange={handleSelectChange}
-                />
+                options={options}
+                value={options?.find?.((user) => user.value === name.userType)}
+                onChange={handleSelectChange}
+              />
             </FormGroup>
-            <Button color="danger" className="w-100">
+            <Button color="danger" className="w-100" onClick={dataTransefer}>
               Submit
             </Button>
           </Form>
