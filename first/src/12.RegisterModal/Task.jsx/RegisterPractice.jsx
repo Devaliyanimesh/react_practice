@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import NavLink from "react-router-dom";
 import {
   Button,
   Modal,
@@ -81,7 +82,9 @@ function RegisterPractice() {
     setModal(!modal);
   };
   return (
+    <>
     <div>
+      
       <Button color="danger" onClick={toggle}>
         Register
       </Button>
@@ -157,6 +160,7 @@ function RegisterPractice() {
         </ModalBody>
       </Modal>
     </div>
+    </>
   );
 }
 
