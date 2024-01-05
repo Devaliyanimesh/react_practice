@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
@@ -12,6 +12,7 @@ import {
   Label,
   Input,
 } from "reactstrap";
+import UserDataa from "./UserDataa";
 
 function RegisterPractice() {
   let [local, setLocal] = useState(null);
@@ -31,7 +32,8 @@ function RegisterPractice() {
   let [namesave, setNamesave] = useState([]);
   let genderMap = ["male", "female", "kids"];
   let hobbyMap = ["Cricket", "Singing", "travelling"];
-  const options = [
+
+  var options = [
     { value: "user", label: "User" },
     { value: "admin", label: "Admin" },
     { value: "employe", label: "Employe" },
@@ -59,7 +61,7 @@ function RegisterPractice() {
       return e?.userType === "admin";
     });
 
-    if (admin) {
+    if (admin && name.userType === "admin") {
       toast.error("you are not admin");
     } else if (localmap) {
       toast.warn(" Your Email is alerdy saved ! ");
