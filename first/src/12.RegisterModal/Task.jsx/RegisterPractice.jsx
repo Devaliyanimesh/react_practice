@@ -62,11 +62,12 @@ function RegisterPractice() {
       });
       toast.success("data save");
       setNamesave([...namesave, name]);
+      localStorage.setItem("add",JSON.stringify([...namesave, name]))
       setModal(!modal);
     }
   };
   const [modal, setModal] = useState(false);
-   
+
   const toggle = () => {
     if (!modal) {
       setName({
