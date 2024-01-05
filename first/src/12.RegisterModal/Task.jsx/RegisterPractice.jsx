@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "react-select";
+import { toast } from "react-toastify";
 import {
   Button,
   Modal,
@@ -29,6 +30,7 @@ function RegisterPractice() {
   ];
   const checkdata = (ee) => {
     const hobbyCheck = name?.hobby?.includes(ee);
+
     if (hobbyCheck) {
       const updatedHobbies = name.hobby.filter((hobby) => hobby !== ee);
       setName({ ...name, hobby: updatedHobbies });
@@ -42,10 +44,19 @@ function RegisterPractice() {
   };
   console.log(namesave);
   const dataTransefer = () => {
+    if (
+      name.email == "" ||
+      name.password === "" ||
+      name.gender == "" ||
+      name.hobby.length > 0 ||
+      name.userType === ""
+    ) {
+      toast.warn("please fill up");
+    }
     setNamesave([...namesave, name]);
   };
   const [modal, setModal] = useState(false);
-
+  console.log(name.hobby.length);
   const toggle = () => setModal(!modal);
 
   return (
