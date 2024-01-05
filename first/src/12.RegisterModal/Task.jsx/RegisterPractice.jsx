@@ -66,7 +66,7 @@ function RegisterPractice() {
     }
   };
   const [modal, setModal] = useState(false);
-  console.log(name.hobby.length);
+   
   const toggle = () => {
     if (!modal) {
       setName({
