@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   Button,
   Modal,
@@ -14,6 +14,13 @@ import {
 } from "reactstrap";
 
 function RegisterPractice() {
+  let [local, setLocal] = useState(null);
+
+  useEffect(() => {
+    let json = localStorage.getItem("add");
+    let normal = JSON.parse(json);
+    setLocal(normal);
+  }, []);
   let [name, setName] = useState({
     email: "",
     password: "",
@@ -45,7 +52,18 @@ function RegisterPractice() {
   };
 
   const dataTransefer = () => {
-    if (
+    let localmap = local?.some?.((e) => {
+      return e?.email === name.email;
+    });
+    let admin = local?.some?.((e) => {
+      return e?.userType === "admin";
+    });
+
+    if (admin) {
+      toast.error("you are not admin");
+    } else if (localmap) {
+      toast.warn(" Your Email is alerdy saved ! ");
+    } else if (
       name.email == "" ||
       name.password === "" ||
       name.gender == "" ||
@@ -63,7 +81,7 @@ function RegisterPractice() {
       });
       toast.success("data save");
       setNamesave([...namesave, name]);
-      localStorage.setItem("add",JSON.stringify([...namesave, name]))
+      localStorage.setItem("add", JSON.stringify([...namesave, name]));
       setModal(!modal);
     }
   };
@@ -83,83 +101,87 @@ function RegisterPractice() {
   };
   return (
     <>
-    <div>
-      <NavLink to={"/user" } role="button" style={{cursor:"pointer"}}>UserData</NavLink>
-      <Button color="danger" onClick={toggle}>
-        Register
-      </Button>
-      <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          <Form>
-            <FormGroup>
-              <Label for="exampleEmail">Email</Label>
-              <Input
-                id="exampleEmail"
-                name="email"
-                placeholder="with a placeholder"
-                type="email"
-                onChange={(e) => {
-                  setName({ ...name, email: e.target.value });
-                }}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="examplePassword">Password</Label>
-              <Input
-                id="examplePassword"
-                name="password"
-                placeholder="password placeholder"
-                type="password"
-                onChange={(e) => {
-                  setName({ ...name, password: e.target.value });
-                }}
-              />
-            </FormGroup>
-            <Label>Gender:-</Label>
-            <div className="d-flex">
-              {genderMap?.map((e, i) => {
-                return (
-                  <FormGroup key={i}>
-                    <Label for="examplePassword">{e}</Label>
-                    <Input
-                      name="radio1"
-                      type="radio"
-                      onChange={() => setName({ ...name, gender: e })}
-                    />
-                  </FormGroup>
-                );
-              })}
-            </div>
-            <Label>Hobby:-</Label>
-            <div className="d-flex gap-2">
-              {hobbyMap.map((e, i) => {
-                return (
-                  <FormGroup key={i}>
-                    <Label for="examplePassword">{e}</Label>
-                    <Input
-                      type="checkbox"
-                      onChange={() => checkdata(e)}
-                      checked={name?.hobby?.includes?.(e)}
-                    />
-                  </FormGroup>
-                );
-              })}
-            </div>
-            <FormGroup>
-              <Select
-                options={options}
-                value={options?.find?.((user) => user.value === name.userType)}
-                onChange={handleSelectChange}
-              />
-            </FormGroup>
-            <Button color="danger" className="w-100" onClick={dataTransefer}>
-              Submit
-            </Button>
-          </Form>
-        </ModalBody>
-      </Modal>
-    </div>
+      <div>
+        <NavLink to={"/user"} role="button" style={{ cursor: "pointer" }}>
+          UserData
+        </NavLink>
+        <Button color="danger" onClick={toggle}>
+          Register
+        </Button>
+        <Modal isOpen={modal} toggle={toggle}>
+          <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+          <ModalBody>
+            <Form>
+              <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input
+                  id="exampleEmail"
+                  name="email"
+                  placeholder="with a placeholder"
+                  type="email"
+                  onChange={(e) => {
+                    setName({ ...name, email: e.target.value });
+                  }}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input
+                  id="examplePassword"
+                  name="password"
+                  placeholder="password placeholder"
+                  type="password"
+                  onChange={(e) => {
+                    setName({ ...name, password: e.target.value });
+                  }}
+                />
+              </FormGroup>
+              <Label>Gender:-</Label>
+              <div className="d-flex">
+                {genderMap?.map((e, i) => {
+                  return (
+                    <FormGroup key={i}>
+                      <Label for="examplePassword">{e}</Label>
+                      <Input
+                        name="radio1"
+                        type="radio"
+                        onChange={() => setName({ ...name, gender: e })}
+                      />
+                    </FormGroup>
+                  );
+                })}
+              </div>
+              <Label>Hobby:-</Label>
+              <div className="d-flex gap-2">
+                {hobbyMap.map((e, i) => {
+                  return (
+                    <FormGroup key={i}>
+                      <Label for="examplePassword">{e}</Label>
+                      <Input
+                        type="checkbox"
+                        onChange={() => checkdata(e)}
+                        checked={name?.hobby?.includes?.(e)}
+                      />
+                    </FormGroup>
+                  );
+                })}
+              </div>
+              <FormGroup>
+                <Select
+                  options={options}
+                  value={options?.find?.(
+                    (user) => user.value === name.userType
+                  )}
+                  onChange={handleSelectChange}
+                />
+              </FormGroup>
+              <Button color="danger" className="w-100" onClick={dataTransefer}>
+                Submit
+              </Button>
+            </Form>
+          </ModalBody>
+        </Modal>
+      </div>
     </>
   );
 }
