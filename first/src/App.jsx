@@ -93,7 +93,8 @@ export default function main() {
       {/* <ApiData /> */}
      {/* <Mainpage/> */}
     {/* <Router/> */}
-      <RegisterPractice/>
+      {/* <RegisterPractice/> */}
+      <Router/>
     </div>
   );
 }
