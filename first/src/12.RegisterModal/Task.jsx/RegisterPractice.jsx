@@ -42,26 +42,43 @@ function RegisterPractice() {
   const handleSelectChange = (selectedOption) => {
     setName({ ...name, userType: selectedOption.value });
   };
-  console.log(namesave);
+
   const dataTransefer = () => {
     if (
       name.email == "" ||
       name.password === "" ||
       name.gender == "" ||
-      name.hobby.length > 0 ||
+      name.hobby.length === 0 ||
       name.userType === ""
     ) {
       toast.warn("please fill up");
-    }
-    else{
-
+    } else {
+      setName({
+        email: "",
+        password: "",
+        gender: "",
+        hobby: [],
+        userType: "user",
+      });
+      toast.success("data save");
       setNamesave([...namesave, name]);
+      setModal(!modal);
     }
   };
   const [modal, setModal] = useState(false);
   console.log(name.hobby.length);
-  const toggle = () => setModal(!modal);
-
+  const toggle = () => {
+    if (!modal) {
+      setName({
+        email: "",
+        password: "",
+        gender: "",
+        hobby: [],
+        userType: "user",
+      });
+    }
+    setModal(!modal);
+  };
   return (
     <div>
       <Button color="danger" onClick={toggle}>
