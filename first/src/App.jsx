@@ -39,6 +39,8 @@ import Register from "./9.Proteector_Router/Register/Register";
 import Mainpage from "./9.Proteector_Router/Register/Mainpage";
 import Router from "./12.RegisterModal/Router";
 import RegisterPractice from "./12.RegisterModal/Task.jsx/RegisterPractice";
+import Routerr from "./12.RegisterModal/Task.jsx/Router";
+
 
 export default function main() {
   return (
@@ -94,7 +96,7 @@ export default function main() {
      {/* <Mainpage/> */}
     {/* <Router/> */}
       {/* <RegisterPractice/> */}
-      <Router/>
+      <Routerr/>
     </div>
   );
 }

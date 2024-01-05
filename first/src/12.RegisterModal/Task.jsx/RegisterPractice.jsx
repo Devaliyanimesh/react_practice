@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import NavLink from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {
   Button,
   Modal,
@@ -84,7 +84,7 @@ function RegisterPractice() {
   return (
     <>
     <div>
-      
+      <NavLink to={"/user" } role="button" style={{cursor:"pointer"}}>UserData</NavLink>
       <Button color="danger" onClick={toggle}>
         Register
       </Button>
