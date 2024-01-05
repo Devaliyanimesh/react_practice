@@ -53,7 +53,10 @@ function RegisterPractice() {
     ) {
       toast.warn("please fill up");
     }
-    setNamesave([...namesave, name]);
+    else{
+
+      setNamesave([...namesave, name]);
+    }
   };
   const [modal, setModal] = useState(false);
   console.log(name.hobby.length);
