@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import { NavLink } from "react-router-dom";
 import {
   Button,
   Modal,
@@ -13,7 +12,7 @@ import {
   Input,
 } from "reactstrap";
 
-function RegisterPractice() {
+export default function Register() {
   let [local, setLocal] = useState(null);
 
   useEffect(() => {
@@ -21,8 +20,6 @@ function RegisterPractice() {
     let normal = JSON.parse(json);
     setLocal(normal);
   }, []);
-  let admincheck = local?.some?.((e) => e.userType === "admin");
-  console.log(admincheck);
   let [name, setName] = useState({
     email: "",
     password: "",
@@ -105,9 +102,6 @@ function RegisterPractice() {
   return (
     <>
       <div>
-        <NavLink to={"/user"} role="button" style={{ cursor: "pointer" }}>
-          UserData
-        </NavLink>
         <Button color="danger" onClick={toggle}>
           Register
         </Button>
@@ -188,5 +182,3 @@ function RegisterPractice() {
     </>
   );
 }
-
-export default RegisterPractice;
