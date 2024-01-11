@@ -6,8 +6,10 @@ import Login from "./Login/login";
 import Register from "./Login/Register";
 import CheckBox from "./Input/CheckBox";
 import Check from "./Input/Check";
+import ApiGet from "./Api/ApiGet";
 
 function App() {
+  
   return (
     <>
       <div>
@@ -17,7 +19,8 @@ function App() {
           <Register />
           <Login />
         </div> */}
-        <Check/>
+        {/* <Check/> */}
+        <ApiGet/>
       </div>
     </>
   );
