@@ -16,7 +16,6 @@ export default function ApiGet() {
         }
         fetch()
     },[])
-    console.log(data);
   return (
    <>
    hi
