@@ -39,6 +39,9 @@ export default function CheckBox() {
           }
         })}
       </div>
+      <div>
+        
+      </div>
     </div>
   );
 }

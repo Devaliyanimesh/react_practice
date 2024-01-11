@@ -19,8 +19,8 @@ function App() {
           <Register />
           <Login />
         </div> */}
-        {/* <Check/> */}
-        <ApiGet/>
+        <Check/>
+        {/* <ApiGet/> */}
       </div>
     </>
   );
