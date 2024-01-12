@@ -49,9 +49,7 @@ export default function Todo() {
   };
   const chektrandfer = (e) => {
     setChek(e.target.checked);
-    if (chek === true) {
-      set;
-    }
+    
   };
   return (
     <>

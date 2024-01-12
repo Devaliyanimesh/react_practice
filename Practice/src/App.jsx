@@ -14,12 +14,12 @@ function App() {
     <>
       <div>
       {/* <CheckBox/> */}
-        <Todo />
+        {/* <Todo /> */}
         {/* <div className="d-flex gap-4 p-5">
           <Register />
           <Login />
         </div> */}
-        {/* <Check/> */}
+        <Check/>
         {/* <ApiGet/> */}
       </div>
     </>
