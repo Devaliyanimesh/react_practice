@@ -8,7 +8,6 @@ export default function Todo() {
   let [addlist, setAddlist] = useState([]);
   let [transfer, setTransfer] = useState([]);
   let [checkdata, setChekdata] = useState([]);
-  let [chek, setChek] = useState(false);
 
   const dataHandler = () => {
     if (list === "") {
@@ -43,13 +42,23 @@ export default function Todo() {
     if (matchCheck) {
       let filter = checkdata.filter((ee) => ee !== e);
       setChekdata(filter);
+
+      
     } else {
       setChekdata([...checkdata, e]);
     }
   };
   const chektrandfer = (e) => {
-    setChek(e.target.checked);
-    
+    let chek = e?.target.checked;
+    if (chek) {
+      setChekdata(addlist);
+    } else {
+      setChekdata([]);
+    }
+  };
+  const transferData = () => {
+    setTransfer([...transfer,checkdata]);
+    setAddlist([])
   };
   return (
     <>
@@ -88,11 +97,7 @@ export default function Todo() {
                   }}
                   key={i}
                 >
-                  <p
-                    style={
-                      chek === true ? { textDecoration: "line-through" } : null
-                    }
-                  >
+                  <p>
                     {i + 1}. {e}
                   </p>
                   <div className="d-flex align-items-center gap-2">
@@ -105,15 +110,13 @@ export default function Todo() {
                     <input
                       type="checkbox"
                       onChange={() => chekboxdata(e)}
-                      checked={
-                        (chek === true ? true : false) ||
-                        checkdata?.includes?.(e)
-                      }
+                      checked={checkdata.includes(e)}
                     />
                   </div>
                 </div>
               );
             })}
+            <Button onClick={transferData}>transfer</Button>
           </div>
           <div
             style={{ backgroundColor: "darkcyan", width: "55%" }}
