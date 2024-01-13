@@ -7,10 +7,11 @@ export default function Todo() {
   let [list, setList] = useState("");
   let [addlist, setAddlist] = useState([]);
   let [transfer, setTransfer] = useState([]);
-  let [checkdata, setChekdata] = useState([]);
+  let [allchek, setAllchek] = useState([]);
+  let [chekk, setChekk] = useState(false)
 
   const dataHandler = () => {
-    if (list === "") {
+    if (list === "" ) {
       toast.error("please fill input");
     } else {
       setAddlist([...addlist, list]);
@@ -18,52 +19,91 @@ export default function Todo() {
     }
   };
   const listHandler = (index) => {
-    setTransfer([...transfer, addlist[index]]);
-    let filter = addlist.filter((e, i) => {
-      return index !== i;
-    });
-    setAddlist(filter);
+    let conf =confirm()
+    if (conf === true) {
+      
+      setTransfer([...transfer, addlist[index]]);
+      let filter = addlist.filter((e, i) => {
+        return index !== i;
+      });
+      setAddlist(filter);
+    }
   };
   const returnData = (index) => {
-    setAddlist([...addlist, transfer[index]]);
-    let trandFilter = transfer.filter((e, i) => {
-      return index !== i;
-    });
-    setTransfer(trandFilter);
+    let conf =confirm ()
+    if (conf === true) {
+      
+      setAddlist([...addlist, transfer[index]]);
+      let trandFilter = transfer.filter((e, i) => {
+        return index !== i;
+      });
+      setTransfer(trandFilter);
+    }
+   
   };
   const permanetDelet = (index) => {
-    let filter = transfer.filter((e, i) => {
-      return index !== i;
-    });
-    setTransfer(filter);
-  };
-  const chekboxdata = (e) => {
-    let matchCheck = checkdata.includes(e);
-    if (matchCheck) {
-      let filter = checkdata.filter((ee) => ee !== e);
-      setChekdata(filter);
+    if (confirm() === true) {
 
-      
-    } else {
-      setChekdata([...checkdata, e]);
+      let filter = transfer.filter((e, i) => {
+        return index !== i;
+      });
+      setTransfer(filter);
     }
   };
-  const chektrandfer = (e) => {
-    let chek = e?.target.checked;
-    if (chek) {
-      setChekdata(addlist);
-    } else {
-      setChekdata([]);
+
+  const transferchek = (e) => {
+    let match = allchek.includes(e)
+    if (match) {
+      let filter = allchek.filter((ee) => ee !== e)
+      setAllchek(filter)
+
     }
-  };
-  const transferData = () => {
-    setTransfer([...transfer,checkdata]);
-    setAddlist([])
-  };
+    else {
+      setAllchek([...allchek, e])
+    }
+  }
+
+  const selectALl = (e) => {
+    let chekkk = e.target.checked
+    setChekk(chekkk)
+    if (chekkk) {
+      setAllchek(addlist)
+    }
+    else {
+      setAllchek([])
+    }
+  }
+  const moveData = () => {
+    if (chekk === true && confirm()) {
+      if (confirm() === true) {
+        let filter = addlist.filter((e) => !allchek.includes(e))
+        setAddlist(filter)
+        setTransfer(allchek)
+        setChekk(!chekk)
+        setAllchek([]);
+      }
+
+
+      else {
+        setChekk(false)
+        setAllchek([])
+
+      }
+    }
+
+  }
+
+const deletAlldata =()=>{
+let confi=confirm()
+if (confi === true) {
+  setTransfer([])
+}
+}
+
   return (
     <>
       <div className="linear w-50 m-auto bg pt-5">
-        <h4 className="text-center" style={{ color: "black" }}>
+        <h4 className="text-center" style={{ color: "white" }}>
           Just Do it..
         </h4>
 
@@ -73,6 +113,11 @@ export default function Todo() {
             placeholder="What would like to do ?"
             className=" rounded-3"
             onChange={(e) => setList(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                dataHandler();
+              }
+            }}
           />
           <Button onClick={() => dataHandler()}>Add</Button>
         </div>
@@ -82,8 +127,9 @@ export default function Todo() {
             className="m-auto mt-5 rounded-3 p-2 text-white p-3 "
           >
             <h5 className="text-center">To do list</h5>
-            <div className="d-flex justify-content-end">
-              <input type="checkbox" onChange={(e) => chektrandfer(e)} />
+            <div className=" d-flex justify-content-end">
+
+              <input type="checkbox" onChange={(e) => selectALl(e)} checked={chekk} />
             </div>
             {addlist.map((e, i) => {
               return (
@@ -100,30 +146,26 @@ export default function Todo() {
                   <p>
                     {i + 1}. {e}
                   </p>
-                  <div className="d-flex align-items-center gap-2">
-                    <i
-                      className="fas fa-circle-plus"
-                      role="button"
-                      onClick={() => listHandler(i)}
-                    ></i>
-
-                    <input
-                      type="checkbox"
-                      onChange={() => chekboxdata(e)}
-                      checked={checkdata.includes(e)}
-                    />
+                  <div className="d-flex align-items-center">
+                    <i className="fas fa-circle-plus" onClick={() => listHandler(i)}></i>
+                    <input type="checkbox" checked={allchek.includes(e)} onChange={() => transferchek(e)} />
                   </div>
+
+
                 </div>
               );
             })}
-            <Button onClick={transferData}>transfer</Button>
+            <button onClick={moveData}>Transfer</button>
           </div>
           <div
             style={{ backgroundColor: "darkcyan", width: "55%" }}
             className="m-auto mt-5 rounded-3 p-2 text-white p-3 "
           >
             <h5 className="text-center">Final list</h5>
+            <div className=" d-flex justify-content-end">
 
+            <p onClick={deletAlldata} role="button">Deletall</p>
+            </div>
             {transfer.map((e, i) => {
               return (
                 <div
@@ -140,12 +182,8 @@ export default function Todo() {
                     {i + 1}. {e}
                   </p>
 
-                  <p role="button">
-                    <i
-                      className="fas fa-trash"
-                      style={{ marginRight: "10px" }}
-                      onClick={() => returnData(i)}
-                    ></i>
+                  <p role="button" >
+                    <i className="fas fa-trash" style={{ marginRight: "10px" }} onClick={() => returnData(i)}></i>
                     <i
                       className="fas fa-circle-xmark"
                       onClick={() => permanetDelet(i)}
