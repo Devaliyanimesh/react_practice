@@ -1,6 +1,14 @@
 import React from "react";
+import { Button, Input, Label } from "reactstrap";
 
-export default function PendingTodo({ pending,pendingDataHandler }) {
+export default function PendingTodo({
+  pending,
+  pendingDataHandler,
+  selectPendinghandler,
+  selectPending,
+  selectallHandler,
+  pendingDataTransfer
+}) {
   return (
     <>
       <div
@@ -8,6 +16,14 @@ export default function PendingTodo({ pending,pendingDataHandler }) {
         className="m-auto mt-5 rounded-3 p-2 text-white p-3 "
       >
         <h5 className="text-center">Pending Todo</h5>
+        <div className="d-flex justify-content-end gap-2">
+          <Label style={{ color: "white" }}>Select All</Label>
+          <Input
+            type="checkbox"
+            onChange={(e) => selectallHandler("selectall", e)}
+            checked={pending.length === selectPending.length}
+          />
+        </div>
         <div>
           <ul style={{ listStyle: "none" }}>
             {pending?.map?.((e, i) => {
@@ -31,15 +47,20 @@ export default function PendingTodo({ pending,pendingDataHandler }) {
                     className="d-flex justify-content-end"
                     style={{ alignItems: "center" }}
                   >
+                    <Input
+                      type="checkbox"
+                      checked={selectPending?.includes(i)}
+                      onChange={() => selectPendinghandler(i, "pending")}
+                    />
                     <i
                       className="fas fa-circle-plus"
                       onClick={() => pendingDataHandler(i)}
                     ></i>
-                    <input type="checkbox" />
                   </div>
                 </div>
               );
             })}
+            <Button onClick={pendingDataTransfer}>Transfer</Button>
           </ul>
         </div>
       </div>

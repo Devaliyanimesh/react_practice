@@ -8,6 +8,9 @@ export default function InputTodoIndex() {
   const [input, setInput] = useState("");
   const [pending, setPending] = useState([]);
   const [done, setDone] = useState([]);
+  const [selectPending, setSelectPending] = useState([]);
+  const [selectDone, setSelectDone] = useState([]);
+  let[chekedd,setChekked]=useState(false)
 
   const inputdataHandler = () => {
     if (input == "") {
@@ -23,12 +26,12 @@ export default function InputTodoIndex() {
     let jsonn = localStorage.getItem("pendi");
     let normal = JSON.parse(jsonn);
     setPending(normal || []);
-  },[]);
-  useEffect(()=>{
+  }, []);
+  useEffect(() => {
     let jsonn = localStorage.getItem("donee");
     let normal = JSON.parse(jsonn);
-    setDone(normal || [])
-  },[])
+    setDone(normal || []);
+  }, []);
 
   const pendingDataHandler = (index) => {
     setDone([...done, pending[index]]);
@@ -39,6 +42,49 @@ export default function InputTodoIndex() {
     setPending(filter);
     localStorage.setItem("pendi", JSON.stringify(filter));
   };
+  const selectPendinghandler = (index, type) => {
+    if (type == "pending") {
+      if (selectPending.includes(index)) {
+        setSelectPending(selectPending.filter((e) => e !== index));
+      } else {
+        setSelectPending([...selectPending, index]);
+      }
+    } else if (type === "done") {
+      if (selectDone.includes(index)) {
+        setSelectDone(selectDone.filter((e) => e !== index));
+      } else {
+        setSelectDone([...selectDone, index]);
+      }
+    }
+  };
+  const selectallHandler = (type, e) => {
+
+    if (type === "selectall") {
+      if (e?.target?.checked) {
+        // Object.keys(done)
+        // setSelectDone(Array.of(Object.keys(done)));
+        setSelectPending(pending.map((e, i) => i));
+      } else {
+        setSelectPending([]);
+      }
+    } else if (type === "doneall") {
+      if (e?.target?.checked) {
+        setSelectDone(done.map((e, i) => i));
+      } else {
+        setSelectDone([]);
+      }
+    }
+  };
+  const pendingDataTransfer = () => {
+    const transferredItems = selectPending.map((index) => pending[index]);
+    setDone([...done, ...transferredItems]);
+  
+
+
+    // Clear the selected pending items
+  };
+
+  console.log(done);
   return (
     <>
       <div className="w-25 m-auto mt-2 ">
@@ -52,8 +98,17 @@ export default function InputTodoIndex() {
         <PendingTodo
           pending={pending}
           pendingDataHandler={pendingDataHandler}
+          selectPendinghandler={selectPendinghandler}
+          selectPending={selectPending}
+          selectallHandler={selectallHandler}
+          pendingDataTransfer={pendingDataTransfer}
         />
-        <DoneTodo done={done} />
+        <DoneTodo
+          done={done}
+          selectDone={selectDone}
+          selectPendinghandler={selectPendinghandler}
+          selectallHandler={selectallHandler}
+        />
       </div>
     </>
   );
