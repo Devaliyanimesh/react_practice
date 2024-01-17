@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, Input } from "reactstrap";
 
@@ -9,12 +9,20 @@ export default function Todo() {
   let [allchek, setAllchek] = useState([]);
   let [chekk, setChekk] = useState(false);
   let [retuenChekk, setReturnChekk] = useState(false);
+  let [searchadd, setSarchAdlist] = useState("");
+  let [searchTransfer, setSarchTransfer] = useState("");
+
+  useEffect(() => {
+    setAddlist(JSON.parse(localStorage.getItem("first") || "[]"));
+    setTransfer(JSON.parse(localStorage.getItem("second") || "[]"));
+  }, []);
 
   const dataHandler = () => {
     if (list === "") {
       toast.error("please fill input");
     } else {
       setAddlist([...addlist, list]);
+      localStorage.setItem("first", JSON.stringify([...addlist, list]));
       setList("");
     }
   };
@@ -23,10 +31,15 @@ export default function Todo() {
     let conf = window.confirm("Are you sure you want to transfer this task?");
     if (conf === true) {
       setTransfer([...transfer, addlist[index]]);
+      localStorage.setItem(
+        "second",
+        JSON.stringify([...transfer, addlist[index]])
+      );
       let filter = addlist.filter((e, i) => {
         return index !== i;
       });
       setAddlist(filter);
+      localStorage.setItem("first", JSON.stringify(filter));
     }
   };
 
@@ -42,7 +55,11 @@ export default function Todo() {
   };
 
   const permanetDelet = (index) => {
-    if (window.confirm("Are you sure you want to permanently delete this task?") === true) {
+    if (
+      window.confirm(
+        "Are you sure you want to permanently delete this task?"
+      ) === true
+    ) {
       let filter = transfer.filter((e, i) => {
         return index !== i;
       });
@@ -71,8 +88,14 @@ export default function Todo() {
   };
 
   const moveData = () => {
-    if (chekk === true && window.confirm("Are you sure you want to transfer selected tasks?")) {
-      if (window.confirm("Are you sure you want to transfer selected tasks?") === true) {
+    if (
+      chekk === true &&
+      window.confirm("Are you sure you want to transfer selected tasks?")
+    ) {
+      if (
+        window.confirm("Are you sure you want to transfer selected tasks?") ===
+        true
+      ) {
         let filter = addlist.filter((e) => !allchek.includes(e));
         setAddlist(filter);
         setTransfer(allchek);
@@ -117,14 +140,28 @@ export default function Todo() {
       setTransfer(filter);
       setAddlist(allchek);
       setAllchek([]);
-      setReturnChekk(!retuenChekk)
+      setReturnChekk(!retuenChekk);
     } else {
       setAddlist([]);
       setReturnChekk(false);
     }
   };
-  
 
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("first") || "[]");
+    let filterdata = data.filter((e) => e.includes(searchadd));
+    setAddlist(filterdata);
+  }, [searchadd]);
+
+  useEffect(() => {
+    sechtransferChekk();
+  }, []);
+  const sechtransferChekk = () => {
+    let data = JSON.parse(localStorage.getItem("second") || "[]");
+    let filterdata = data.filter((e) => e.includes(searchTransfer));
+
+    setTransfer(filterdata);
+  };
   return (
     <>
       <div className="linear w-50 m-auto bg pt-5">
@@ -154,7 +191,16 @@ export default function Todo() {
           >
             <h5 className="text-center">To do list</h5>
             <div className="d-flex justify-content-end">
-              <input type="checkbox" onChange={(e) => selectALl(e)} checked={chekk} />
+              <input
+                type="checkbox"
+                onChange={(e) => selectALl(e)}
+                checked={chekk}
+              />
+              <input
+                type="text"
+                onChange={(e) => setSarchAdlist(e.target.value)}
+                value={searchadd}
+              />
             </div>
             {addlist.map((e, i) => {
               return (
@@ -172,8 +218,15 @@ export default function Todo() {
                     {i + 1}. {e}
                   </p>
                   <div className="d-flex align-items-center">
-                    <i className="fas fa-circle-plus" onClick={() => listHandler(i)}></i>
-                    <input type="checkbox" checked={allchek.includes(e)} onChange={() => transferchek(e)} />
+                    <i
+                      className="fas fa-circle-plus"
+                      onClick={() => listHandler(i)}
+                    ></i>
+                    <input
+                      type="checkbox"
+                      checked={allchek.includes(e)}
+                      onChange={() => transferchek(e)}
+                    />
                   </div>
                 </div>
               );
@@ -188,9 +241,20 @@ export default function Todo() {
             <h5 className="text-center">Final list</h5>
             <div className="d-flex justify-content-end align-items-center">
               <Button onClick={deletAlldata} role="button">
-                Delete All
+                Delet
               </Button>
-              <input type="checkbox" onChange={(e) => returnChekbox(e)}  checked={retuenChekk}/>
+              <input
+                type="checkbox"
+                onChange={(e) => returnChekbox(e)}
+                checked={retuenChekk}
+              />
+              <input
+                type="text"
+                className="w-25"
+                onChange={(e) => setSarchTransfer(e.target.value)}
+                value={searchTransfer}
+              />
+              <Button onClick={sechtransferChekk}>search</Button>
             </div>
             {transfer.map((e, i) => {
               return (
@@ -209,9 +273,20 @@ export default function Todo() {
                     {i + 1}. {e}
                   </p>
                   <div>
-                    <i className="fas fa-trash" style={{ marginRight: "10px" }} onClick={() => returnData(i)}></i>
-                    <i className="fas fa-circle-xmark" onClick={() => permanetDelet(i)}></i>
-                    <input type="checkbox" checked={allchek.includes(e)} onChange={() => returnAddlist(e)} />
+                    <i
+                      className="fas fa-trash"
+                      style={{ marginRight: "10px" }}
+                      onClick={() => returnData(i)}
+                    ></i>
+                    <i
+                      className="fas fa-circle-xmark"
+                      onClick={() => permanetDelet(i)}
+                    ></i>
+                    <input
+                      type="checkbox"
+                      checked={allchek.includes(e)}
+                      onChange={() => returnAddlist(e)}
+                    />
                   </div>
                 </div>
               );

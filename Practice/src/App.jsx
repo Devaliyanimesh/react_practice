@@ -8,6 +8,7 @@ import CheckBox from "./Input/CheckBox";
 import Check from "./Input/Check";
 import ApiGet from "./Api/ApiGet";
 import InputTodoIndex from "./Todo/InputTodoIndex";
+import Router from "./Todo/Router";
 
 function App() {
   
@@ -22,7 +23,8 @@ function App() {
         </div> */}
         {/* <Check/> */}
         {/* <ApiGet/> */}
-        <InputTodoIndex/>
+        {/* <InputTodoIndex/> */}
+        <Router/>
       </div>
     </>
   );
