@@ -40,6 +40,8 @@ import Mainpage from "./9.Proteector_Router/Register/Mainpage";
 import Router from "./12.RegisterModal/Router";
 import RegisterPractice from "./12.RegisterModal/Task.jsx/RegisterPractice";
 import Routerr from "./12.RegisterModal/Task.jsx/Router";
+import Api from "./13.Api/Api";
+import RouterApi from "./13.Api/RouterApi";
 
 
 export default function main() {
@@ -96,7 +98,9 @@ export default function main() {
      {/* <Mainpage/> */}
     {/* <Router/> */}
       {/* <RegisterPractice/> */}
-      <Routerr/>
+
+      {/* <Routerr/> */}
+      <RouterApi/>
     </div>
   );
 }
