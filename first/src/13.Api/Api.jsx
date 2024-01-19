@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Product from "./Product";
 
 export default function Api() {
   let [data, setData] = useState([]);
-  const fetchData = () => {
+const navigate = useNavigate()
+  useEffect(() => {
     axios({
       method: "get",
       url: "https://fakestoreapi.com/products",
@@ -18,15 +19,12 @@ export default function Api() {
       .catch((erorr) => {
         toast.error(erorr.message);
       });
-  };
+  }, []);
 
   return (
     <>
       <h1>SimpleApi</h1>
 
-      <Button color="danger" onClick={fetchData}>
-        Call API
-      </Button>
       <Table>
         <thead>
           <tr>
@@ -45,7 +43,9 @@ export default function Api() {
                 <td>
                   <img style={{ maxHeight: "50px" }} src={e?.image} />
                 </td>
-                <td>{e?.title}</td>
+                <td onClick={()=>navigate("/product",{state:e})}>
+                  {e?.title}
+                </td>
                 <td>{e?.price}</td>
                 <td>{e?.rating?.rate}</td>
               </tr>
