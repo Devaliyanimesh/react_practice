@@ -1,3 +1,28 @@
 .header{
-    background-color: brown;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    gap: 10px;
+    color: black;
+  
+
 }
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+   
+    li{
+        list-style: none;
+        margin-left: 25px;
+        font-size: 17px;
+        font-weight: 700;
+      }
+      ul{
+          display: flex;
+          align-items: center;
+          
+      }
