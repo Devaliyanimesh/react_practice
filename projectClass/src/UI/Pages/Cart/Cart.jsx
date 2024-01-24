@@ -52,7 +52,7 @@ export default function Cart() {
                     {e?.price}
                   </CardText>
                   <CardTitle tag="h5">
-                    <Button className="w-100 mt-2">Add item</Button>
+                    <Button className="w-100 mt-2 bg-black text-white">Add item</Button>
                   </CardTitle>
                 </CardBody>
               </Card>

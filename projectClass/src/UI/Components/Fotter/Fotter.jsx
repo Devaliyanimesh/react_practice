@@ -1,10 +1,11 @@
 import React from "react";
+import "./Footer.css"
 
 export default function Fotter() {
   return (
     <>
       <div
-        className="d-flex  justify-content-between   bg-black text-white mt-2"
+        className="d-flex  justify-content-between   black text-white mt-2"
         style={{ padding: "40px 40px", alignItems: "flex-start", margin:"0px 10px" }}
       >
         <div className="Categories text-center ">
