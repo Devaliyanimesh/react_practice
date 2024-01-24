@@ -27,11 +27,11 @@ export default function Header() {
         </div>
         <div className="ul_list">
           <ul className="list">
-            <li>Home</li>
-            <li>Men</li>
-            <li>Woman</li>
-            <li>Child</li>
-            <li>About</li>
+            <li className="home">Home</li>
+            <li className="Men">Men</li>
+            <li className="Woman">Woman</li>
+            <li className="Child">Child</li>
+            <li className="About">About</li>
           </ul>
         </div>
         <div>
