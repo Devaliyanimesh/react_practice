@@ -36,7 +36,7 @@ export default function Cart() {
                   alt="Sample"
                   src={e?.image}
                   style={{
-                    width: "150px",
+                    width: "170px",
                     height: "150px",
                     alignItems: "center",
                   }}
