@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, CardSubtitle, CardText, CardTitle } from "reactstrap";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardSubtitle,
+  CardText,
+  CardTitle,
+} from "reactstrap";
 import "./Cart.css";
 export default function Cart() {
   let [apiData, setApidata] = useState([]);
@@ -15,13 +22,13 @@ export default function Cart() {
         className=" grid mt-5 "
         style={{ gap: "10px", margin: "10px 40px", marginLeft: "70px" }}
       >
-        {apiData.map((e,i) => {
+        {apiData.map((e, i) => {
           return (
             <div key={i}>
               <Card
                 style={{
-                  width: "230px",
-                  height: "300px",
+                  width: "235px",
+                  height: "350px",
                   padding: "10px 5px",
                 }}
               >
@@ -34,16 +41,19 @@ export default function Cart() {
                     alignItems: "center",
                   }}
                 />
-                <CardBody>
+                <CardBody className="p-0">
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     <b>Title:</b>
-                    {e?.title}
+                   <p className="m-0" style={{overflow:"hidden", width:'200px ', height:"60px",}}> {e?.title}</p> 
                   </CardSubtitle>
-                  <CardText>
+                  <CardText  className="m-0">
                     <i className="bi bi-currency-dollar"></i>
                     {e?.price}
                   </CardText>
+                  <CardTitle tag="h5">
+                    <Button className="w-100 mt-2">Add item</Button>
+                  </CardTitle>
                 </CardBody>
               </Card>
             </div>
