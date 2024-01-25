@@ -29,7 +29,7 @@ export default function Header() {
         <div className="ul_list">
           <ul className="list">
             <li className="home">
-              {" "}
+              
               <NavLink
                 to={"/"}
                 style={{ textDecoration: "none", color: "black" }}
@@ -38,25 +38,25 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="Men">
-              {" "}
-              <NavLink style={{ textDecoration: "none", color: "black" }}>
+          
+              <NavLink to={"/men"} style={{ textDecoration: "none", color: "black" }}>
                 Men
               </NavLink>
             </li>
             <li className="Woman">
-              {" "}
-              <NavLink style={{ textDecoration: "none", color: "black" }}>
+            
+              <NavLink to={"/woman"} style={{ textDecoration: "none", color: "black" }}>
                 Woman
               </NavLink>
             </li>
             <li className="Child">
-              {" "}
-              <NavLink style={{ textDecoration: "none", color: "black" }}>
+             
+              <NavLink to={"/kids"} style={{ textDecoration: "none", color: "black" }}>
                 Child
               </NavLink>
             </li>
             <li className="About">
-              {" "}
+              
               <NavLink style={{ textDecoration: "none", color: "black" }}>
                 About
               </NavLink>

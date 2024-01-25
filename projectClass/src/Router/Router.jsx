@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../UI/Pages/Home/Home";
 import Header from "../UI/Components/Header/Header";
 import Fotter from "../UI/Components/Fotter/Fotter";
-import Cart from "../UI/Pages/Cart/Cart";
 import Kids from "../UI/Pages/Product/Kids";
-import Crousal from "../UI/Pages/Home/Crousal";
+import Men from "../UI/Pages/Product/Men";
+import Woman from "../UI/Pages/Product/Woman";
 
 export default function Router() {
   return (
@@ -13,6 +13,15 @@ export default function Router() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+      </Routes>
+      <Routes>
+        <Route path="/men" element={<Men />} />
+      </Routes>
+      <Routes>
+        <Route path="/woman" element={<Woman />} />
+      </Routes>
+      <Routes>
+        <Route path="/kids" element={<Kids />} />
       </Routes>
       <Fotter />
     </BrowserRouter>
