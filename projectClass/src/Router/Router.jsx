@@ -14,8 +14,6 @@ export default function Router() {
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
-      <Crousal />
-      <Cart />
       <Fotter />
     </BrowserRouter>
   );

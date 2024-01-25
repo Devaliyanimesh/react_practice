@@ -5,9 +5,9 @@ import Cart from "../Cart/Cart";
 export default function Home() {
   return (
     <>
-    home
-      {/* <Crousal />
-      <Cart /> */}
+ 
+      <Crousal />
+      <Cart />
     </>
   );
 }

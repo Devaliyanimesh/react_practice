@@ -42,7 +42,7 @@ export default function Fotter() {
             <li style={{ margin: "0" }}>Media</li>
           </ul>
         </div>
-        <div className="About ">
+        <div className="Aboutt ">
           <h5>About</h5>
           <ul
             style={{
