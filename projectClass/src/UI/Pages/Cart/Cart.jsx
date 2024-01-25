@@ -6,8 +6,10 @@ import {
   CardSubtitle,
   CardText,
   CardTitle,
+
 } from "reactstrap";
 import "./Cart.css";
+import { NavLink } from "react-router-dom";
 export default function Cart() {
   let [apiData, setApidata] = useState([]);
   useEffect(() => {
@@ -32,6 +34,8 @@ export default function Cart() {
                   padding: "10px 5px",
                 }}
               >
+                <NavLink to={"/singlePage"} >
+
                 <img
                   alt="Sample"
                   src={e?.image}
@@ -40,7 +44,8 @@ export default function Cart() {
                     height: "150px",
                     alignItems: "center",
                   }}
-                />
+                  />
+                  </NavLink>
                 <CardBody className="p-0">
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">

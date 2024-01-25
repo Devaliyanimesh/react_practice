@@ -63,7 +63,7 @@ export default function Header() {
             </li>
           </ul>
         </div>
-        <div>
+        <div> 
           <Button
             color="danger"
             className="p-0"
