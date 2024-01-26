@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-} from 'reactstrap';
+} from "reactstrap";
 import img1 from "./../../../Images/slider1.png";
 import img2 from "./../../../Images/slider2.jpg";
 import img3 from "./../../../Images/slider3.jpg";
@@ -14,39 +14,39 @@ import img5 from "./../../../Images/slider5.jpg";
 import img6 from "./../../../Images/slider6.png";
 const items = [
   {
-    src:img1,
-    altText: 'Slide 1',
-    caption: 'Slide 1',
+    src: img1,
+    altText: "Slide 1",
+    caption: "Slide 1",
     key: 1,
   },
   {
     src: img2,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: "Slide 2",
+    caption: "Slide 2",
     key: 2,
   },
   {
     src: img3,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: "Slide 2",
+    caption: "Slide 2",
     key: 3,
   },
   {
     src: img4,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: "Slide 2",
+    caption: "Slide 2",
     key: 4,
   },
   {
     src: img5,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: "Slide 2",
+    caption: "Slide 2",
     key: 5,
   },
   {
     src: img6,
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: "Slide 2",
+    caption: "Slide 2",
     key: 6,
   },
 ];
@@ -79,11 +79,7 @@ function Crousal(args) {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} className='w-100' />
-        <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
-        />
+        <img src={item.src} alt={item.altText} className="w-100" />
       </CarouselItem>
     );
   });
