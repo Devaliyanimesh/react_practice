@@ -6,7 +6,6 @@ import {
   CardSubtitle,
   CardText,
   CardTitle,
-
 } from "reactstrap";
 import "./Cart.css";
 import { NavLink } from "react-router-dom";
@@ -22,7 +21,7 @@ export default function Cart() {
     <>
       <div
         className=" grid mt-5 "
-        style={{ gap: "10px", margin: "10px 40px", marginLeft: "70px" }}
+        style={{ gap: "10px", margin: "10px 40px", marginLeft: "30px" }}
       >
         {apiData.map((e, i) => {
           return (
@@ -34,30 +33,41 @@ export default function Cart() {
                   padding: "10px 5px",
                 }}
               >
-                <NavLink to={"/singlePage"} >
-
-                <img
-                  alt="Sample"
-                  src={e?.image}
-                  style={{
-                    width: "170px",
-                    height: "150px",
-                    alignItems: "center",
-                  }}
+                <NavLink to={'/singlePage'}>
+                  <img
+                    alt="Sample"
+                    src={e?.image}
+                    style={{
+                      width: "170px",
+                      height: "150px",
+                      alignItems: "center",
+                    }}
                   />
-                  </NavLink>
+                </NavLink>
                 <CardBody className="p-0">
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     <b>Title:</b>
-                   <p className="m-0" style={{overflow:"hidden", width:'200px ', height:"60px",}}> {e?.title}</p> 
+                    <p
+                      className="m-0"
+                      style={{
+                        overflow: "hidden",
+                        width: "200px ",
+                        height: "60px",
+                      }}
+                    >
+                      {" "}
+                      {e?.title}
+                    </p>
                   </CardSubtitle>
-                  <CardText  className="m-0">
+                  <CardText className="m-0">
                     <i className="bi bi-currency-dollar"></i>
                     {e?.price}
                   </CardText>
                   <CardTitle tag="h5">
-                    <Button className="w-100 mt-2 bg-black text-white">Add item</Button>
+                    <Button className="w-100 mt-2 bg-black text-white">
+                      Add item
+                    </Button>
                   </CardTitle>
                 </CardBody>
               </Card>

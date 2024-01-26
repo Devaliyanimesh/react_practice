@@ -4,6 +4,8 @@ import { ShoppingCart } from "lucide-react";
 import { Button } from "reactstrap";
 import discountTag from "./../../../Images/discount.webp";
 import "./Singlepage.css";
+import Cart from "../Cart/Cart";
+import { useParams } from "react-router-dom";
 export default function SingleProduct() {
   let [product, setProduct] = useState([]);
   useEffect(() => {
@@ -11,6 +13,8 @@ export default function SingleProduct() {
       .then((res) => res.json())
       .then((json) => setProduct(json));
   }, []);
+
+  
   return (
     <>
       <div
@@ -128,6 +132,7 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
+      <Cart />
     </>
   );
 }
