@@ -209,5 +209,5 @@ export default function SingleProduct() {
       </div>
       <Cart />
     </>
-  );
+  );    
 }

@@ -2,12 +2,13 @@
 
 import Router from './Router/Router';
 import Crousal from './UI/Pages/Home/Crousal';
-import SingleProduct from './UI/Pages/SingleProduct/SingleProduct';
+import Payment from './UI/Pages/Payment/Payment';
 
 
 function App() {
   return <>
-   <Router/>
+   {/* <Router/> */}
+   <Payment/>
    </>
 }
 
