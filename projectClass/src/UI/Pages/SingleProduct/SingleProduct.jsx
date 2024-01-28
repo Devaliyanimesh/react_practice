@@ -5,6 +5,7 @@ import { Button } from "reactstrap";
 import discountTag from "./../../../Images/discount.webp";
 import "./Singlepage.css";
 import Cart from "../Cart/Cart";
+import { NavLink } from "react-router-dom";
 export default function SingleProduct() {
   let [product, setProduct] = useState([]);
   useEffect(() => {
@@ -34,9 +35,15 @@ export default function SingleProduct() {
 
           <div className="text-center mt-2  ">
             <Button color="danger" style={{ width: "49%" }}>
+              <NavLink to={"/payment"} style={{color:"white",textDecoration:"none"}}>
+
               <ShoppingCart size={20} />
+
               ADD TO CART
+              </NavLink>
             </Button>
+        
+            
             <Button className=" ms-1" style={{ width: "49%" }}>
               {" "}
               BUY NOW
@@ -207,7 +214,10 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
+      <div style={{margin: "10px 40px"}}>
+
       <Cart />
+      </div>
     </>
   );    
 }

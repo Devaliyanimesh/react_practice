@@ -7,6 +7,7 @@ import Kids from "../UI/Pages/Product/Kids";
 import Men from "../UI/Pages/Product/Men";
 import Woman from "../UI/Pages/Product/Woman";
 import SingleProduct from "../UI/Pages/SingleProduct/SingleProduct";
+import Payment from "../UI/Pages/Payment/Payment";
 
 export default function Router() {
   return (
@@ -26,6 +27,9 @@ export default function Router() {
       </Routes>
       <Routes>
       <Route path="/singlePage" element={<SingleProduct/>}/>
+      </Routes>
+      <Routes>
+        <Route path="/payment" Component={Payment}/> 
       </Routes>
       <Fotter />
     </BrowserRouter>

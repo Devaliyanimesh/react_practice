@@ -20,8 +20,8 @@ export default function Cart() {
   return (
     <>
       <div
-        className=" grid mt-5 "
-        style={{ gap: "10px", margin: "10px 40px", marginLeft: "30px" }}
+        className=" gri mt-5  "
+        style={{ gap: "10px", margin: "10px 120px", marginLeft: "120px" }}
       >
         {apiData.map((e, i) => {
           return (
@@ -33,7 +33,6 @@ export default function Cart() {
                   padding: "10px 5px",
                 }}
               >
-                <NavLink to={'/singlePage'}>
                   <img
                     alt="Sample"
                     src={e?.image}
@@ -43,7 +42,6 @@ export default function Cart() {
                       alignItems: "center",
                     }}
                   />
-                </NavLink>
                 <CardBody className="p-0">
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
@@ -65,9 +63,13 @@ export default function Cart() {
                     {e?.price}
                   </CardText>
                   <CardTitle tag="h5">
+                <NavLink to={'/singlePage'}>
+
                     <Button className="w-100 mt-2 bg-black text-white">
                       Add item
                     </Button>
+                </NavLink>
+
                   </CardTitle>
                 </CardBody>
               </Card>

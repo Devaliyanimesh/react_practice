@@ -7,8 +7,8 @@ import Payment from './UI/Pages/Payment/Payment';
 
 function App() {
   return <>
-   {/* <Router/> */}
-   <Payment/>
+   <Router/>
+   {/* <Payment/> */}
    </>
 }
 
