@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 export default function Payment() {
   let paymentDetails = ["Price", "Discount", "Delivery Charges"];
   let [product, setProduct] = useState([]);
-  let [counter, setCounter] = useState(0)
+  let [counter, setCounter] = useState(1)
   let [price,setprice]=useState("")
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/1")
@@ -43,7 +43,7 @@ export default function Payment() {
         </div>
         <div className=" justify-content-between w-100  align-content-center mt-2  " style={{ backgroundColor: "white", padding: "10px 20px", boxShadow: "0px 0px 3px 0px;" }}>
           <div className="d-flex">
-            <div className=" bg-black" style={{ width: "15%" }}>
+            <div className=" " style={{ width: "15%" }}>
               <img src={img} alt="" style={{ width: '100%' }} />
             </div>
             <div className=" ms-3 mt-4 " style={{ width: "85%" }}>
@@ -117,7 +117,7 @@ export default function Payment() {
 
 
           <ul style={{ flexDirection: "column", alignItems: "flex-start", gap: "10px ", fontFamily: "none" }}>
-            <li className="d-flex m-0 p-0" ><span className="bi bi-currency-rupee "></span>{price}</li>
+            <li className="d-flex m-0 p-0" ><span className="bi bi-currency-rupee "></span>{counter === 1 ? product.price : price}</li>
             <li className="d-flex m-0 p-0" ><span className="bi bi-currency-rupee "></span> 5</li>
             <li className="d-flex m-0 p-0 "  > <span className="bi bi-currency-rupee  " ></span><span className="  text-decoration-line-through " style={{ color: "gray", fontFamily: "none" }}   >40</span><span style={{ color: "green", fontFamily: 'none', marginLeft: "5px" }}>Free</span></li>
           </ul>

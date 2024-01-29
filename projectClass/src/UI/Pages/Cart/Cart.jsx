@@ -21,19 +21,19 @@ export default function Cart() {
     <>
       <div
         className=" gri mt-5  "
-        style={{ gap: "10px", margin: "10px 120px", marginLeft: "120px" }}
+        style={{ gap: "10px", margin:'0px 40px' }}
       >
         {apiData.map((e, i) => {
           return (
             <div key={i}>
               <Card
                 style={{
-                  width: "235px",
+                  width: "200px",
                   height: "350px",
                   padding: "10px 5px",
                 }}
               >
-                  <img
+                  <img 
                     alt="Sample"
                     src={e?.image}
                     style={{
@@ -42,7 +42,7 @@ export default function Cart() {
                       alignItems: "center",
                     }}
                   />
-                <CardBody className="p-0">
+                <CardBody className="p-0">-
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     <b>Title:</b>
