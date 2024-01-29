@@ -8,6 +8,7 @@ import Men from "../UI/Pages/Product/Men";
 import Woman from "../UI/Pages/Product/Woman";
 import SingleProduct from "../UI/Pages/SingleProduct/SingleProduct";
 import Payment from "../UI/Pages/Payment/Payment";
+import {MenProted} from "./ProtectedRouter";
 
 export default function Router() {
   return (
@@ -17,13 +18,14 @@ export default function Router() {
         <Route path="/" element={<Home />} />
       </Routes>
       <Routes>
-        <Route path="/men" element={<Men />} />
+        <Route path="/men" element={<MenProted Component={<Men/>} />} />
       </Routes>
       <Routes>
-        <Route path="/woman" element={<Woman />} />
+        <Route path="/woman" element={<MenProted WomanComponent={<Woman/>} />} />
+        
       </Routes>
       <Routes>
-        <Route path="/kids" element={<Kids />} />
+        <Route path="/kids"  element={<MenProted kidsComponent={<Kids/>} />} />
       </Routes>
       <Routes>
       <Route path="/singlePage" element={<SingleProduct/>}/>

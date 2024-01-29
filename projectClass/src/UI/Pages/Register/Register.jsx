@@ -82,7 +82,7 @@ export default function Register({modal,toggle}) {
       toast.success("data save");
       setNamesave([...namesave, name]);
       localStorage.setItem("add", JSON.stringify([...namesave, name]));
-      
+      toggle()
     }
   };
   

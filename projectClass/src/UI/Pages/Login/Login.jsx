@@ -33,17 +33,12 @@ function Login({modal,toggle}) {
             email: "",
             password: "",
           });
-          setModal(!modal);
           localStorage.setItem("local", JSON.stringify([...data, value]));
+          toggle();
         }
       };
-      const clearData = () => {
-        localStorage.removeItem("local");
-      };
+      
     
-      useEffect(() => {
-        let data = localStorage.length;
-      }, []);
     
       useEffect(() => {
         let json = localStorage.getItem("add");
