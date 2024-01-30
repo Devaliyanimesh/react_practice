@@ -1,47 +1,30 @@
 import React from "react";
 import "./Loginn.css";
-import { Button, Input } from "reactstrap";
+import { Button, Form, Input } from "reactstrap";
+import { NavLink } from "react-router-dom";
 export default function Loginn() {
   return (
-    <div
-      className="text-white border border-1 rounded-1 "
-      style={{
-        backgroundColor: "rgb(12, 12, 30)",
-        width: "400px",
-        padding: "20px 20px",
-      }}
-    >
-      <h5 className="text-center"> Loginn </h5>
-      <div
-        className=""
-        style={{ display: "flex", flexDirection: "column", gap: "10px" }}
-      >
-        <Input
-          className="rounded-0"
-          style={{
-            backgroundColor: "transparent",
-            border: "none",
-            boxShadow: "none",
-          }}
-          placeholder="Username"
-        />
-        <Input
-          className="rounded-0"
-          style={{
-            backgroundColor: "transparent",
-            border: "none",
-            boxShadow: "none",
-          }}
-          placeholder="Password"
-        />
-      </div>
-      <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"5px"}}>
-        <p> Forget Password?</p>
-        <p>Sign up</p>
-      </div>
-      <div >
-        <Button className="rounded-1" style={{padding:"7px 20px",backgroundColor:"white",color:"black",fontWeight:"700"}}>Login</Button>
-      </div>
+    <div className="box " style={{marginTop:"80px" }}>
+        <span className="borderline"></span>
+      <Form >
+        <h2>Login</h2>
+        <div className="inputbox">
+          <Input required="required" />
+          <span>Username</span>
+          <i></i>
+        </div>
+        <div className="inputbox">
+          <Input required="required" />
+          <span>Password</span>
+          <i></i>
+        </div>
+        <div className="links">
+           <a href="">Forgot Password</a>
+           <a href="">Sign Up</a>
+
+        </div>
+     <Button >Login</Button>
+      </Form>
     </div>
   );
 }
