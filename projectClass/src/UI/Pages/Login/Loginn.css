@@ -1,0 +1,20 @@
+body{
+    /* background-color: rgb(12, 12, 30); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+input{
+    color: aliceblue !important;
+    border-bottom: 2px solid rgb(255, 252, 252) !important;
+}
+input:focus{
+    outline:none !important;
+
+  
+   
+}
+input::placeholder{
+    color: aliceblue !important;
+}

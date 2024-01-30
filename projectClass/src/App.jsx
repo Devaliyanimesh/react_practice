@@ -1,14 +1,13 @@
 
 
 import Router from './Router/Router';
-import Crousal from './UI/Pages/Home/Crousal';
-import Payment from './UI/Pages/Payment/Payment';
+import Loginn from './UI/Pages/Login/Loginn';
 
 
 function App() {
   return <>
-   <Router/>
-   {/* <Payment/> */}
+   {/* <Router/> */}
+   <Loginn/>
    </>
 }
 

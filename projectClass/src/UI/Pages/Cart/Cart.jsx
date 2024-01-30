@@ -21,7 +21,7 @@ export default function Cart() {
     <>
       <div
         className=" gri mt-5  "
-        style={{ gap: "10px", margin:'0px 40px' }}
+        style={{ gap: "10px", margin:'0px 40px',flexWrap:"wrap" }}
       >
         {apiData.map((e, i) => {
           return (
