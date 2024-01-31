@@ -1,13 +1,13 @@
 
 
 import Router from './Router/Router';
-import Loginn from './UI/Pages/Login/Loginn';
+import RegisterPage from './UI/Pages/Register/RegisterPage';
+
 
 
 function App() {
   return <>
-   {/* <Router/> */}
-   <Loginn/>
+   <Router/>
    </>
 }
 

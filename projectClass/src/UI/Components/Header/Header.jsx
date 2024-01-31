@@ -2,33 +2,18 @@ import React, { useRef, useState } from "react";
 import "./Header.css";
 import { Footprints, Search, ShoppingBag } from "lucide-react";
 import { Button, Input } from "reactstrap";
-import Login from "../../Pages/Login/Login";
-import Register from "../../Pages/Register/Register";
+
 import { NavLink } from "react-router-dom";
 
 export default function Header() {
-  let divFocus=useRef(null)
-  
-  const [modal, setModal] = useState(false);
+  let divFocus = useRef(null);
 
-  const toggle = () => setModal(!modal);
-
-  const [registerModal, setRegisterModal] = useState(false);
-
-  const registerToggle = () => {
-    setRegisterModal(!registerModal);
+  const focusHandler = () => {
+    divFocus.current.style.border = "2px solid black";
   };
-  
-  const focusHandler =()=>{
-   
-    divFocus.current.style.border="2px solid black"
-   
-  }
 
   return (
     <>
-      <Login modal={modal} toggle={toggle} />
-      <Register modal={registerModal} toggle={registerToggle} />
       <div className="header ">
         <div className="logo  ">
           <Footprints size={36} color="#181616" />
@@ -37,14 +22,18 @@ export default function Header() {
 
         <div
           className="bg-white d-flex ps-1 align-items-center gap-2 in  rounded-3 "
-          style={{ width: "30%",boxShadow:"0px 0px 3px"}}
-        ref={divFocus}
-        onClick={focusHandler}
+          style={{ width: "30%", boxShadow: "0px 0px 3px" }}
+          ref={divFocus}
+          onClick={focusHandler}
         >
           <Search />
           <Input
             className="in"
-            style={{ border: "none", backgroundColor: "transparent",boxShadow:"none" }}
+            style={{
+              border: "none",
+              backgroundColor: "transparent",
+              boxShadow: "none",
+            }}
           />
         </div>
 
@@ -92,7 +81,6 @@ export default function Header() {
           <Button
             color="danger"
             className="p-0"
-            onClick={registerToggle}
             style={{
               backgroundColor: "transparent ",
               border: "none",
@@ -101,13 +89,12 @@ export default function Header() {
               marginRight: "5px",
             }}
           >
-            Register
+            <NavLink to={"/regiser"}>Register</NavLink>
           </Button>
           <b>/</b>
           <Button
             className="p-0"
             color="danger"
-            onClick={toggle}
             style={{
               backgroundColor: "transparent ",
               border: "none",
@@ -117,7 +104,7 @@ export default function Header() {
               marginRight: "5px",
             }}
           >
-            Login
+            <NavLink to={"/login"} style={{textDecoration:"none",color:"black"}}>Login</NavLink>
           </Button>
           <ShoppingBag color="#181616" />
         </div>

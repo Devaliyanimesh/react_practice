@@ -9,6 +9,8 @@ import Woman from "../UI/Pages/Product/Woman";
 import SingleProduct from "../UI/Pages/SingleProduct/SingleProduct";
 import Payment from "../UI/Pages/Payment/Payment";
 import {MenProted} from "./ProtectedRouter";
+import Loginn from "../UI/Pages/Login/Loginn";
+import RegisterPage from "../UI/Pages/Register/RegisterPage";
 
 export default function Router() {
   return (
@@ -33,7 +35,14 @@ export default function Router() {
       <Routes>
         <Route path="/payment" Component={Payment}/> 
       </Routes>
-      <Fotter />
+      
+      <Routes>
+        <Route path="/login" Component={Loginn}/>
+      </Routes>
+      <Routes>
+        <Route path="/regiser" Component={RegisterPage}/>
+      </Routes>
+      <Fotter/>
     </BrowserRouter>
   );
 }
