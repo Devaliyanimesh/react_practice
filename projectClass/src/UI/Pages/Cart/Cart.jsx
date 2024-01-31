@@ -83,7 +83,10 @@ export default function Cart() {
 
   return (
     <>
-      <div className=" gri mt-5 " style={{ flexWrap: "wrap" }}>
+      <div
+        className=" gri mt-5  "
+        style={{  flexWrap: "wrap",marginBottom:"50px" }}
+      >
         {apiData.map((e, i) => {
           return (
             <div key={i}>
@@ -92,7 +95,7 @@ export default function Cart() {
                   width: "220px",
                   height: "450px",
                   padding: "10px 5px",
-                  overflow: "hidden",
+                  overflow:'hidden'
                 }}
               >
                 <img
@@ -108,16 +111,7 @@ export default function Cart() {
                   <CardTitle tag="h5"></CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
                     <b>Title:</b>
-                    <p
-                      style={{
-                        height: "40px",
-                        width: "100%",
-                        overflow: "hidden",
-                        marginTop: "5px",
-                      }}
-                    >
-                      {e?.title}
-                    </p>
+                    <p style={{height:"40px", width:"100%", overflow:"hidden",marginTop:"5px",}}>{e?.title}</p>
                   </CardSubtitle>
                   <CardText className="m-0">
                     <i className="bi bi-currency-dollar"></i>
