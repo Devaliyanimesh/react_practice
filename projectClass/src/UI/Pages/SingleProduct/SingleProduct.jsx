@@ -214,10 +214,10 @@ export default function SingleProduct() {
           </div>
         </div>
       </div>
-      <div style={{margin: "10px 40px"}}>
+      
 
       <Cart />
-      </div>
+      
     </>
   );    
 }

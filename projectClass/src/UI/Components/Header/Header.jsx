@@ -89,7 +89,7 @@ export default function Header() {
               marginRight: "5px",
             }}
           >
-            <NavLink to={"/regiser"}>Register</NavLink>
+            <NavLink to={"/register"} style={{textDecoration:"none",color:"black"}}>Register</NavLink>
           </Button>
           <b>/</b>
           <Button

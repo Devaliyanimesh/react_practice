@@ -4,7 +4,6 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption,
 } from "reactstrap";
 import img1 from "./../../../Images/slider1.png";
 import img2 from "./../../../Images/slider2.jpg";

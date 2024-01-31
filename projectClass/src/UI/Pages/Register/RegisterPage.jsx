@@ -3,17 +3,16 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
+ 
   Form,
   FormGroup,
   Label,
   Input,
 } from "reactstrap";
-
+import { NavLink, useNavigate } from "react-router-dom";
 export default function RegisterPage() {
   let [local, setLocal] = useState(null);
+  let navigate=useNavigate()
 
   useEffect(() => {
     let json = localStorage.getItem("add");
@@ -82,16 +81,19 @@ export default function RegisterPage() {
       toast.success("data save");
       setNamesave([...namesave, name]);
       localStorage.setItem("add", JSON.stringify([...namesave, name]));
+      navigate("/")
     }
   };
   
 
+
  
   return (
     <>
-      <div>
+     
        
-            <Form>
+            <Form  className="w-50  m-auto mt-4 mb-5 px-4 py-5 rounded-2  "  style={{ boxShadow: "0px 0px 3px"}}>
+                <h2 className="text-center"> Rigester Here</h2>
               <FormGroup>
                 <Label for="exampleEmail">Email</Label>
                 <Input
@@ -156,11 +158,14 @@ export default function RegisterPage() {
                 />
               </FormGroup>
               <Button color="danger" className="w-100" onClick={dataTransefer}>
+                <NavLink  style={{textDecoration:"none",color:"white"}}>
+
                 Submit
+                </NavLink>
               </Button>
             </Form>
          
-      </div>
+      
     </>
   );
 }

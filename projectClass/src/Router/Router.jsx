@@ -40,7 +40,7 @@ export default function Router() {
         <Route path="/login" Component={Loginn}/>
       </Routes>
       <Routes>
-        <Route path="/regiser" Component={RegisterPage}/>
+        <Route path="/register" Component={RegisterPage}/>
       </Routes>
       <Fotter/>
     </BrowserRouter>
