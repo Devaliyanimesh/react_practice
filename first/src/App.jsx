@@ -42,6 +42,7 @@ import RegisterPractice from "./12.RegisterModal/Task.jsx/RegisterPractice";
 import Routerr from "./12.RegisterModal/Task.jsx/Router";
 import Api from "./13.Api/Api";
 import RouterApi from "./13.Api/RouterApi";
+import Productt from "./13.Api/Product/Productt";
 
 
 export default function main() {
@@ -100,7 +101,8 @@ export default function main() {
       {/* <RegisterPractice/> */}
 
       {/* <Routerr/> */}
-      <RouterApi/>
+      {/* <RouterApi/> */}
+      <Productt/>
     </div>
   );
 }

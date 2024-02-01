@@ -21,6 +21,8 @@ const navigate = useNavigate()
       });
   }, []);
 
+  
+
   return (
     <>
       <h1>SimpleApi</h1>
