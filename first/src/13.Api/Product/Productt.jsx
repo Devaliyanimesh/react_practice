@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { toast } from "react-toastify";
+import { BadgePercent } from "lucide-react";
 
 export default function Productt() {
   let [product, setProduct] = useState([]);
@@ -14,7 +15,7 @@ export default function Productt() {
         setProduct(res.data.data);
       })
       .catch((error) => toast.error(error));
-  });
+  }, []);
 
   return (
     <>
@@ -27,6 +28,8 @@ export default function Productt() {
             <th>IMAGE</th>
             <th>NAME</th>
             <th>PRICE</th>
+            <th>Discount</th>
+            <th>Final price</th>
             <th>COLOR</th>
             <th>SIZE</th>
           </tr>
@@ -43,6 +46,14 @@ export default function Productt() {
                   {e?.title}
                 </td>
                 <td>{e?.price}</td>
+                <td>
+                  <BadgePercent color="#2ab305" />
+                  {e?.discountPercentage}
+                </td>
+
+                {/* <td>{ e?.price /e?.discountPercentage}</td> */}
+
+
                 <td>
                   <div className="d-flex">
                     {e?.color.map((color) => {
@@ -69,8 +80,8 @@ export default function Productt() {
                           style={{
                             height: "20px",
                             width: "20px",
-                            boxShadow:" inset -1px -1px",
-                            fontWeight:"500"
+                            boxShadow: " inset -1px -1px",
+                            fontWeight: "500",
                           }}
                         >
                           {e}
