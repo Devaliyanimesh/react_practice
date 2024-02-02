@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import { toast } from "react-toastify";
 import { Button, Form, FormGroup, FormText, Input, Label } from "reactstrap";
 const Product = {
   title: "",
@@ -27,7 +29,9 @@ let category = [
 let size = ["45", "44", "43", "42"];
 export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
+  let [allproduct, setAllproduct] = useState([]);
   let [select, setSelect] = useState([]);
+
   let selectHandler = (e, type) => {
     if (type === "color") {
       let color = e.map((e) => e?.value);
@@ -38,18 +42,30 @@ export default function InputDatapost() {
     }
   };
   const chekndler = (e) => {
-   let check= select.includes(e);
+    let check = select.includes(e);
     if (check) {
-      let filter=select.filter((ee)=> ee !==e)
-      setSelect(filter)
-
-    }
-    else{
-      setSelect([...select,e])
+      let filter = select.filter((ee) => ee !== e);
+      setSelect(filter);
+    } else {
+      setSelect([...select, e]);
     }
   };
 
-  console.log(select);
+  const transferData = (e) => {
+    axios({
+      method: "post",
+      url: "http://localhost:9999/product/create",
+      data: productt,
+    })
+      .then((res) => {
+        toast.success("data add");
+      })
+      .catch((error) => {
+        toast.error("--->", error.message);
+      });
+  };
+
+  console.log(productt);
   return (
     <>
       <Form
@@ -161,7 +177,13 @@ export default function InputDatapost() {
           })}
         </div>
 
-        <Button className="w-100" color="danger">Submit</Button>
+        <Button
+          className="w-100"
+          onClick={(e) => transferData(e)}
+          color="danger"
+        >
+          Submit
+        </Button>
       </Form>
     </>
   );
