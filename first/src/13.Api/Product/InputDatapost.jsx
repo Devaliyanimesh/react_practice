@@ -21,12 +21,13 @@ let data = [
   { value: "blue", label: "Blue" },
 ];
 let category = [
-  { value: "small", label: "Small" },
-  { value: "large", label: "Large" },
-  { value: "extralarge", label: "Extralarge" },
+  { value: "casual", label: "Casual" },
+  { value: "highlength", label: "Highlength" },
 ];
+let size = ["45", "44", "43", "42"];
 export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
+  let [select, setSelect] = useState([]);
   let selectHandler = (e, type) => {
     if (type === "color") {
       let color = e.map((e) => e?.value);
@@ -36,7 +37,19 @@ export default function InputDatapost() {
       setProduct({ ...productt, category });
     }
   };
-  console.log(productt);
+  const chekndler = (e) => {
+   let check= select.includes(e);
+    if (check) {
+      let filter=select.filter((ee)=> ee !==e)
+      setSelect(filter)
+
+    }
+    else{
+      setSelect([...select,e])
+    }
+  };
+
+  console.log(select);
   return (
     <>
       <Form
@@ -132,7 +145,23 @@ export default function InputDatapost() {
             onChange={(e) => selectHandler(e, "color")}
           />
         </FormGroup>
-        <Button>Submit</Button>
+        <Label>Size</Label>
+        <div className="d-flex">
+          {size.map((e, i) => {
+            return (
+              <FormGroup key={i}>
+                <Label>{e}</Label>
+                <Input
+                  type="checkbox"
+                  onChange={() => chekndler(e)}
+                  checked={select?.includes(e)}
+                />
+              </FormGroup>
+            );
+          })}
+        </div>
+
+        <Button className="w-100" color="danger">Submit</Button>
       </Form>
     </>
   );
