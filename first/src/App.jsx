@@ -43,6 +43,7 @@ import Routerr from "./12.RegisterModal/Task.jsx/Router";
 import Api from "./13.Api/Api";
 import RouterApi from "./13.Api/RouterApi";
 import Productt from "./13.Api/Product/Productt";
+import InputDatapost from "./13.Api/Product/InputDatapost";
 
 
 export default function main() {
@@ -102,7 +103,8 @@ export default function main() {
 
       {/* <Routerr/> */}
       {/* <RouterApi/> */}
-      <Productt/>
+      {/* <Productt/> */}
+      <InputDatapost/>
     </div>
   );
 }

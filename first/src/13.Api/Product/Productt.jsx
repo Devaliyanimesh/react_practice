@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { toast } from "react-toastify";
-import { BadgePercent } from "lucide-react";
+import { BadgePercent, IndianRupee } from "lucide-react";
 
 export default function Productt() {
   let [product, setProduct] = useState([]);
@@ -45,13 +45,13 @@ export default function Productt() {
                 <td onClick={() => navigate("/product", { state: e })}>
                   {e?.title}
                 </td>
-                <td>{e?.price}</td>
+                <td className="" style={{textDecoration:"line-through"}}><IndianRupee  size={20} />{e?.price}</td>
                 <td>
                   <BadgePercent color="#2ab305" />
                   {e?.discountPercentage}
                 </td>
 
-                {/* <td>{ e?.price /e?.discountPercentage}</td> */}
+                <td><IndianRupee  size={20}/>{ e?.price-(e?.price *(e?.discountPercentage/100))}</td> 
 
 
                 <td>
