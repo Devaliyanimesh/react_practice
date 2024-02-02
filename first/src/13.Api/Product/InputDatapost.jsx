@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import Select from "react-select";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, FormText, Input, Label } from "reactstrap";
@@ -26,7 +27,7 @@ let category = [
   { value: "casual", label: "Casual" },
   { value: "highlength", label: "Highlength" },
 ];
-let size = ["45", "44", "43", "42"];
+let sizeOptions = ["45", "44", "43", "42"];
 export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
   let [allproduct, setAllproduct] = useState([]);
@@ -41,15 +42,15 @@ export default function InputDatapost() {
       setProduct({ ...productt, category });
     }
   };
-  const chekndler = (e) => {
-    let check = select.includes(e);
-    if (check) {
-      let filter = select.filter((ee) => ee !== e);
-      setSelect(filter);
+
+  const checkboxHandler = (sizeValue) => {
+    if (productt.size.includes(sizeValue)) {
+      setProduct({ ...productt, size: productt.size.filter((size) => size !== sizeValue) });
     } else {
-      setSelect([...select, e]);
+      setProduct({ ...productt, size: [...productt.size, sizeValue] });
     }
   };
+
 
   const transferData = (e) => {
     axios({
@@ -58,14 +59,26 @@ export default function InputDatapost() {
       data: productt,
     })
       .then((res) => {
+        console.log(res.data);
         toast.success("data add");
       })
       .catch((error) => {
         toast.error("--->", error.message);
       });
   };
-
-  console.log(productt);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:9999/product/getAll",
+    })
+      .then((res) => {
+        setAllproduct(res?.data?.data);
+      })
+      .catch((err) => {
+        toast.error(err);
+      });
+  }, []);
+  console.log(allproduct);
   return (
     <>
       <Form
@@ -163,19 +176,17 @@ export default function InputDatapost() {
         </FormGroup>
         <Label>Size</Label>
         <div className="d-flex">
-          {size.map((e, i) => {
-            return (
-              <FormGroup key={i}>
-                <Label>{e}</Label>
-                <Input
-                  type="checkbox"
-                  onChange={() => chekndler(e)}
-                  checked={select?.includes(e)}
-                />
-              </FormGroup>
-            );
-          })}
-        </div>
+        {sizeOptions.map((size, index) => (
+          <FormGroup key={index} className="d-flex">
+            <Label>{size}</Label>
+            <Input
+              type="checkbox"
+              onChange={() => checkboxHandler(size)}
+              checked={productt.size?.includes(size)}
+            />
+          </FormGroup>
+        ))}
+      </div>
 
         <Button
           className="w-100"
@@ -185,6 +196,52 @@ export default function InputDatapost() {
           Submit
         </Button>
       </Form>
+      <div>
+      <Table striped>
+        <thead>
+          <tr>
+            <th>SR.</th>
+            <th>IMAGE</th>
+            <th>NAME</th>
+            <th>PRICE</th>
+            <th>COLOR</th>
+            <th>SIZE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allproduct?.map?.((e, i) => {
+            return (
+              <tr>
+                <td>{i + 1}</td>
+                <td>
+                  <img style={{ height: "30px" }} src={e?.thumbnail} alt="" />
+                </td>
+                <td>{e?.title}</td>
+                <td>{e?.price}</td>
+                <td>
+                  <div className="d-flex gap-2">
+                    {e?.color.map((color) => {
+                      return (
+                        <div
+                          style={{
+                            height: "10px",
+                            width: "10px",
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            backgroundColor: color,
+                          }}
+                        ></div>
+                      );
+                    })}
+                  </div>
+                </td>
+                <td>{e?.size}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+      </div>
     </>
   );
 }
