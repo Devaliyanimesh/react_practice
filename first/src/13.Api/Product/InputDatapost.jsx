@@ -79,7 +79,12 @@ export default function InputDatapost() {
         toast.error(err);
       });
   }, []);
-  console.log(allproduct);
+  const deletHandler = (e) => {
+    console.log(e?._id);
+  };
+  const updateHandler = (e) => {
+    setProduct(e);
+  };
   return (
     <>
       <Form
@@ -91,6 +96,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">Title</Label>
           <Input
             type="text"
+            value={productt.title}
             onChange={(e) => setProduct({ ...productt, title: e.target.value })}
           />
         </FormGroup>
@@ -98,6 +104,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">description</Label>
           <Input
             type="text"
+            value={productt.description}
             onChange={(e) =>
               setProduct({ ...productt, description: e.target.value })
             }
@@ -107,6 +114,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">brand</Label>
           <Input
             type="text"
+            value={productt.brand}
             onChange={(e) => setProduct({ ...productt, brand: e.target.value })}
           />
         </FormGroup>
@@ -118,7 +126,7 @@ export default function InputDatapost() {
                 <Label for="exampleEmail">{ee}</Label>
                 <Input
                   type="radio"
-                  name="name"
+                  checked={productt.gender === ee}
                   onChange={() => setProduct({ ...productt, gender: ee })}
                 />
               </FormGroup>
@@ -129,6 +137,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">price</Label>
           <Input
             type="number"
+            value={productt.price}
             onChange={(e) => setProduct({ ...productt, price: e.target.value })}
           />
         </FormGroup>
@@ -136,6 +145,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">discountPercentage</Label>
           <Input
             type="text"
+            value={productt.discountPercentage}
             onChange={(e) =>
               setProduct({ ...productt, discountPercentage: e.target.value })
             }
@@ -145,6 +155,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">availableStock</Label>
           <Input
             type="text"
+            value={productt.availableStock}
             onChange={(e) =>
               setProduct({ ...productt, availableStock: e.target.value })
             }
@@ -154,6 +165,7 @@ export default function InputDatapost() {
           <Label for="exampleEmail">Thumbnail</Label>
           <Input
             type="text"
+            value={productt.thumbnail}
             onChange={(e) =>
               setProduct({ ...productt, thumbnail: e.target.value })
             }
@@ -164,6 +176,8 @@ export default function InputDatapost() {
           <Select
             isMulti
             options={category}
+            value={productt.category}
+
             onChange={(e) => selectHandler(e, "category")}
           />
         </FormGroup>
@@ -172,6 +186,7 @@ export default function InputDatapost() {
           <Select
             isMulti
             options={data}
+            
             onChange={(e) => selectHandler(e, "color")}
           />
         </FormGroup>
@@ -207,6 +222,8 @@ export default function InputDatapost() {
               <th>PRICE</th>
               <th>COLOR</th>
               <th>SIZE</th>
+              <th>Update</th>
+              <th>Delet</th>
             </tr>
           </thead>
           <tbody>
@@ -229,7 +246,6 @@ export default function InputDatapost() {
                               width: "10px",
                               border: "1px solid black",
                               borderRadius: "50%",
-
                               backgroundColor: color,
                             }}
                           ></div>
@@ -243,20 +259,23 @@ export default function InputDatapost() {
                       {e?.size.map((e) => {
                         return (
                           <div
-                            style={{
-                              height: "20px",
-                              width: "20px",
-                              boxShadow: " inset -1px -1px",
-                              fontWeight: "500",
-                          
+                            style={
+                              e == 40
+                                ? { backgroundColor: "green", color: "white" }
+                                : { backgroundColor: "white", color: "gray" }
                             }
-                          }
                           >
                             {e}
                           </div>
                         ); /* first  Task*/
                       })}
                     </div>
+                  </td>
+                  <td>
+                    <Button onClick={() => updateHandler(e)}>Update</Button>
+                  </td>
+                  <td>
+                    <Button onClick={() => deletHandler(e)}>Delet</Button>
                   </td>
                 </tr>
               );
