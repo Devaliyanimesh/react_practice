@@ -27,11 +27,10 @@ let category = [
   { value: "casual", label: "Casual" },
   { value: "highlength", label: "Highlength" },
 ];
-let sizeOptions = ["45", "44", "43", "42"];
+let sizeOptions = ["40", "41", "42", "43"];
 export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
   let [allproduct, setAllproduct] = useState([]);
-  let [select, setSelect] = useState([]);
 
   let selectHandler = (e, type) => {
     if (type === "color") {
@@ -45,12 +44,14 @@ export default function InputDatapost() {
 
   const checkboxHandler = (sizeValue) => {
     if (productt.size.includes(sizeValue)) {
-      setProduct({ ...productt, size: productt.size.filter((size) => size !== sizeValue) });
+      setProduct({
+        ...productt,
+        size: productt.size.filter((size) => size !== sizeValue),
+      });
     } else {
       setProduct({ ...productt, size: [...productt.size, sizeValue] });
     }
   };
-
 
   const transferData = (e) => {
     axios({
@@ -176,17 +177,17 @@ export default function InputDatapost() {
         </FormGroup>
         <Label>Size</Label>
         <div className="d-flex">
-        {sizeOptions.map((size, index) => (
-          <FormGroup key={index} className="d-flex">
-            <Label>{size}</Label>
-            <Input
-              type="checkbox"
-              onChange={() => checkboxHandler(size)}
-              checked={productt.size?.includes(size)}
-            />
-          </FormGroup>
-        ))}
-      </div>
+          {sizeOptions.map((size, index) => (
+            <FormGroup key={index} className="d-flex">
+              <Label>{size}</Label>
+              <Input
+                type="checkbox"
+                onChange={() => checkboxHandler(size)}
+                checked={productt.size?.includes(size)}
+              />
+            </FormGroup>
+          ))}
+        </div>
 
         <Button
           className="w-100"
@@ -197,50 +198,71 @@ export default function InputDatapost() {
         </Button>
       </Form>
       <div>
-      <Table striped>
-        <thead>
-          <tr>
-            <th>SR.</th>
-            <th>IMAGE</th>
-            <th>NAME</th>
-            <th>PRICE</th>
-            <th>COLOR</th>
-            <th>SIZE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allproduct?.map?.((e, i) => {
-            return (
-              <tr>
-                <td>{i + 1}</td>
-                <td>
-                  <img style={{ height: "30px" }} src={e?.thumbnail} alt="" />
-                </td>
-                <td>{e?.title}</td>
-                <td>{e?.price}</td>
-                <td>
-                  <div className="d-flex gap-2">
-                    {e?.color.map((color) => {
-                      return (
-                        <div
-                          style={{
-                            height: "10px",
-                            width: "10px",
-                            border: "1px solid black",
-                            borderRadius: "50%",
-                            backgroundColor: color,
-                          }}
-                        ></div>
-                      );
-                    })}
-                  </div>
-                </td>
-                <td>{e?.size}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+        <Table striped>
+          <thead>
+            <tr>
+              <th>SR.</th>
+              <th>IMAGE</th>
+              <th>NAME</th>
+              <th>PRICE</th>
+              <th>COLOR</th>
+              <th>SIZE</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allproduct?.map?.((e, i) => {
+              return (
+                <tr>
+                  <td>{i + 1}</td>
+                  <td>
+                    <img style={{ height: "30px" }} src={e?.thumbnail} alt="" />
+                  </td>
+                  <td>{e?.title}</td>
+                  <td>{e?.price}</td>
+                  <td>
+                    <div className="d-flex gap-2">
+                      {e?.color.map((color) => {
+                        return (
+                          <div
+                            style={{
+                              height: "10px",
+                              width: "10px",
+                              border: "1px solid black",
+                              borderRadius: "50%",
+
+                              backgroundColor: color,
+                            }}
+                          ></div>
+                        );
+                      })}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="d-flex gap-2">
+                      {" "}
+                      {e?.size.map((e) => {
+                        return (
+                          <div
+                            style={{
+                              height: "20px",
+                              width: "20px",
+                              boxShadow: " inset -1px -1px",
+                              fontWeight: "500",
+                          
+                            }
+                          }
+                          >
+                            {e}
+                          </div>
+                        ); /* first  Task*/
+                      })}
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
       </div>
     </>
   );
