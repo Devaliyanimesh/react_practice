@@ -176,8 +176,10 @@ export default function InputDatapost() {
           <Select
             isMulti
             options={category}
-            value={productt.category}
-
+            
+            value={productt.category?.map((ele) => {
+              return { value: ele, label: ele };
+            })}
             onChange={(e) => selectHandler(e, "category")}
           />
         </FormGroup>
@@ -186,7 +188,9 @@ export default function InputDatapost() {
           <Select
             isMulti
             options={data}
-            
+            value={productt.color?.map((color) => {
+              return { value: color, label: color };
+            })}
             onChange={(e) => selectHandler(e, "color")}
           />
         </FormGroup>

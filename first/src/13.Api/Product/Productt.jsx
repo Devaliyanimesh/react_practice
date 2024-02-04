@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table } from "reactstrap";
 import { toast } from "react-toastify";
+import "./product.css"
 import { BadgePercent, IndianRupee } from "lucide-react";
 
 export default function Productt() {
