@@ -3,7 +3,18 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import { Button, Form, FormGroup, FormText, Input, Label } from "reactstrap";
+import {
+  Button,
+  Form,
+  FormGroup,
+  FormText,
+  Input,
+  Label,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from "reactstrap";
 const Product = {
   title: "",
   description: "",
@@ -17,6 +28,7 @@ const Product = {
   color: [], // select
   size: [], // checkbox
 };
+
 let gender = ["male", "Female", "kids"];
 let data = [
   { value: "green", label: "Green" },
@@ -27,10 +39,11 @@ let category = [
   { value: "casual", label: "Casual" },
   { value: "highlength", label: "Highlength" },
 ];
-let sizeOptions = ["40", "41", "42", "43"];
+let sizeOptions = ["42", "43", "44", "45"];
 export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
   let [allproduct, setAllproduct] = useState([]);
+  let [refres, setRefresh] = useState(true);
 
   let selectHandler = (e, type) => {
     if (type === "color") {
@@ -52,7 +65,9 @@ export default function InputDatapost() {
       setProduct({ ...productt, size: [...productt.size, sizeValue] });
     }
   };
+  const [modal, setModal] = useState(false);
 
+  const toggle = () => setModal(!modal);
   const transferData = (e) => {
     axios({
       method: "post",
@@ -66,6 +81,7 @@ export default function InputDatapost() {
       .catch((error) => {
         toast.error("--->", error.message);
       });
+    setRefresh(!refres);
   };
   useEffect(() => {
     axios({
@@ -78,144 +94,183 @@ export default function InputDatapost() {
       .catch((err) => {
         toast.error(err);
       });
-  }, []);
+  }, [refres]);
   const deletHandler = (e) => {
-    console.log(e?._id);
+    axios({
+      method: "delete",
+      url: `http://localhost:9999/product/delete/${e?._id}`,
+      data: productt,
+    }) .then((res) => {
+      toast.success("upadate is  delete");
+    })
+    .catch((error) => {
+      toast.error("--->", error.message);
+    });
+  setRefresh(!refres);;
+    setRefresh(!refres);
   };
+
   const updateHandler = (e) => {
+    setModal(!modal);
     setProduct(e);
   };
+  const updateDataaHandler =()=>{
+    axios({
+      method:"put",
+      url: `http://localhost:9999/product/put/${productt?._id}`,
+      data:productt
+    }) .then((res) => {
+      toast.success("data is update");
+      setRefresh(!refres);
+    })
+    .catch((error) => {
+      toast.error("--->", error.message);
+    });
+  }
   return (
     <>
-      <Form
-        className="w-25"
-        style={{ margin: "auto", border: "2px solid black", padding: "10px" }}
-      >
-        <h1>Form</h1>
-        <FormGroup>
-          <Label for="exampleEmail">Title</Label>
-          <Input
-            type="text"
-            value={productt.title}
-            onChange={(e) => setProduct({ ...productt, title: e.target.value })}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">description</Label>
-          <Input
-            type="text"
-            value={productt.description}
-            onChange={(e) =>
-              setProduct({ ...productt, description: e.target.value })
-            }
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">brand</Label>
-          <Input
-            type="text"
-            value={productt.brand}
-            onChange={(e) => setProduct({ ...productt, brand: e.target.value })}
-          />
-        </FormGroup>
-        <Label>Gender</Label>
-        <div className="d-flex">
-          {gender?.map((ee, i) => {
-            return (
-              <FormGroup className="d-flex" key={i}>
-                <Label for="exampleEmail">{ee}</Label>
-                <Input
-                  type="radio"
-                  checked={productt.gender === ee}
-                  onChange={() => setProduct({ ...productt, gender: ee })}
-                />
-              </FormGroup>
-            );
-          })}
-        </div>
-        <FormGroup>
-          <Label for="exampleEmail">price</Label>
-          <Input
-            type="number"
-            value={productt.price}
-            onChange={(e) => setProduct({ ...productt, price: e.target.value })}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">discountPercentage</Label>
-          <Input
-            type="text"
-            value={productt.discountPercentage}
-            onChange={(e) =>
-              setProduct({ ...productt, discountPercentage: e.target.value })
-            }
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">availableStock</Label>
-          <Input
-            type="text"
-            value={productt.availableStock}
-            onChange={(e) =>
-              setProduct({ ...productt, availableStock: e.target.value })
-            }
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleEmail">Thumbnail</Label>
-          <Input
-            type="text"
-            value={productt.thumbnail}
-            onChange={(e) =>
-              setProduct({ ...productt, thumbnail: e.target.value })
-            }
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label>category</Label>
-          <Select
-            isMulti
-            options={category}
-            
-            value={productt.category?.map((ele) => {
-              return { value: ele, label: ele };
-            })}
-            onChange={(e) => selectHandler(e, "category")}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label>Color</Label>
-          <Select
-            isMulti
-            options={data}
-            value={productt.color?.map((color) => {
-              return { value: color, label: color };
-            })}
-            onChange={(e) => selectHandler(e, "color")}
-          />
-        </FormGroup>
-        <Label>Size</Label>
-        <div className="d-flex">
-          {sizeOptions.map((size, index) => (
-            <FormGroup key={index} className="d-flex">
-              <Label>{size}</Label>
+      <Button color="danger" onClick={toggle}>
+        Product
+      </Button>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Form</ModalHeader>
+        <ModalBody>
+          <Form style={{ margin: "auto", padding: "10px" }}>
+            <FormGroup>
+              <Label for="exampleEmail">Title</Label>
               <Input
-                type="checkbox"
-                onChange={() => checkboxHandler(size)}
-                checked={productt.size?.includes(size)}
+                type="text"
+                value={productt.title}
+                onChange={(e) =>
+                  setProduct({ ...productt, title: e.target.value })
+                }
               />
             </FormGroup>
-          ))}
-        </div>
+            <FormGroup>
+              <Label for="exampleEmail">description</Label>
+              <Input
+                type="text"
+                value={productt.description}
+                onChange={(e) =>
+                  setProduct({ ...productt, description: e.target.value })
+                }
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">brand</Label>
+              <Input
+                type="text"
+                value={productt.brand}
+                onChange={(e) =>
+                  setProduct({ ...productt, brand: e.target.value })
+                }
+              />
+            </FormGroup>
+            <Label>Gender</Label>
+            <div className="d-flex">
+              {gender?.map((ee, i) => {
+                return (
+                  <FormGroup className="d-flex" key={i}>
+                    <Label for="exampleEmail">{ee}</Label>
+                    <Input
+                      type="radio"
+                      checked={productt.gender === ee}
+                      onChange={() => setProduct({ ...productt, gender: ee })}
+                    />
+                  </FormGroup>
+                );
+              })}
+            </div>
+            <FormGroup>
+              <Label for="exampleEmail">price</Label>
+              <Input
+                type="number"
+                value={productt.price}
+                onChange={(e) =>
+                  setProduct({ ...productt, price: e.target.value })
+                }
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">discountPercentage</Label>
+              <Input
+                type="text"
+                value={productt.discountPercentage}
+                onChange={(e) =>
+                  setProduct({
+                    ...productt,
+                    discountPercentage: e.target.value,
+                  })
+                }
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">availableStock</Label>
+              <Input
+                type="text"
+                value={productt.availableStock}
+                onChange={(e) =>
+                  setProduct({ ...productt, availableStock: e.target.value })
+                }
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="exampleEmail">Thumbnail</Label>
+              <Input
+                type="text"
+                value={productt.thumbnail}
+                onChange={(e) =>
+                  setProduct({ ...productt, thumbnail: e.target.value })
+                }
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>category</Label>
+              <Select
+                isMulti
+                options={category}
+                value={productt.category?.map((ele) => {
+                  return { value: ele, label: ele };
+                })}
+                onChange={(e) => selectHandler(e, "category")}
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Color</Label>
+              <Select
+                isMulti
+                options={data}
+                value={productt.color?.map((color) => {
+                  return { value: color, label: color };
+                })}
+                onChange={(e) => selectHandler(e, "color")}
+              />
+            </FormGroup>
+            <Label>Size</Label>
+            <div className="d-flex">
+              {sizeOptions.map((size, index) => (
+                <FormGroup key={index} className="d-flex">
+                  <Label>{size}</Label>
+                  <Input
+                    type="checkbox"
+                    onChange={() => checkboxHandler(size)}
+                    checked={productt.size?.includes(size)}
+                  />
+                </FormGroup>
+              ))}
+            </div>
+           <Button onClick={updateDataaHandler}>Update</Button>
 
-        <Button
-          className="w-100"
-          onClick={(e) => transferData(e)}
-          color="danger"
-        >
-          Submit
-        </Button>
-      </Form>
+            <Button
+              className="w-100"
+              onClick={(e) => transferData(e)}
+              color="danger"
+            >
+              Submit
+            </Button>
+          </Form>
+        </ModalBody>
+      </Modal>
       <div>
         <Table striped>
           <thead>
@@ -259,17 +314,16 @@ export default function InputDatapost() {
                   </td>
                   <td>
                     <div className="d-flex gap-2">
-                      {" "}
-                      {e?.size.map((e) => {
+                      {sizeOptions.map((ee) => {
                         return (
                           <div
                             style={
-                              e == 40
+                              e.size.includes(ee)
                                 ? { backgroundColor: "green", color: "white" }
-                                : { backgroundColor: "white", color: "gray" }
+                                : { backgroundColor: "gray", color: "white" }
                             }
                           >
-                            {e}
+                            {ee}
                           </div>
                         ); /* first  Task*/
                       })}
