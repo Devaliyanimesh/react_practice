@@ -31,10 +31,21 @@ const Product = {
 
 let gender = ["male", "Female", "kids"];
 let data = [
-  { value: "green", label: "Green" },
-  { value: "white", label: "White" },
-  { value: "blue", label: "Blue" },
+  { value: "red", label: "Red", color: "#FF0000" },
+  { value: "green", label: "Green", color: "#00FF00" },
+  { value: "blue", label: "Blue", color: "#0000FF" },
 ];
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.data.color,
+  }),
+  singleValue: (provided, state) => ({
+    ...provided,
+    color: state.data.color,
+  }),
+};
+
 let category = [
   { value: "casual", label: "Casual" },
   { value: "highlength", label: "Highlength" },
@@ -44,6 +55,7 @@ export default function InputDatapost() {
   let [productt, setProduct] = useState(Product);
   let [allproduct, setAllproduct] = useState([]);
   let [refres, setRefresh] = useState(true);
+  let [updatemode, setUpdatemode] = useState(false);
 
   let selectHandler = (e, type) => {
     if (type === "color") {
@@ -67,7 +79,10 @@ export default function InputDatapost() {
   };
   const [modal, setModal] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {
+    setModal(!modal);
+    setProduct(Product);
+  };
   const transferData = (e) => {
     axios({
       method: "post",
@@ -100,39 +115,44 @@ export default function InputDatapost() {
       method: "delete",
       url: `http://localhost:9999/product/delete/${e?._id}`,
       data: productt,
-    }) .then((res) => {
-      toast.success("upadate is  delete");
     })
-    .catch((error) => {
-      toast.error("--->", error.message);
-    });
-  setRefresh(!refres);;
+      .then((res) => {
+        toast.success("upadate is  delete");
+      })
+      .catch((error) => {
+        toast.error("--->", error.message);
+      });
     setRefresh(!refres);
   };
 
   const updateHandler = (e) => {
     setModal(!modal);
     setProduct(e);
+    setUpdatemode(true);
   };
-  const updateDataaHandler =()=>{
+  const updateDataaHandler = () => {
     axios({
-      method:"put",
-      url: `http://localhost:9999/product/put/${productt?._id}`,
-      data:productt
-    }) .then((res) => {
-      toast.success("data is update");
-      setRefresh(!refres);
+      method: "put",
+      url: `http://localhost:9999/product/update/${productt?._id}`,
+      data: productt,
     })
-    .catch((error) => {
-      toast.error("--->", error.message);
-    });
-  }
+      .then((res) => {
+        toast.success("data is update");
+        setProduct(Product);
+        setModal(!modal);
+        setRefresh(!refres);
+      })
+      .catch((error) => {
+        toast.error("--->", error.message);
+      });
+  };
+
   return (
     <>
       <Button color="danger" onClick={toggle}>
         Product
       </Button>
-      <Modal isOpen={modal} toggle={toggle}>
+      <Modal isOpen={modal} toggle={toggle}  backdrop="bool">
         <ModalHeader toggle={toggle}>Form</ModalHeader>
         <ModalBody>
           <Form style={{ margin: "auto", padding: "10px" }}>
@@ -240,6 +260,8 @@ export default function InputDatapost() {
               <Select
                 isMulti
                 options={data}
+                // styles={customStyles}
+                // defaultValue={data[0]}
                 value={productt.color?.map((color) => {
                   return { value: color, label: color };
                 })}
@@ -259,15 +281,23 @@ export default function InputDatapost() {
                 </FormGroup>
               ))}
             </div>
-           <Button onClick={updateDataaHandler}>Update</Button>
-
-            <Button
-              className="w-100"
-              onClick={(e) => transferData(e)}
-              color="danger"
-            >
-              Submit
-            </Button>
+            {updatemode ? (
+              <Button
+                onClick={updateDataaHandler}
+                className="w-100"
+                color="danger"
+              >
+                Update
+              </Button>
+            ) : (
+              <Button
+                className="w-100"
+                onClick={(e) => transferData(e)}
+                color="danger"
+              >
+                Submit
+              </Button>
+            )}
           </Form>
         </ModalBody>
       </Modal>
