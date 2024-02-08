@@ -152,7 +152,7 @@ export default function InputDatapost() {
       <Button color="danger" onClick={toggle}>
         Product
       </Button>
-      <Modal isOpen={modal} toggle={toggle}  backdrop="bool">
+      <Modal isOpen={modal} toggle={toggle} backdrop="bool">
         <ModalHeader toggle={toggle}>Form</ModalHeader>
         <ModalBody>
           <Form style={{ margin: "auto", padding: "10px" }}>
