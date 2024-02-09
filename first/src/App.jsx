@@ -44,6 +44,7 @@ import Api from "./13.Api/Api";
 import RouterApi from "./13.Api/RouterApi";
 import Productt from "./13.Api/Product/Productt";
 import InputDatapost from "./13.Api/Product/InputDatapost";
+import Usememo from "./2.Hook/Usememo/Usememo";
 
 
 export default function main() {
@@ -104,7 +105,8 @@ export default function main() {
       {/* <Routerr/> */}
       {/* <RouterApi/> */}
       {/* <Productt/> */}
-      <InputDatapost/>
+      {/* <InputDatapost/> */}
+      <Usememo/>
     </div>
   );
 }
