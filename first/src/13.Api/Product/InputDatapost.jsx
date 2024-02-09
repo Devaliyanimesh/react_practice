@@ -3,6 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import img1 from "./../../img/bike.jpeg"
+import img2 from "./../../img/car.jpeg"
+import img3 from "./../../img/iphone.jpeg"
+import img4 from "./../../img/laptop.jpeg"
+
 import {
   Button,
   Form,
@@ -31,9 +36,13 @@ const Product = {
 
 let gender = ["male", "Female", "kids"];
 let data = [
-  { value: "red", label: "Red", color: "#FF0000" },
-  { value: "green", label: "Green", color: "#00FF00" },
-  { value: "blue", label: "Blue", color: "#0000FF" },
+  { value: "car", label: "Car", img: img1 },
+  { value: "bike", label: "Bike", img: img2 },
+  { value: "phone", label: "Phone", img:  img3},
+  { value: "laptop", label: "Laptop", img: img4 },
+  
+
+
 ];
 const customStyles = {
   option: (provided, state) => ({
@@ -146,6 +155,35 @@ export default function InputDatapost() {
         toast.error("--->", error.message);
       });
   };
+  const CustomColorOption = ({ innerProps, label, data }) => (
+    <div
+      {...innerProps}
+      style={{
+        padding: "0px 10px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderBottom: "1px solid #dee2e6",
+        background: "#dee9",
+        cursor: "pointer",
+      }}
+    >
+      {label}
+      <div
+        style={{
+          backgroundColor: data.value,
+          width: "20px",
+          height: "20px",
+          marginRight: "8px",
+          borderRadius: "50%",
+        }}
+      ></div>
+      <div>
+    <img src={data?.img} alt="" style={{ width: "40px",
+          height: "40px",}} />
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -266,6 +304,7 @@ export default function InputDatapost() {
                   return { value: color, label: color };
                 })}
                 onChange={(e) => selectHandler(e, "color")}
+                components={{ Option: CustomColorOption }}
               />
             </FormGroup>
             <Label>Size</Label>
