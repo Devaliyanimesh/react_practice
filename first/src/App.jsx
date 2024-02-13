@@ -46,6 +46,8 @@ import Productt from "./13.Api/Product/Productt";
 import InputDatapost from "./13.Api/Product/InputDatapost";
 import Count from "./14.Router/UI/Count/Count";
 import AppRedux from "./14.Router/Redux/AppRedux";
+import Routerrrr from "./12.RegisterModal/Router";
+import RouterPro from "./12.ProtectedRouter/Router/RouterPro";
 
 export default function main() {
   return (
@@ -106,7 +108,8 @@ export default function main() {
       {/* <Productt/> */}
       {/* <InputDatapost/> */}
       {/* <Count /> */}
-     < AppRedux/>
+     {/* < AppRedux/> */}
+   <RouterPro/>
     </div>
   );
 }
