@@ -45,6 +45,7 @@ import RouterApi from "./13.Api/RouterApi";
 import Productt from "./13.Api/Product/Productt";
 import InputDatapost from "./13.Api/Product/InputDatapost";
 import Count from "./14.Router/UI/Count/Count";
+import AppRedux from "./14.Router/Redux/AppRedux";
 
 export default function main() {
   return (
@@ -104,7 +105,8 @@ export default function main() {
       {/* <RouterApi/> */}
       {/* <Productt/> */}
       {/* <InputDatapost/> */}
-      <Count />
+      {/* <Count /> */}
+     < AppRedux/>
     </div>
   );
 }
