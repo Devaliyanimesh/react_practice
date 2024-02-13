@@ -44,7 +44,7 @@ import Api from "./13.Api/Api";
 import RouterApi from "./13.Api/RouterApi";
 import Productt from "./13.Api/Product/Productt";
 import InputDatapost from "./13.Api/Product/InputDatapost";
-
+import Count from "./14.Router/UI/Count/Count";
 
 export default function main() {
   return (
@@ -97,14 +97,14 @@ export default function main() {
       {/* Protected Router */}
       {/* <Routerrr /> */}
       {/* <ApiData /> */}
-     {/* <Mainpage/> */}
-    {/* <Router/> */}
+      {/* <Mainpage/> */}
+      {/* <Router/> */}
       {/* <RegisterPractice/> */}
-
       {/* <Routerr/> */}
       {/* <RouterApi/> */}
       {/* <Productt/> */}
-      <InputDatapost/>
+      {/* <InputDatapost/> */}
+ <Count/>
     </div>
   );
 }
