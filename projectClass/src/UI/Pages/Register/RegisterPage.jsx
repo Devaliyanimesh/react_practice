@@ -119,7 +119,7 @@ export default function RegisterPage() {
                 />
               </FormGroup>
               <Label>Gender:-</Label>
-              <div className="d-flex">
+              <div className="d-flex gap-2"  >
                 {genderMap?.map((e, i) => {
                   return (
                     <FormGroup key={i}>
