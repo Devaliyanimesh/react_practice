@@ -104,7 +104,7 @@ export default function main() {
       {/* <RouterApi/> */}
       {/* <Productt/> */}
       {/* <InputDatapost/> */}
- <Count/>
+      <Count />
     </div>
   );
 }
