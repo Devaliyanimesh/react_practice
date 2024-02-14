@@ -1,3 +1,4 @@
+import { Settings } from "lucide-react";
 import React, { createContext, useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
@@ -17,6 +18,7 @@ function RegiTypeSelect() {
   let [local, setLocal] = useState(null);
   let [namesave, setNamesave] = useState([]);
   let [ref, setRef] = useState(true);
+  
   const refHandler = () => {
     setRef(!ref);
   };
@@ -68,7 +70,6 @@ function RegiTypeSelect() {
   const handleSelectChange = (selectedOption) => {
     setName({ ...name, userType: selectedOption.value });
   };
-
   const dataTransefer = () => {
     let localmap = local?.some?.((e) => {
       return e?.email === name.email;
@@ -104,12 +105,23 @@ function RegiTypeSelect() {
       refHandler();
     }
   };
+  const filterSlection = (e) => {
+    let filterdd = local?.filter?.((ee) => ee.userType === e.value);
+    setLocal(filterdd);
+  };
+useEffect(()=>{
 
+})
   return (
     <div>
       <Button color="danger" onClick={toggle}>
         Click Me
       </Button>
+      <Select
+        options={options}
+        onChange={(e) => filterSlection(e)}
+        className="w-25 mb-1"
+      />
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
