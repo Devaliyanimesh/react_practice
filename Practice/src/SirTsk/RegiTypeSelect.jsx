@@ -1,5 +1,5 @@
 import { Settings } from "lucide-react";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
 import {
@@ -18,7 +18,8 @@ function RegiTypeSelect() {
   let [local, setLocal] = useState(null);
   let [namesave, setNamesave] = useState([]);
   let [ref, setRef] = useState(true);
-  
+  let [select, setSelect] = useState(null);
+
   const refHandler = () => {
     setRef(!ref);
   };
@@ -58,6 +59,7 @@ function RegiTypeSelect() {
     let normal = JSON.parse(json);
     setLocal(normal);
   }, [ref]);
+
   const checkdata = (ee) => {
     const hobbyCheck = name?.hobby?.includes(ee);
     if (hobbyCheck) {
@@ -83,9 +85,9 @@ function RegiTypeSelect() {
     } else if (localmap) {
       toast.warn(" Your Email is alerdy saved ! ");
     } else if (
-      name.email == "" ||
+      name.email === "" ||
       name.password === "" ||
-      name.gender == "" ||
+      name.gender === "" ||
       name.hobby.length === 0 ||
       name.userType === ""
     ) {
@@ -105,13 +107,14 @@ function RegiTypeSelect() {
       refHandler();
     }
   };
-  const filterSlection = (e) => {
-    let filterdd = local?.filter?.((ee) => ee.userType === e.value);
-    setLocal(filterdd);
-  };
-useEffect(()=>{
 
-})
+  useEffect(() => {
+    if (select) {
+      let filtered = local?.filter?.((e) => e?.userType === select?.value);
+      setLocal(filtered);
+    }
+  }, [select]);
+
   return (
     <div>
       <Button color="danger" onClick={toggle}>
@@ -119,7 +122,7 @@ useEffect(()=>{
       </Button>
       <Select
         options={options}
-        onChange={(e) => filterSlection(e)}
+        onChange={(e) => setSelect(e)}
         className="w-25 mb-1"
       />
       <Modal isOpen={modal} toggle={toggle}>
