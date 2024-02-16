@@ -108,8 +108,8 @@ export default function main() {
       {/* <Productt/> */}
       {/* <InputDatapost/> */}
       {/* <Count /> */}
-     {/* < AppRedux/> */}
-   <RouterPro/>
+     < AppRedux/>
+   {/* <RouterPro/> */}  
     </div>
   );
 }

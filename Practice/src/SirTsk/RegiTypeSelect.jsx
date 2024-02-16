@@ -60,8 +60,10 @@ function RegiTypeSelect() {
     setLocal(normal);
   }, [ref]);
 
+
   const checkdata = (ee) => {
     const hobbyCheck = name?.hobby?.includes(ee);
+    
     if (hobbyCheck) {
       const updatedHobbies = name.hobby.filter((hobby) => hobby !== ee);
       setName({ ...name, hobby: updatedHobbies });
@@ -69,6 +71,8 @@ function RegiTypeSelect() {
       setName({ ...name, hobby: [...name.hobby, ee] });
     }
   };
+
+
   const handleSelectChange = (selectedOption) => {
     setName({ ...name, userType: selectedOption.value });
   };
@@ -108,13 +112,6 @@ function RegiTypeSelect() {
     }
   };
 
-  useEffect(() => {
-    if (select) {
-      let filtered = local?.filter?.((e) => e?.userType === select?.value);
-      setLocal(filtered);
-    }
-  }, [select]);
-
   return (
     <div>
       <Button color="danger" onClick={toggle}>
@@ -122,7 +119,7 @@ function RegiTypeSelect() {
       </Button>
       <Select
         options={options}
-        onChange={(e) => setSelect(e)}
+        onChange={(e) => selectHendler(e)}
         className="w-25 mb-1"
       />
       <Modal isOpen={modal} toggle={toggle}>
