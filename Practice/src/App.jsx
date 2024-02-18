@@ -18,7 +18,7 @@ function App() {
     <>
       <div>
       {/* <CheckBox/> */}
-        {/* <Todo /> */}
+        <Todo />
         {/* <div className="d-flex gap-4 p-5">
           <Register />
           <Login />
@@ -28,7 +28,7 @@ function App() {
         {/* <InputTodoIndex/> */}
         {/* <Router/> */}
         {/* <Reduxx/> */}
-        <RegiTypeSelect/>
+        {/* <RegiTypeSelect/> */}
       </div>
     </>
   );

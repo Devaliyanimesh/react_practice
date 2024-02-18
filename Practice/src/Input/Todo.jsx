@@ -190,16 +190,17 @@ export default function Todo() {
             className="m-auto mt-5 rounded-3 p-2 text-white p-3 "
           >
             <h5 className="text-center">To do list</h5>
-            <div className="d-flex justify-content-end">
-              <input
-                type="checkbox"
-                onChange={(e) => selectALl(e)}
-                checked={chekk}
-              />
-              <input
+            <div className="d-flex " style={{alignItems:"center",gap:"10px"}}>
+            
+              <Input
                 type="text"
                 onChange={(e) => setSarchAdlist(e.target.value)}
                 value={searchadd}
+              />
+                <Input
+                type="checkbox"
+                onChange={(e) => selectALl(e)}
+                checked={chekk}
               />
             </div>
             {addlist.map((e, i) => {
@@ -222,7 +223,7 @@ export default function Todo() {
                       className="fas fa-circle-plus"
                       onClick={() => listHandler(i)}
                     ></i>
-                    <input
+                    <Input
                       type="checkbox"
                       checked={allchek.includes(e)}
                       onChange={() => transferchek(e)}
@@ -231,7 +232,7 @@ export default function Todo() {
                 </div>
               );
             })}
-            <button onClick={moveData}>Transfer</button>
+            <Button onClick={moveData} style={{marginTop:"10px"}}>Transfer</Button>
           </div>
 
           <div
@@ -239,22 +240,21 @@ export default function Todo() {
             className="m-auto mt-5 rounded-3 p-2 text-white p-3 "
           >
             <h5 className="text-center">Final list</h5>
-            <div className="d-flex justify-content-end align-items-center">
-              <Button onClick={deletAlldata} role="button">
-                Delet
-              </Button>
-              <input
-                type="checkbox"
-                onChange={(e) => returnChekbox(e)}
-                checked={retuenChekk}
-              />
-              <input
+            <div className="d-flex justify-content-end align-items-center gap-2">
+             
+            
+              <Input
                 type="text"
-                className="w-25"
+                className="w-100"
                 onChange={(e) => setSarchTransfer(e.target.value)}
                 value={searchTransfer}
               />
               <Button onClick={sechtransferChekk}>search</Button>
+              <Input
+                type="checkbox"
+                onChange={(e) => returnChekbox(e)}
+                checked={retuenChekk}
+              />
             </div>
             {transfer.map((e, i) => {
               return (
@@ -282,7 +282,7 @@ export default function Todo() {
                       className="fas fa-circle-xmark"
                       onClick={() => permanetDelet(i)}
                     ></i>
-                    <input
+                    <Input
                       type="checkbox"
                       checked={allchek.includes(e)}
                       onChange={() => returnAddlist(e)}
@@ -291,7 +291,13 @@ export default function Todo() {
                 </div>
               );
             })}
+            <div style={{marginTop:"10px", display:"flex",gap:"5px"}}>
+
             <Button onClick={moveReturn}>Transfer</Button>
+            <Button onClick={deletAlldata} role="button">
+                Delet
+              </Button>
+            </div>
           </div>
         </div>
       </div>
