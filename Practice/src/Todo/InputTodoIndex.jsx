@@ -75,9 +75,12 @@
     };
     const pendingDataTransfer = () => {
       const transferredItems = selectPending.map((index) => pending[index]);
-      setDone([...done, ...transferredItems]);
-       // Clear the selected pending items
+      const filteredPending = pending.filter((_, index) => !selectPending.includes(index));
+      setDone((prevDone) => [...prevDone, ...transferredItems]);
+      setPending(filteredPending);
+      setSelectPending([]);
     };
+    
 
     return (
       <>
