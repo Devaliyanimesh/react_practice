@@ -85,6 +85,7 @@ export default function Register() {
       setModal(!modal);
     }
   };
+  
   const [modal, setModal] = useState(false);
 
   const toggle = () => {

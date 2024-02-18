@@ -9,6 +9,8 @@ import Check from "./Input/Check";
 import ApiGet from "./Api/ApiGet";
 import InputTodoIndex from "./Todo/InputTodoIndex";
 import Router from "./Todo/Router";
+import Reduxx from "./Redux/UI/Redeux/Reduxx";
+import RegiTypeSelect from "./SirTsk/RegiTypeSelect";
 
 function App() {
   
@@ -24,7 +26,9 @@ function App() {
         {/* <Check/> */}
         {/* <ApiGet/> */}
         {/* <InputTodoIndex/> */}
-        <Router/>
+        {/* <Router/> */}
+        {/* <Reduxx/> */}
+        <RegiTypeSelect/>
       </div>
     </>
   );
