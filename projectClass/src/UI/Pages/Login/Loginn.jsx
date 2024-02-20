@@ -10,6 +10,8 @@ export default function Loginn() {
   });
   let [data, setData] = useState([]);
   let [locall, setLocall] = useState(null);
+  let [ref, setref] = useState(true)
+  let refToggle = () => { setref(!ref) }
   const dataHandler = (e) => {
     e.preventDefault();
     let emailmatch = locall?.some?.((e) => e?.email === value?.email);
@@ -18,29 +20,31 @@ export default function Loginn() {
     if (!emailmatch || !passwordmatch) {
       toast.error("your email is not match please register");
     }
-     else if (value.email === " " || value.password === "") {
+    else if (value.email === " " || value.password === "") {
       toast.error("please fill up data");
     }
-     else {
+    else {
       setData([...data, value]);
       setValue({
         email: "",
         password: "",
       });
+      refToggle()
       localStorage.setItem("local", JSON.stringify([...data, value]));
-      toggle();
+
     }
   };
-
+  
   useEffect(() => {
     let json = localStorage.getItem("add");
     let normal = JSON.parse(json);
     setLocall(normal);
+    
   }, []);
   return (
     <div className="box " style={{ marginTop: "80px" }} >
       <span className="borderline"></span>
-      <Form className="border border-1 w-25 m-auto my-4 p-3 rounded-2" style={{ boxShadow: "0px 0px 3px"}}>
+      <Form className="border border-1 w-25 m-auto my-4 p-3 rounded-2" style={{ boxShadow: "0px 0px 3px" }}>
         <h2>Login</h2>
         <div className="inputbox mt-3">
           <Label>Email</Label>
@@ -53,7 +57,7 @@ export default function Loginn() {
             value={value.email}
             onChange={(e) => setValue({ ...value, email: e.target.value })}
           />
-          
+
         </div>
         <div className="inputbox mt-3">
           <Label>Password</Label>
@@ -67,9 +71,9 @@ export default function Loginn() {
             onChange={(e) => setValue({ ...value, password: e.target.value })}
           />
         </div>
-       
+
         <Button onClick={dataHandler} className="mt-3 bg-danger w-100" >
-          <NavLink to={"/"} style={{textDecoration:"none",color:"white"}}>Submit</NavLink>
+          <NavLink to={"/"} style={{ textDecoration: "none", color: "white" }}>Submit</NavLink>
         </Button>
       </Form>
     </div>

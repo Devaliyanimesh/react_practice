@@ -1,23 +1,38 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
-import { Footprints, Search, ShoppingBag } from "lucide-react";
+import { Footprints, LogOut, Search, ShoppingBag } from "lucide-react";
 import { Button, Input } from "reactstrap";
 
-import { NavLink ,useNavigate} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let [local, setLocall] = useState([])
   let divFocus = useRef(null);
-  let navigate=useNavigate()
+  let[regile,setRegile]=useState([])
+
+  let navigate = useNavigate()
 
   const focusHandler = () => {
     divFocus.current.style.border = "2px solid black";
   };
+  useEffect(() => {
+    let json = localStorage.getItem("local");
+    let normal = JSON.parse(json);
+    setLocall(normal ||[]);
+  },[])
+  useEffect(() => {
+    let json = localStorage.getItem("local");
+    let normal = JSON.parse(json);
+    setRegile(normal || []);
+    
+  }, []);
 
+console.log(local.length);
   return (
     <>
       <div className="header ">
         <div className="logo  ">
-          <Footprints size={36} color="#181616"  onClick={()=>navigate("/")} />
+          <Footprints size={36} color="#181616" onClick={() => navigate("/")} />
           <h5 style={{ color: "black", fontWeight: "700" }}>Shoes</h5>
         </div>
 
@@ -81,7 +96,9 @@ export default function Header() {
           />
         </div>
         <div className="d-flex align-items-center gap-1">
-          <Button
+          {
+            local.length === 0 ? <>
+            <Button
             color="danger"
             className="p-0"
             style={{
@@ -93,9 +110,11 @@ export default function Header() {
             }}
           >
             <NavLink to={"/register"} style={{ textDecoration: "none", color: "black" }}>Register</NavLink>
-          </Button>
-          <b>/</b>
-          <Button
+          </Button> <b>/</b> </> :null
+          }
+         
+          
+          {local?.length ==0?  <Button
             className="p-0"
             color="danger"
             style={{
@@ -108,8 +127,12 @@ export default function Header() {
             }}
           >
             <NavLink to={"/login"} style={{ textDecoration: "none", color: "black" }}>Login</NavLink>
-          </Button>
-          <ShoppingBag color="#181616" role="button" onClick={()=>navigate("/")} />
+          </Button>:
+          <LogOut />
+          }
+         
+          
+          <ShoppingBag color="#181616" role="button" onClick={() => navigate("/")} />
         </div>
       </div>
     </>
