@@ -3,10 +3,11 @@ import "./Header.css";
 import { Footprints, Search, ShoppingBag } from "lucide-react";
 import { Button, Input } from "reactstrap";
 
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate} from "react-router-dom";
 
 export default function Header() {
   let divFocus = useRef(null);
+  let navigate=useNavigate()
 
   const focusHandler = () => {
     divFocus.current.style.border = "2px solid black";
@@ -16,26 +17,11 @@ export default function Header() {
     <>
       <div className="header ">
         <div className="logo  ">
-          <Footprints size={36} color="#181616" />
+          <Footprints size={36} color="#181616"  onClick={()=>navigate("/")} />
           <h5 style={{ color: "black", fontWeight: "700" }}>Shoes</h5>
         </div>
 
-        <div
-          className="bg-white d-flex ps-1 align-items-center gap-2 in  rounded-3 "
-          style={{ width: "30%", boxShadow: "0px 0px 3px" }}
-          ref={divFocus}
-          onClick={focusHandler}
-        >
-          <Search />
-          <Input
-            className="in"
-            style={{
-              border: "none",
-              backgroundColor: "transparent",
-              boxShadow: "none",
-            }}
-          />
-        </div>
+
 
         <ul className="list">
           <li className="home">
@@ -76,7 +62,24 @@ export default function Header() {
             </NavLink>
           </li>
         </ul>
+        <div
+          className="bg-white d-flex ps-1 align-items-center gap-2 in  rounded-3 "
+          style={{ width: "30%", boxShadow: "0px 0px 3px" }}
+          ref={divFocus}
+          onClick={focusHandler}
+        >
+          <Search />
+          <Input
+            className="in"
+            style={{
+              border: "none",
+              backgroundColor: "transparent",
+              boxShadow: "none",
+              marginTop: "-4px"
 
+            }}
+          />
+        </div>
         <div className="d-flex align-items-center gap-1">
           <Button
             color="danger"
@@ -89,7 +92,7 @@ export default function Header() {
               marginRight: "5px",
             }}
           >
-            <NavLink to={"/register"} style={{textDecoration:"none",color:"black"}}>Register</NavLink>
+            <NavLink to={"/register"} style={{ textDecoration: "none", color: "black" }}>Register</NavLink>
           </Button>
           <b>/</b>
           <Button
@@ -104,9 +107,9 @@ export default function Header() {
               marginRight: "5px",
             }}
           >
-            <NavLink to={"/login"} style={{textDecoration:"none",color:"black"}}>Login</NavLink>
+            <NavLink to={"/login"} style={{ textDecoration: "none", color: "black" }}>Login</NavLink>
           </Button>
-          <ShoppingBag color="#181616" />
+          <ShoppingBag color="#181616" role="button" onClick={()=>navigate("/")} />
         </div>
       </div>
     </>

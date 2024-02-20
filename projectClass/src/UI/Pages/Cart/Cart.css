@@ -1,7 +1,7 @@
 .gri{
     display: flex;
     gap: 30px !important;
-    padding: 0px 60px;
+    padding: 0px 40px;
     flex-wrap: wrap;
 }
 

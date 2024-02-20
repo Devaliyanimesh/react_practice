@@ -6,11 +6,10 @@ export const MenProted = ({ Component, WomanComponent, kidsComponent }) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    let json = localStorage.getItem("add");
+    let json = localStorage.getItem("local");
     let normal = JSON.parse(json);
-    let type = normal?.some?.((e) => e.userType === "user");
-    if (!normal || !type) {
-      toast.warn("you are not user");
+    if (!normal ) {
+      toast.warn("Please Login");
       navigate("/");
     }
   });

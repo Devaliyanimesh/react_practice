@@ -83,8 +83,10 @@ export default function Cart() {
 
   return (
     <>
+        <h4 className="mt-4 mb-3 text-center">Mean's Footwear</h4>
+
       <div
-        className=" gri mt-5  "
+        className=" gri  "
         style={{ flexWrap: "wrap", marginBottom: "50px" }}
       >
         {apiData.map((e, i) => {
@@ -92,7 +94,7 @@ export default function Cart() {
             <div key={i}>
               <Card
                 style={{
-                  width: "220px",
+                  width: "210px",
                   height: "450px",
                   padding: "10px 5px",
                   overflow: "hidden",

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Loginn.css";
-import { Button, Form, Input } from "reactstrap";
+import { Button, Form, Input, Label } from "reactstrap";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 export default function Loginn() {
   let [value, setValue] = useState({
     email: "",
@@ -16,9 +17,11 @@ export default function Loginn() {
 
     if (!emailmatch || !passwordmatch) {
       toast.error("your email is not match please register");
-    } else if (value.email === " " || value.password === "") {
+    }
+     else if (value.email === " " || value.password === "") {
       toast.error("please fill up data");
-    } else {
+    }
+     else {
       setData([...data, value]);
       setValue({
         email: "",
@@ -35,11 +38,12 @@ export default function Loginn() {
     setLocall(normal);
   }, []);
   return (
-    <div className="box " style={{ marginTop: "80px" }}>
+    <div className="box " style={{ marginTop: "80px" }} >
       <span className="borderline"></span>
-      <Form>
+      <Form className="border border-1 w-25 m-auto my-4 p-3 rounded-2" style={{ boxShadow: "0px 0px 3px"}}>
         <h2>Login</h2>
-        <div className="inputbox">
+        <div className="inputbox mt-3">
+          <Label>Email</Label>
           <Input
             required="required"
             id="exampleEmail"
@@ -49,10 +53,10 @@ export default function Loginn() {
             value={value.email}
             onChange={(e) => setValue({ ...value, email: e.target.value })}
           />
-          <span>Username</span>
-          <i></i>
+          
         </div>
-        <div className="inputbox">
+        <div className="inputbox mt-3">
+          <Label>Password</Label>
           <Input
             required="required"
             id="examplePassword"
@@ -62,15 +66,10 @@ export default function Loginn() {
             value={value.password}
             onChange={(e) => setValue({ ...value, password: e.target.value })}
           />
-          <span>Password</span>
-          <i></i>
         </div>
-        <div className="links">
-          <a href="">Forgot Password</a>
-          <a href="">Sign Up</a>
-        </div>
-        <Button onClick={dataHandler}>
-          <NavLink to={"/"} style={{textDecoration:"none",color:"black"}}>Submit</NavLink>
+       
+        <Button onClick={dataHandler} className="mt-3 bg-danger w-100" >
+          <NavLink to={"/"} style={{textDecoration:"none",color:"white"}}>Submit</NavLink>
         </Button>
       </Form>
     </div>
