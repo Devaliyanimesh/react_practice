@@ -93,9 +93,10 @@ export default function Header() {
           ref={divFocus}
           onClick={focusHandler}
         >
-          <Search />
+          <Search className="ms-2" />
           <Input
             className="in"
+            placeholder="Search here"
             style={{
               border: "none",
               backgroundColor: "transparent",
