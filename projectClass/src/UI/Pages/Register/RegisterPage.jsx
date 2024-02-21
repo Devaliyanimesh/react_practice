@@ -92,7 +92,7 @@ export default function RegisterPage() {
 
 
       <Form className="w-50  m-auto mt-4 mb-5 px-4 py-5 rounded-2  " style={{ boxShadow: "0px 0px 3px" }}>
-        <h2 className="text-center"> Rigester Here</h2>
+        <h2 className="text-center"> Register Here</h2>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>
           <Input

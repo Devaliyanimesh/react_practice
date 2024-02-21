@@ -4,30 +4,40 @@ import { Footprints, LogOut, Search, ShoppingBag } from "lucide-react";
 import { Button, Input } from "reactstrap";
 
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Header() {
   let [local, setLocall] = useState([])
   let divFocus = useRef(null);
   let[regile,setRegile]=useState([])
-
+ let regiToggle =()=>{
+  setRegile(!regile)
+ }
   let navigate = useNavigate()
 
   const focusHandler = () => {
-    divFocus.current.style.border = "2px solid black";
+    divFocus.current.style.border = "1px solid black";
   };
   useEffect(() => {
     let json = localStorage.getItem("local");
     let normal = JSON.parse(json);
     setLocall(normal ||[]);
-  },[])
+  },[regile])
   useEffect(() => {
     let json = localStorage.getItem("local");
     let normal = JSON.parse(json);
     setRegile(normal || []);
     
-  }, []);
+  }, [regile]);
+  let logoutButton =()=>{
+    localStorage.removeItem("local")
+    localStorage.removeItem("add")
+    toast.success("logout Succesfully")
+    regiToggle()
 
-console.log(local.length);
+  }
+ 
+
   return (
     <>
       <div className="header ">
@@ -95,7 +105,7 @@ console.log(local.length);
             }}
           />
         </div>
-        <div className="d-flex align-items-center gap-1">
+        <div className="d-flex align-items-center gap-3">
           {
             local.length === 0 ? <>
             <Button
@@ -128,7 +138,7 @@ console.log(local.length);
           >
             <NavLink to={"/login"} style={{ textDecoration: "none", color: "black" }}>Login</NavLink>
           </Button>:
-          <LogOut />
+          <LogOut role="button" onClick={logoutButton} />
           }
          
           
