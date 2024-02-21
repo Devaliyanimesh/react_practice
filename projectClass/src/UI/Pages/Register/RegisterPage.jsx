@@ -117,32 +117,34 @@ export default function RegisterPage() {
             }}
           />
         </FormGroup>
-        <Label>Gender:-</Label>
+        <Label>Gender</Label>
         <div className="d-flex gap-2"  >
           {genderMap?.map((e, i) => {
             return (
               <FormGroup key={i}>
-                <Label for="examplePassword">{e}</Label>
                 <Input
                   name="radio1"
                   type="radio"
                   onChange={() => setName({ ...name, gender: e })}
                 />
+                <Label for="examplePassword" style={{marginLeft:"10px"}}>{e}</Label>
+
               </FormGroup>
             );
           })}
         </div>
-        <Label>Hobby:-</Label>
-        <div className="d-flex gap-2">
+        <Label>Hobby</Label>
+        <div className="d-flex gap-3">
           {hobbyMap.map((e, i) => {
             return (
-              <FormGroup key={i}>
-                <Label for="examplePassword">{e}</Label>
+              <FormGroup key={i} style={{ }}>
                 <Input
                   type="checkbox"
                   onChange={() => checkdata(e)}
                   checked={name?.hobby?.includes?.(e)}
                 />
+                <Label for="examplePassword" style={{marginLeft:"15px"}}>{e}</Label>
+
               </FormGroup>
             );
           })}

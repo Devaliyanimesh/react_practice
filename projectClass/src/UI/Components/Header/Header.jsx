@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Header.css";
-import { Footprints, LogOut, Search, ShoppingBag } from "lucide-react";
+import { Footprints, LandPlot, LogOut, Search, ShoppingBag } from "lucide-react";
 import { Button, Input } from "reactstrap";
 
 import { NavLink, useNavigate } from "react-router-dom";
@@ -23,12 +23,12 @@ export default function Header() {
     let normal = JSON.parse(json);
     setLocall(normal ||[]);
   },[regile])
-  useEffect(() => {
-    let json = localStorage.getItem("local");
-    let normal = JSON.parse(json);
-    setRegile(normal || []);
+  // useEffect(() => {
+  //   let json = localStorage.getItem("local");
+  //   let normal = JSON.parse(json);
+  //   setRegile(normal || []);
     
-  }, [regile]);
+  // }, [regile]);
   let logoutButton =()=>{
     localStorage.removeItem("local")
     localStorage.removeItem("add")
@@ -36,7 +36,6 @@ export default function Header() {
     regiToggle()
 
   }
- 
 
   return (
     <>
