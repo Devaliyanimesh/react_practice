@@ -3,19 +3,21 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, Input, Label, Toast } from "reactstrap";
 
-export default function Inputt() {
+export default function Inputt({refresPage}) {
   let [item, setItem] = useState({
     money: "",
     description: "",
     list: "",
     date: "",
   });
-  let [data, setdata] = useState([]);
+let[data,setdata]=useState([])
+
+refresPage
   const options = [
     { value: "food", label: "Food" },
-    { value: "travel expenses", label: "Travel expenses" },
+    { value: "travel_expenses", label: "Travel expenses" },
     { value: "cellphone", label: "CellPhone" },
-    { value: "cable bill", label: "Cabel Bill" },
+    { value: "cablebill", label: "Cabel Bill" },
     { value: "housing", label: "Housing" },
     { value: "medicine ", label: "Medicine" },
     { value: "petrol", label: "Petrol" },
@@ -32,22 +34,15 @@ export default function Inputt() {
       toast.error("please fill description");
     } else if (item.date === "") {
       toast.error("please fill date");
+    } else {
+      setdata([...data, item]);
+      localStorage.setItem("item", JSON.stringify([...data, item]));
+      setItem({ money: "", description: "", list: "", date: "" });
+      refresPage()
+      e.preventDefault();
     }
-    else{
-
-
-    setdata([...data, item]);
-    localStorage.setItem("item", JSON.stringify([...data, item]));
-    setItem({ money: "",
-    description: "",
-    list: "",
-    date: "",})
-    e.preventDefault();
-  }
-
   };
 
-  console.log(item.date);
   return (
     <>
       <Form className="border border-black rounded w-25 p-4 flex flex-col   justify-center m-auto">
@@ -57,6 +52,7 @@ export default function Inputt() {
           <Input
             placeholder="Enter your expenses...."
             type="number"
+            value={item.money}
             onChange={(e) => setItem({ ...item, money: e.target.value })}
           />
         </FormGroup>
@@ -65,6 +61,7 @@ export default function Inputt() {
           <Input
             placeholder="Discription..."
             type="textarea"
+            value={item.description}
             onChange={(e) => setItem({ ...item, description: e.target.value })}
           />
         </FormGroup>
@@ -73,7 +70,10 @@ export default function Inputt() {
 
           <Select
             options={options}
-            onChange={(e) => setItem({ ...item, list: e.value })}
+            value={item.list}
+            onChange={(selectedOption) =>
+              setItem({ ...item, list: selectedOption })
+            }
           />
         </FormGroup>
         <FormGroup>
@@ -81,10 +81,11 @@ export default function Inputt() {
 
           <Input
             type="date"
+            value={item.date}
             onChange={(e) => setItem({ ...item, date: e.target.value })}
           />
         </FormGroup>
-        <Button className="w-100" onClick={(e) => itemData(e)}>
+        <Button className="w-100" color="danger" onClick={(e) => itemData(e)}>
           Submit
         </Button>
       </Form>
