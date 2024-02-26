@@ -1,0 +1,7 @@
+1.Redux: Redux is a state management library for JavaScript apps, providing a predictable state container and enabling centralized state management.
+
+2.Redux Thunk: Redux Thunk is a middleware for Redux that allows asynchronous logic to be handled within action creators by enabling them to return functions instead of plain objects.
+
+3.Pure Component: A Pure Component in React implements a shouldComponentUpdate method with shallow prop and state comparison, optimizing performance by preventing unnecessary re-renders when props or state haven't changed significantly.
+
+4.Second Argument of setState: The second argument of setState in React is a callback function that executes after the state has been updated and the component has been re-rendered, useful for performing actions dependent on the updated state
