@@ -11,7 +11,18 @@ import img9 from "./../../img/clothing.jpg";
 import img10 from "./../../img/grocery.jpg";
 import { Input, Table } from "reactstrap";
 
-let imgg = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+let imgg = [
+  { img: img1, type: "food" },
+  { img: img2, type: "travel" },
+  { img: img3, type: "cellphonebill" },
+  { img: img4, type: "cablebill" },
+  { img: img5, type: "housing" },
+  { img: img6, type: "medicisens" },
+  { img: img7, type: "bike" },
+  { img: img8, type: "petrol" },
+  { img: img9, type: "clothing" },
+  { img: img10, type: "grocery" },
+];
 
 export default function TableData({ data }) {
   const [local, setLocal] = useState([]);
@@ -24,15 +35,13 @@ export default function TableData({ data }) {
     setFilteredLocal(localData || []);
   }, [data]);
 
-  const clickButton = (index) => {
-    const filterMode = local.filter((item, i) => i === index && (item.list.value === "petrol" || item.list.value === "housing"||item.value===""||item.list.value === "petrol" || item.list.value === "housing"||item.value===""));
-    setFilteredLocal(filterMode);
-    setRef(!ref);
+  const clickButton = (e) => {
+    const filterMode = local.filter((item, i) =>item.list.value=== e.type);
+    setFilteredLocal(filterMode);                                 
+    setRef(!ref);filterMode
   };
 
-  useEffect(() => {
-    // Do something when ref changes
-  }, [ref]);
+  useEffect(() => {}, [ref]);
 
   return (
     <>
@@ -42,17 +51,17 @@ export default function TableData({ data }) {
             key={i}
             className="d-flex"
             role="button"
-            onClick={() => clickButton(i)}
+            onClick={() => clickButton(e)}
           >
             <div
               className="overflow-hidden w-20 h-20 relative"
               style={{ borderRadius: "50%" }}
             >
-              <img src={e} className="w-full h-full" alt="" />
+              <img src={e.img} className="w-full h-full" alt="" />
             </div>
             <div
               className="absolute bg-black opacity-30 hover:opacity-0 transition duration-300 ease-in-out"
-              style={{ borderRadius: "50%", width: "5.2%", height: "11.5%" }}
+              style={{ borderRadius: "50%", width: "5.3%", height: "11.2%" }}
             ></div>
           </div>
         ))}

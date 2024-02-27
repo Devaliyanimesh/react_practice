@@ -3,16 +3,16 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import { Button, Form, FormGroup, Input, Label, Toast } from "reactstrap";
 
-export default function Inputt({refresPage}) {
+export default function Inputt({ refresPage }) {
   let [item, setItem] = useState({
     money: "",
     description: "",
     list: "",
     date: "",
   });
-let[data,setdata]=useState([])
+  let [data, setdata] = useState([]);
 
-refresPage
+  refresPage;
   const options = [
     { value: "food", label: "Food" },
     { value: "travel_expenses", label: "Travel expenses" },
@@ -38,7 +38,7 @@ refresPage
       setdata([...data, item]);
       localStorage.setItem("item", JSON.stringify([...data, item]));
       setItem({ money: "", description: "", list: "", date: "" });
-      refresPage()
+      refresPage();
       e.preventDefault();
     }
   };
