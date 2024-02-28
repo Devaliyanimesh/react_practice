@@ -48,6 +48,7 @@ import Count from "./14.Router/UI/Count/Count";
 import AppRedux from "./14.Router/Redux/AppRedux";
 import Routerrrr from "./12.RegisterModal/Router";
 import RouterPro from "./12.ProtectedRouter/Router/RouterPro";
+import Inputt from "./6.input/Inputt";
 
 export default function main() {
   return (
@@ -83,7 +84,7 @@ export default function main() {
       {/* <UserreduceInputTask/> */}
       {/* <UseEffetproject/> */}
       {/* <Task/> */}
-      {/* <Inputt /> */}
+      <Inputt />
       {/* <Practic/> */}
       {/* <MultipleValue/> */}
       {/* <Practiccc/> */}
@@ -108,7 +109,7 @@ export default function main() {
       {/* <Productt/> */}
       {/* <InputDatapost/> */}
       {/* <Count /> */}
-     < AppRedux/>
+     {/* < AppRedux/> */}
    {/* <RouterPro/> */}  
     </div>
   );

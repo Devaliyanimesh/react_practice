@@ -11,16 +11,13 @@ import InputTodoIndex from "./Todo/InputTodoIndex";
 import Router from "./Todo/Router";
 import Reduxx from "./Redux/UI/Redeux/Reduxx";
 import RegiTypeSelect from "./SirTsk/RegiTypeSelect";
-import UseReduser from "./Practic/UseReduser";
-import Usecontext from "./Practic/context/usecontext";
-import ApiPractice from "./Api/ApiPractice";
+import InputPractice from "./Input/InputPractice";
 
 function App() {
- 
   return (
     <>
       <div>
-      {/* <CheckBox/> */}
+        {/* <CheckBox/> */}
         {/* <Todo /> */}
         {/* <div className="d-flex gap-4 p-5">
           <Register />
@@ -33,8 +30,8 @@ function App() {
         {/* <Reduxx/> */}
         {/* <RegiTypeSelect/> */}
         {/* <UseReduser/> */}
-        {/* <Usecontext/> */}
-        <ApiPractice/>
+
+        <InputPractice />
       </div>
     </>
   );

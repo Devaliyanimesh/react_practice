@@ -8,6 +8,7 @@ export const MenProted = ({ Component, WomanComponent, kidsComponent }) => {
   useEffect(() => {
     let json = localStorage.getItem("local");
     let normal = JSON.parse(json);
+    console.log(normal);
     if (!normal ) {
       toast.warn("Please Login");
       navigate("/");

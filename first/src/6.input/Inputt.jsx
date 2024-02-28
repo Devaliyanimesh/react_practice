@@ -27,7 +27,7 @@ export default function Inputt() {
       <div className=" border border-5 border-primary w-25 m-5 p-2 ">
         <h1 className="text-center">Food Zone</h1>
         <div className="row  rounded-5 m-1">
-          <div className="col-8">
+          <div className="">
             {/* first */}
             <Input
               value={food}

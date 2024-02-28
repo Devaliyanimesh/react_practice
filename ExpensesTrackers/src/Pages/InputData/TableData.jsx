@@ -13,13 +13,13 @@ import { Input, Table } from "reactstrap";
 
 let imgg = [
   { img: img1, type: "food" },
-  { img: img2, type: "travel" },
-  { img: img3, type: "cellphonebill" },
+  { img: img2, type: "travel_expenses" },
+  { img: img3, type: "cellphone" },
   { img: img4, type: "cablebill" },
   { img: img5, type: "housing" },
-  { img: img6, type: "medicisens" },
-  { img: img7, type: "bike" },
-  { img: img8, type: "petrol" },
+  { img: img6, type: "med" },
+  { img: img7, type: "petrol" },
+  { img: img8, type: "cargas" },
   { img: img9, type: "clothing" },
   { img: img10, type: "grocery" },
 ];
@@ -28,6 +28,7 @@ export default function TableData({ data }) {
   const [local, setLocal] = useState([]);
   const [filteredLocal, setFilteredLocal] = useState([]);
   const [ref, setRef] = useState(true);
+  let[datee,setDatee]=useState(null)
 
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("item"));
@@ -36,13 +37,21 @@ export default function TableData({ data }) {
   }, [data]);
 
   const clickButton = (e) => {
-    const filterMode = local.filter((item, i) =>item.list.value=== e.type);
-    setFilteredLocal(filterMode);                                 
-    setRef(!ref);filterMode
+    const filterMode = local.filter((item, i) => item.list.value === e.type );
+    setFilteredLocal(filterMode);
+    setRef(!ref);
   };
+  
 
-  useEffect(() => {}, [ref]);
+  useEffect(() => {
 
+  }, [ref]);
+  useEffect(()=>{
+    const filterMode = local.filter((item, i) => item.date === datee );
+    setFilteredLocal(filterMode)
+
+  },[datee])
+console.log(datee);
   return (
     <>
       <div className="d-flex mt-3 gap-4 items-center px-2 justify-center">
@@ -66,7 +75,7 @@ export default function TableData({ data }) {
           </div>
         ))}
         <div>
-          <Input type="date" />
+          <Input type="date" onChange={(e)=> setDatee(e.target.value)}/>
         </div>
       </div>
       <Table className="mt-2">

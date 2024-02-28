@@ -45,7 +45,7 @@ export default function InputLast() {
     }, [])
     return (
         <>
-            <Form className='w-25 m-auto border border-3 border-dark m-3 p-4 rounded-7 '>
+            <Form className='  border border-3 border-dark m-3 p-4 rounded-7 '>
                 <FormGroup>
                     <Label for="exampleEmail">
                         Email

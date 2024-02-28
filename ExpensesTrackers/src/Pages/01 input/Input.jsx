@@ -19,7 +19,7 @@ export default function Inputt({ refresPage }) {
     { value: "cellphone", label: "CellPhone" },
     { value: "cablebill", label: "Cabel Bill" },
     { value: "housing", label: "Housing" },
-    { value: "medicine ", label: "Medicine" },
+    { value: "med", label: "Medicine" },
     { value: "petrol", label: "Petrol" },
     { value: "cargas", label: "CarGas" },
     { value: "clothing", label: "Clothing" },
