@@ -1,14 +1,7 @@
-import React from "react";
-import Crousal from "./Crousal";
-import Cart from "../Cart/Cart";
+import React from 'react'
 
 export default function Home() {
   return (
-    <>
- 
-      <Crousal />
-      <Cart />
-      
-    </>
-  );
+    <div>Home</div>
+  )
 }
