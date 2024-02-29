@@ -9,20 +9,24 @@ export default function RegisterPage() {
     number: "",
     password: "",
     age: "",
-    address: [],
+    address: [
+      
+    ],
   });
-  let [adres, setAdress] = useState({
+  let[adres,setAdress]=useState({
     add: "",
     city: "",
     state: "",
     pinCode: "",
-  });
+  },)
   let [data, setData] = useState([]);
+ 
   const dataTransfer = (e) => {
-    e.preventDefault();
-    setData([details]);
+    e.preventDefault()
+    const updatedDetails = { ...details, address: [adres] };
+    setData([updatedDetails]);
   };
-
+ console.log(data);
   return (
     <>
       <Form className="w-25 border border-black rounded-2 p-2 m-auto">
