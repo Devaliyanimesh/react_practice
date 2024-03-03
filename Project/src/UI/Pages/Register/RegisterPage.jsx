@@ -1,37 +1,42 @@
 import React from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import LoginModal from "../Login/LoginModal";
 
 export default function RegisterPage() {
+  const [loginmodal, setLogin] = useState(false);
+
+  const loginToggle = () =>{
+     setLogin(!loginmodal);
+  }
   let [details, setDetails] = useState({
     name: "",
     email: "",
     number: "",
     password: "",
     age: "",
-    address: [
-      
-    ],
+    address: [],
   });
-  let[adres,setAdress]=useState({
+  let [adres, setAdress] = useState({
     add: "",
     city: "",
     state: "",
     pinCode: "",
-  },)
+  });
   let [data, setData] = useState([]);
- 
+
   const dataTransfer = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const updatedDetails = { ...details, address: [adres] };
     setData([updatedDetails]);
   };
- console.log(data);
   return (
     <>
-      <Form className="w-25 border border-black rounded-2 p-2 m-auto">
+    <LoginModal toggle={loginToggle} modal={loginmodal} />  
+      <Form className="">
         <FormGroup>
-          <Label for="exampleEmail">Name</Label>
+          <Label for="">Name</Label>
           <Input
             type="text"
             onChange={(e) => setDetails({ ...details, name: e.target.value })}
@@ -71,41 +76,36 @@ export default function RegisterPage() {
           <Label for="exampleEmail">Adress</Label>
           <Input
             type="text"
-            onChange={(e) =>
-              setAdress({...adres,add:e.target.value})
-            }
+            onChange={(e) => setAdress({ ...adres, add: e.target.value })}
           />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">City</Label>
           <Input
             type="text"
-            onChange={(e) =>
-              setAdress({...adres,city:e.target.value})
-            }
+            onChange={(e) => setAdress({ ...adres, city: e.target.value })}
           />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">state</Label>
           <Input
             type="text"
-            onChange={(e) =>
-              setAdress({...adres,state:e.target.value})
-            }
+            onChange={(e) => setAdress({ ...adres, state: e.target.value })}
           />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Pincode</Label>
           <Input
             type="number"
-            onChange={(e) =>
-              setAdress({...adres,pinCode:e.target.value})
-            }
+            onChange={(e) => setAdress({ ...adres, pinCode: e.target.value })}
           />
         </FormGroup>
         <Button className="w-100 bg-danger" onClick={(e) => dataTransfer(e)}>
           Submit
         </Button>
+        <p className="text-center  pt-2">
+          Please login here <button onClick={loginToggle}>Login</button>
+        </p>
       </Form>
     </>
   );

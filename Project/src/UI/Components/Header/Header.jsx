@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./header.css";
 import { Eye, IndianRupee, Search, ShoppingBag, User } from "lucide-react";
+import RegisterModal from "../../Pages/Register/RegisterModal";
+import LoginModal from "../../Pages/Login/LoginModal";
 
 export default function Header() {
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+  
   return (
     <>
+      <RegisterModal toggle={toggle} modal={modal}  />
+      
+
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
         A new season : Zanzibar |{" "}
         <a
@@ -83,23 +92,23 @@ export default function Header() {
         </ul>
         <div className="flex items-center gap-5  textalign ">
           <div className="">
-            <IndianRupee size={16}/>
+            <IndianRupee size={16} />
             <p>INR</p>
           </div>
           <div>
-            <Eye size={16}/>
+            <Eye size={16} />
             <p>Viewed</p>
           </div>
           <div>
-            <Search size={16}/>
+            <Search size={16} />
             <p>Search</p>
           </div>
-          <div>
+          <div onClick={toggle} role="button">
             <User size={16} />
             <p>Sign in</p>
           </div>
           <div>
-            <ShoppingBag  size={16}/>
+            <ShoppingBag size={16} />
             <p>My Bag</p>
           </div>
         </div>

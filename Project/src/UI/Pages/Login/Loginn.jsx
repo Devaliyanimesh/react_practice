@@ -45,11 +45,9 @@ export default function Loginn() {
   }, []);
 
   return (
-    <div className="box" style={{ marginTop: "80px" }}>
-      <span className="borderline"></span>
-      <Form className="border border-1 w-25 m-auto my-4 p-3 rounded-2" style={{ boxShadow: "0px 0px 3px" }}>
-        <h2>Login</h2>
-        <div className="inputbox mt-3">
+    <div className="box" >
+        <Form className="" >
+        <div className="">
           <Label>Email</Label>
           <Input
             required
@@ -76,9 +74,7 @@ export default function Loginn() {
         <Button className="mt-3 bg-danger w-100" onClick={dataHandler}>
           Submit
         </Button>
-        <p className="mt-3 text-center">
-          Don't have an account? <NavLink to={"/register"} style={{ textDecoration: "none" }}>Register here</NavLink>
-        </p>
+        
       </Form>
     </div>
   );

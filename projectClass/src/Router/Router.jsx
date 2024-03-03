@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../UI/Pages/Home/Home";
 import Header from "../UI/Components/Header/Header";
@@ -13,6 +13,7 @@ import Loginn from "../UI/Pages/Login/Loginn";
 import RegisterPage from "../UI/Pages/Register/RegisterPage";
 
 export default function Router() {
+  
   return (
     <BrowserRouter>
       <Header />
