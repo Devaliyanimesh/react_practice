@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import LoginModal from "../Login/LoginModal";
 
-export default function RegisterPage({logii}) {
+export default function RegisterPage({login}) {
   useEffect(()=>{
 
   },[])
@@ -102,7 +102,7 @@ export default function RegisterPage({logii}) {
           Submit
         </Button>
         <p className="text-center  pt-2">
-          Please login here <button onClick={logii} style={{color:"blue"}}>Login</button>
+          Please login here <button onClick={login} style={{color:"blue"}} role="button">Login</button>
         </p>
       </Form>
     </>
