@@ -68,7 +68,7 @@ export default function Collection() {
           style={{ width: "100px", height: "100px", borderRadius: "50%" }}
         />
         <p>Nico Core</p>
-      </div>{" "}
+      </div>
       <div className="pt-4  text-center">
         <img
           src={img9}
@@ -76,7 +76,7 @@ export default function Collection() {
           style={{ width: "100px", height: "100px", borderRadius: "50%" }}
         />
         <p>Bestsellers</p>
-      </div>{" "}
+      </div>
       <div className="pt-4  text-center">
         <img
           src={img10}
@@ -84,7 +84,8 @@ export default function Collection() {
           style={{ width: "100px", height: "100px", borderRadius: "50%" }}
         />
         <p>Gift for him</p>
-      </div>{" "}
+      </div>
+      
      
     </div>
   );

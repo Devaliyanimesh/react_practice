@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import LoginModal from "../Login/LoginModal";
 
-export default function RegisterPage() {
-  const [loginmodal, setLogin] = useState(false);
+export default function RegisterPage({logii}) {
+  useEffect(()=>{
 
-  const loginToggle = () =>{
-     setLogin(!loginmodal);
-  }
+  },[])
+ 
   let [details, setDetails] = useState({
     name: "",
     email: "",
@@ -33,7 +32,6 @@ export default function RegisterPage() {
   };
   return (
     <>
-    <LoginModal toggle={loginToggle} modal={loginmodal} />  
       <Form className="">
         <FormGroup>
           <Label for="">Name</Label>
@@ -104,9 +102,11 @@ export default function RegisterPage() {
           Submit
         </Button>
         <p className="text-center  pt-2">
-          Please login here <button onClick={loginToggle}>Login</button>
+          Please login here <button onClick={logii} style={{color:"blue"}}>Login</button>
         </p>
       </Form>
     </>
   );
 }
+
+// user/signup

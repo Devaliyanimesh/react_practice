@@ -12,6 +12,7 @@ import Router from "./Todo/Router";
 import Reduxx from "./Redux/UI/Redeux/Reduxx";
 import RegiTypeSelect from "./SirTsk/RegiTypeSelect";
 import InputPractice from "./Input/InputPractice";
+import TodoListtt from "./Input/TodoListtt";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
         {/* <RegiTypeSelect/> */}
         {/* <UseReduser/> */}
 
-        <InputPractice />
+        {/* <InputPractice /> */}
+        <TodoListtt/>
       </div>
     </>
   );
