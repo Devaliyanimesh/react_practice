@@ -1,19 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import LoginModal from "../Login/LoginModal";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { Eye } from "lucide-react";
 
-export default function RegisterPage({login}) {
-  useEffect(()=>{
+export default function RegisterPage({ login }) {
+  let reducer = (state, action) => {
+    console.log(action);
+    if (action.typee === "pass") {
+      return { ...state, val: state.val==="password" ?"text":"password" };
+    } else if (action.typee === "cpass") {
+      return { ...state, val2: state.val2==="password" ?"text":"password" } ;
 
-  },[])
- 
+    } else {
+    
+
+
+    }
+  };
+  
   let [details, setDetails] = useState({
     name: "",
     email: "",
     number: "",
     password: "",
+    confirmPassword: "",
     age: "",
     address: [],
   });
@@ -23,12 +37,27 @@ export default function RegisterPage({login}) {
     state: "",
     pinCode: "",
   });
-  let [data, setData] = useState([]);
+  let [type, setType] = useReducer(reducer,{val:"password",val2:"password"});
 
   const dataTransfer = (e) => {
     e.preventDefault();
-    const updatedDetails = { ...details, address: [adres] };
-    setData([updatedDetails]);
+    if (details.password !== details.confirmPassword) {
+     return toast.error("confirm password does not match")
+      
+    }
+    axios({
+      method: "post",
+      url: "http://localhost:9999/user/signup",
+      data: { ...details, address: [adres] },
+    })
+      .then((res) => {
+        console.log(res);
+        toast.success("data store");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        toast.error("errorr");
+      });
   };
   return (
     <>
@@ -56,12 +85,35 @@ export default function RegisterPage({login}) {
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">PassWord</Label>
-          <Input
-            type="text"
-            onChange={(e) =>
-              setDetails({ ...details, password: e.target.value })
-            }
-          />
+          <div
+            className="d-flex items-center w-100 rounded-2"
+            style={{ border: "2px solid #f7efef" }}
+          >
+            <Input
+              type={type?.val}
+              onChange={(e) =>
+                setDetails({ ...details, password: e.target.value })
+              }
+              style={{ backgroundColor: "transparent", border: "none" }}
+            />
+            <Eye style={{ marginRight: "10px" }}  onClick={()=>setType({typee:"pass"})}/>
+          </div>
+        </FormGroup>
+        <FormGroup>
+          <Label for="exampleEmail"> Confirm PassWord</Label>
+          <div
+            className="d-flex items-center w-100 rounded-2"
+            style={{ border: "2px solid #f7efef" }}
+          >
+            <Input
+              type={type.val2}
+              onChange={(e) =>
+                setDetails({ ...details, confirmPassword: e.target.value })
+              }
+              style={{ backgroundColor: "transparent", border: "none" }}
+            />
+            <Eye style={{ marginRight: "10px" }}  onClick={()=>setType({typee:"cpass"})}/>
+          </div>
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">age</Label>
@@ -102,7 +154,10 @@ export default function RegisterPage({login}) {
           Submit
         </Button>
         <p className="text-center  pt-2">
-          Please login here <button onClick={login} style={{color:"blue"}} role="button">Login</button>
+          Please login here{" "}
+          <button onClick={login} style={{ color: "blue" }} role="button">
+            Login
+          </button>
         </p>
       </Form>
     </>

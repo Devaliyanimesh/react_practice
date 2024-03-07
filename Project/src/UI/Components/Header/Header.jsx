@@ -15,13 +15,12 @@ import LoginModal from "../../Pages/Login/LoginModal";
 export default function Header() {
   const [loginmodal, setLogin] = useState(false);
   const loginToggle = () => {
-    // toggle();
     setLogin(!loginmodal);
   };
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
-    // loginToggle()
+    
     setModal(!modal);
   };
 
