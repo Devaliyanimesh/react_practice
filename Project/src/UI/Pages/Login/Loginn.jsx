@@ -4,7 +4,7 @@ import { Button, Form, Input, Label } from "reactstrap";
 import { NavLink,useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function Loginn() {
+export default function Loginn({loginTogg,registerTogg}) {
   const [value, setValue] = useState({
     email: "",
     password: "",
@@ -19,7 +19,7 @@ export default function Loginn() {
       toast.error("Please fill up all fields");
       return;
     }
-
+  
     const emailMatch = locall?.some?.((e) => e?.email === value?.email);
     const passwordMatch = locall?.some?.((e) => e?.password === value?.password);
 
@@ -37,6 +37,10 @@ export default function Loginn() {
     toast.success("login Succesfully")
     localStorage.setItem("local", JSON.stringify([...data, value]));
   };
+  const rgiserPageHandler = ()=>{
+    loginTogg();
+    registerTogg();
+  }
 
   useEffect(() => {
     const json = localStorage.getItem("add");
@@ -74,7 +78,16 @@ export default function Loginn() {
         <Button className="mt-3 bg-danger w-100" onClick={dataHandler}>
           Submit
         </Button>
-        
+        <p className="text-center  pt-2">
+          Please login here{" "}
+          <span
+            style={{ color: "blue" }}
+            role="button"
+            onClick={(e) => rgiserPageHandler(e)}
+          >
+            Register
+          </span>
+        </p>
       </Form>
     </div>
   );

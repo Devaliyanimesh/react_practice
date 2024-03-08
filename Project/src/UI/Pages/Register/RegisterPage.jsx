@@ -55,7 +55,7 @@ export default function RegisterPage({ loginToggle, toggle }) {
       data: { ...details, address: [adres] },
     })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         dispatch(loginn(res.data));
         toast.success("data store");
       })

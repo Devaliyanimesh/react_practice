@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <>
       <RegisterModal modal={modal} toggle={toggle} loginToggle={loginToggle} />
-      <LoginModal modal={loginModal} toggle={loginToggle} />
+      <LoginModal modal={loginModal} logintoggle={loginToggle}  regiserToggle={toggle} />
 
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
         A new season : Zanzibar |{" "}
@@ -102,7 +102,7 @@ export default function Header() {
             <NavLink className="link">New Arrivals</NavLink>
           </li>
           <li className="relative">
-            <NavLink className="link">Our story</NavLink>
+            <NavLink className="link">Profile</NavLink>
           </li>
         </ul>
         <div className="flex items-center gap-5  textalign ">
