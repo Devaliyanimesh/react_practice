@@ -15,7 +15,7 @@ export default function Router() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/loginmodal" element={<LoginModal />} />
+          {/* <Route path="/loginModal" element={<LoginModal />} /> */}
 
 
         </Routes>

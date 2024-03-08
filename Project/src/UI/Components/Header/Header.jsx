@@ -13,26 +13,22 @@ import RegisterModal from "../../Pages/Register/RegisterModal";
 import LoginModal from "../../Pages/Login/LoginModal";
 
 export default function Header() {
-  const [loginmodal, setLogin] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
   const loginToggle = () => {
-    setLogin(!loginmodal);
+    console.log("------login------");
+    setLoginModal(!loginModal);
   };
   const [modal, setModal] = useState(false);
-
+  
   const toggle = () => {
-    
     setModal(!modal);
+    console.log("------reg------");
   };
 
-  const loginhandler =()=>{
-    toggle()
-    loginToggle()
-    console.log("ji");
-  }
   return (
     <>
-      <RegisterModal modal={modal} toggle={toggle} loginTogg={loginhandler} />
-      <LoginModal modal={loginmodal} toggle={loginToggle} />
+      <RegisterModal modal={modal} toggle={toggle} loginToggle={loginToggle} />
+      <LoginModal modal={loginModal} toggle={loginToggle} />
 
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
         A new season : Zanzibar |{" "}

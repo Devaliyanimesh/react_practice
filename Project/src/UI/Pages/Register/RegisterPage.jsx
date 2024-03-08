@@ -5,22 +5,21 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Eye } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import {loginn} from './../../../Reduxx/State/Statee'
+import { loginn } from "./../../../Reduxx/State/Statee";
 
-export default function RegisterPage({login}) {
-  let dispatch =useDispatch()
+export default function RegisterPage({ loginToggle, toggle }) {
+  let dispatch = useDispatch();
   let reducer = (state, action) => {
-    console.log(action);
     if (action.typee === "pass") {
-      return { ...state, val: state.val==="password" ?"text":"password" };
+      return { ...state, val: state.val === "password" ? "text" : "password" };
     } else if (action.typee === "cpass") {
-      return { ...state, val2: state.val2==="password" ?"text":"password" } ;
-
+      return {
+        ...state,
+        val2: state.val2 === "password" ? "text" : "password",
+      };
     }
-
   };
 
-  
   let [details, setDetails] = useState({
     name: "",
     email: "",
@@ -36,13 +35,19 @@ export default function RegisterPage({login}) {
     state: "",
     pinCode: "",
   });
-  let [type, setType] = useReducer(reducer,{val:"password",val2:"password"});
+  let [type, setType] = useReducer(reducer, {
+    val: "password",
+    val2: "password",
+  });
 
+  const toggleHndler = () => {
+    toggle();
+    loginToggle();
+  };
   const dataTransfer = (e) => {
     e.preventDefault();
     if (details.password !== details.confirmPassword) {
-     return toast.error("confirm password does not match")
-      
+      return toast.error("confirm password does not match");
     }
     axios({
       method: "post",
@@ -51,7 +56,7 @@ export default function RegisterPage({login}) {
     })
       .then((res) => {
         console.log(res);
-        dispatch(loginn(res.data))
+        dispatch(loginn(res.data));
         toast.success("data store");
       })
       .catch((err) => {
@@ -96,7 +101,10 @@ export default function RegisterPage({login}) {
               }
               style={{ backgroundColor: "transparent", border: "none" }}
             />
-            <Eye style={{ marginRight: "10px" }}  onClick={()=>setType({typee:"pass"})}/>
+            <Eye
+              style={{ marginRight: "10px" }}
+              onClick={() => setType({ typee: "pass" })}
+            />
           </div>
         </FormGroup>
         <FormGroup>
@@ -112,7 +120,10 @@ export default function RegisterPage({login}) {
               }
               style={{ backgroundColor: "transparent", border: "none" }}
             />
-            <Eye style={{ marginRight: "10px" }}  onClick={()=>setType({typee:"cpass"})}/>
+            <Eye
+              style={{ marginRight: "10px" }}
+              onClick={() => setType({ typee: "cpass" })}
+            />
           </div>
         </FormGroup>
         <FormGroup>
@@ -155,9 +166,13 @@ export default function RegisterPage({login}) {
         </Button>
         <p className="text-center  pt-2">
           Please login here{" "}
-          <button onClick={login} style={{ color: "blue" }} role="button">
+          <span
+            style={{ color: "blue" }}
+            role="button"
+            onClick={(e) => toggleHndler(e)}
+          >
             Login
-          </button>
+          </span>
         </p>
       </Form>
     </>
