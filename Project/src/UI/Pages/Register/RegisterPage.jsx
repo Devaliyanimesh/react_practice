@@ -1,13 +1,14 @@
 import React, { useEffect, useReducer } from "react";
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
-import LoginModal from "../Login/LoginModal";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Eye } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import {loginn} from './../../../Reduxx/State/Statee'
 
-export default function RegisterPage({ login }) {
+export default function RegisterPage({login}) {
+  let dispatch =useDispatch()
   let reducer = (state, action) => {
     console.log(action);
     if (action.typee === "pass") {
@@ -15,12 +16,10 @@ export default function RegisterPage({ login }) {
     } else if (action.typee === "cpass") {
       return { ...state, val2: state.val2==="password" ?"text":"password" } ;
 
-    } else {
-    
-
-
     }
+
   };
+
   
   let [details, setDetails] = useState({
     name: "",
@@ -52,6 +51,7 @@ export default function RegisterPage({ login }) {
     })
       .then((res) => {
         console.log(res);
+        dispatch(loginn(res.data))
         toast.success("data store");
       })
       .catch((err) => {

@@ -24,9 +24,14 @@ export default function Header() {
     setModal(!modal);
   };
 
+  const loginhandler =()=>{
+    toggle()
+    loginToggle()
+    console.log("ji");
+  }
   return (
     <>
-      <RegisterModal modal={modal} toggle={toggle} loginTogg={loginToggle} />
+      <RegisterModal modal={modal} toggle={toggle} loginTogg={loginhandler} />
       <LoginModal modal={loginmodal} toggle={loginToggle} />
 
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
