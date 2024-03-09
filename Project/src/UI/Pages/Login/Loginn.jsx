@@ -1,56 +1,69 @@
 import React, { useEffect, useState } from "react";
 import "./Loginn.css";
 import { Button, Form, Input, Label } from "reactstrap";
-import { NavLink,useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 
-export default function Loginn({loginTogg,registerTogg}) {
+export default function Loginn({ loginTogg, registerTogg }) {
   const [value, setValue] = useState({
     email: "",
     password: "",
   });
   const [data, setData] = useState([]);
   const [locall, setLocall] = useState(null);
-  let  navigate=useNavigate()
+  let navigate = useNavigate();
 
   const dataHandler = (e) => {
+    axios({
+      method: "post",
+      url: "http://localhost:9999/user/signin",
+      data: value,
+    })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("-->", err.message);
+        toast.error("login Fail");
+      });
     e.preventDefault();
-    if (value.email.trim() === "" || value.password.trim() === "") {
-      toast.error("Please fill up all fields");
-      return;
-    }
-  
-    const emailMatch = locall?.some?.((e) => e?.email === value?.email);
-    const passwordMatch = locall?.some?.((e) => e?.password === value?.password);
+    // if (value.email.trim() === "" || value.password.trim() === "") {
+    //   toast.error("Please fill up all fields");
+    //   return;
+    // }
 
-    if (!emailMatch || !passwordMatch) {
-      toast.error("Your email or password is incorrect. Please register if you haven't.");
-      return;
-    }
+    // const emailMatch = locall?.some?.((e) => e?.email === value?.email);
+    // const passwordMatch = locall?.some?.((e) => e?.password === value?.password);
+
+    // if (!emailMatch || !passwordMatch) {
+    //   toast.error("Your email or password is incorrect. Please register if you haven't.");
+    //   return;
+    // }
 
     setData([...data, value]);
-    setValue({
-      email: "",
-      password: "",
-    });
-    navigate("/")
-    toast.success("login Succesfully")
-    localStorage.setItem("local", JSON.stringify([...data, value]));
+    // setValue({
+    //   email: "",
+    //   password: "",
+    // });
+    // navigate("/")
+    // toast.success("login Succesfully")
+    // localStorage.setItem("local", JSON.stringify([...data, value]));
   };
-  const rgiserPageHandler = ()=>{
+  const rgiserPageHandler = () => {
     loginTogg();
     registerTogg();
-  }
+  };
 
   useEffect(() => {
     const json = localStorage.getItem("add");
     const normal = JSON.parse(json);
     setLocall(normal);
   }, []);
-
+  console.log(value);
   return (
-    <div className="box" >
-        <Form className="" >
+    <div className="box">
+      <Form className="">
         <div className="">
           <Label>Email</Label>
           <Input
@@ -92,3 +105,10 @@ export default function Loginn({loginTogg,registerTogg}) {
     </div>
   );
 }
+
+// product 
+// edit ,preview,
+// profile khule che tene badh karvu 
+// admin@admin.com
+
+// 123456
