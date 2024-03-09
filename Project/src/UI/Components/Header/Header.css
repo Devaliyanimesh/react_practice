@@ -20,3 +20,6 @@
     text-align: -webkit-center;
     font-size: 13px;
 }
+.active{
+font-weight: 600;
+}

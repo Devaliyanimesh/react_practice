@@ -4,6 +4,8 @@ import { Button, Form, Input, Label } from "reactstrap";
 import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { logi, loginn } from "../../../Reduxx/State/Statee";
 
 export default function Loginn({ loginTogg, registerTogg }) {
   const [value, setValue] = useState({
@@ -21,7 +23,12 @@ export default function Loginn({ loginTogg, registerTogg }) {
       data: value,
     })
       .then((res) => {
+        dispatch(loginn(res.data))
         console.log(res.data);
+        toast.success("Login succecsfully")
+        setValue({email:"",password:""})
+        loginTogg()
+
       })
       .catch((err) => {
         console.log("-->", err.message);
@@ -41,7 +48,7 @@ export default function Loginn({ loginTogg, registerTogg }) {
     //   return;
     // }
 
-    setData([...data, value]);
+    // setData([...data, value]);
     // setValue({
     //   email: "",
     //   password: "",
@@ -55,12 +62,13 @@ export default function Loginn({ loginTogg, registerTogg }) {
     registerTogg();
   };
 
+
   useEffect(() => {
     const json = localStorage.getItem("add");
     const normal = JSON.parse(json);
     setLocall(normal);
   }, []);
-  console.log(value);
+  let dispatch=useDispatch()
   return (
     <div className="box">
       <Form className="">

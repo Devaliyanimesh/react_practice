@@ -11,6 +11,8 @@ import {
 } from "lucide-react";
 import RegisterModal from "../../Pages/Register/RegisterModal";
 import LoginModal from "../../Pages/Login/LoginModal";
+import { useSelector } from "react-redux";
+import { data } from "autoprefixer";
 
 export default function Header() {
   const [loginModal, setLoginModal] = useState(false);
@@ -19,16 +21,21 @@ export default function Header() {
     setLoginModal(!loginModal);
   };
   const [modal, setModal] = useState(false);
-  
+
   const toggle = () => {
     setModal(!modal);
     console.log("------reg------");
   };
 
+  let dataa=useSelector((state)=>state.athorsli)
   return (
     <>
       <RegisterModal modal={modal} toggle={toggle} loginToggle={loginToggle} />
-      <LoginModal modal={loginModal} logintoggle={loginToggle}  regiserToggle={toggle} />
+      <LoginModal
+        modal={loginModal}
+        logintoggle={loginToggle}
+        regiserToggle={toggle}
+      />
 
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
         A new season : Zanzibar |{" "}
@@ -81,30 +88,45 @@ export default function Header() {
             ></path>
           </g>
         </svg>
+        {dataa?.user?.userType !=="admin" ? (
+          <ul className="flex gap-5 ">
+            <li>
+              <NavLink className="link" to="/house">House & Home</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/women">Women</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/men">Men</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/jwellery">Jwellery</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/giftshop">The Gift Shop</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/newArrivel">New Arrivals</NavLink>
+            </li>
+           
+          </ul>
+        ) : (
+          <ul className="flex gap-5 ">
+            <li>
+              <NavLink className="link" to="/dashboard">Dashboard</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/order">Product</NavLink>
+            </li>
+            <li>
+              <NavLink className="link" to="/product">Order</NavLink>
+            </li>
+            <li className="relative">
+              <NavLink className="link" to="/user">Users</NavLink>
+            </li>
+          </ul>
+        )}
 
-        <ul className="flex gap-5 ">
-          <li>
-            <NavLink className="link">House & Home</NavLink>
-          </li>
-          <li>
-            <NavLink className="link">Women</NavLink>
-          </li>
-          <li>
-            <NavLink className="link">Men</NavLink>
-          </li>
-          <li>
-            <NavLink className="link">Jwellery</NavLink>
-          </li>
-          <li>
-            <NavLink className="link">The Gift Shop</NavLink>
-          </li>
-          <li>
-            <NavLink className="link">New Arrivals</NavLink>
-          </li>
-          <li className="relative">
-            <NavLink className="link">Profile</NavLink>
-          </li>
-        </ul>
         <div className="flex items-center gap-5  textalign ">
           <div className="">
             <IndianRupee size={16} />
@@ -128,6 +150,7 @@ export default function Header() {
             <ShoppingBag size={16} />
             <p>My Bag</p>
           </div>
+          
           <div role="button" onClick={toggle}>
             <User size={16} />
             <p>Sign in</p>
