@@ -30,16 +30,15 @@ const categoryOptions = [
   { value: "party-Wear", label: "party Wear" },
 ];
 
-
-
-export default function Product({togle,refresHandle,product,setProduct}) {
-
-
-
-
-console.log(product.lenght);
-
-
+export default function Product({
+  togle,
+  refresHandle,
+  product,
+  setProduct,
+  updatemode,
+  intialProduct,
+  setUpdatemode
+}) {
   // data post----->
   const dataTransfer = (e) => {
     e.preventDefault();
@@ -47,20 +46,18 @@ console.log(product.lenght);
       method: "post",
       url: "http://localhost:9999/product/create",
       data: product,
-    }).then((res) => {
-      console.log(res);
-      refresHandle()
-      togle()
-      setProduct(intialProduct)
-      toast.success("Done");
-    }).catch((err)=>{
-      console.log(err);
-      toast.error("Somthing wrong")
     })
+      .then((res) => {
+        refresHandle();
+        togle();
+        setProduct(intialProduct);
+        toast.success("Done");
+      })
+      .catch((err) => {
+        toast.error("Somthing wrong");
+      });
   };
-// <---------
-
-
+  // <---------
 
   let selectHandler = (e, type) => {
     if (type === "color") {
@@ -76,6 +73,23 @@ console.log(product.lenght);
       setProduct({ ...product, size: [...product.size, ee] });
     }
   };
+  console.log(product);
+  const updateHandler =()=>{
+    axios({
+      method:"put",
+      url: `http://localhost:9999/product/update/${product._id}`,
+      data:product
+    }).then((res)=>{
+      setProduct(intialProduct)
+      refresHandle()
+      togle()
+      setUpdatemode(false)
+      toast.success("update Done")
+    }).catch((err)=>{
+      toast.error("not found")
+    })
+  }
+  console.log(updatemode);
   return (
     <div>
       <Form onSubmit={(e) => submitHandler(e)}>
@@ -205,15 +219,15 @@ console.log(product.lenght);
           />
         </FormGroup>
         <FormGroup>
-              <Label for="exampleEmail">Thumbnail</Label>
-              <Input
-                type="text"
-                value={product.thumbnail}
-                onChange={(e) =>
-                  setProduct({ ...product, thumbnail: e.target.value })
-                }
-              />
-            </FormGroup>
+          <Label for="exampleEmail">Thumbnail</Label>
+          <Input
+            type="text"
+            value={product.thumbnail}
+            onChange={(e) =>
+              setProduct({ ...product, thumbnail: e.target.value })
+            }
+          />
+        </FormGroup>
         <FormGroup>
           <Label for="availableStock">Available Stock</Label>
           <Input
@@ -243,14 +257,19 @@ console.log(product.lenght);
             );
           })}
         </FormGroup>
-
-        <Button
-          color="danger"
-          className="w-100"
-          onClick={(e) => dataTransfer(e)}
-        >
-          Submit
-        </Button>
+        {updatemode ? (
+          <Button color="danger" className="w-100" onClick={updateHandler}>
+            Update
+          </Button>
+        ) : (
+          <Button
+            color="danger"
+            className="w-100"
+            onClick={(e) => dataTransfer(e)}
+          >
+            Submit
+          </Button>
+        )}
       </Form>
     </div>
   );

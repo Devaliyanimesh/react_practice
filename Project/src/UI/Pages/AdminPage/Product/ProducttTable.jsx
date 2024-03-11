@@ -8,9 +8,11 @@ export default function ProducttTable({
   refresHandler,
   setProduct,
   toggle,
+  UpdateHandler
 }) {
   let [data, setData] = useState(null);
   useEffect(() => {
+    
     axios({
       method: "get",
       url: "http://localhost:9999/product/getAll",
@@ -22,37 +24,32 @@ export default function ProducttTable({
   const updateHandler = (e) => {
     toggle();
     setProduct(e);
+    UpdateHandler()
   };
 
-  const updateADataHandler = () => {
-    console.log(e?._id);
-    axios({
-      method: "put",
-      url: `http://localhost:9999/product/update/${productt?._id}`,
-      data: data,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((res) => {
-        console.log(res);
-      });
-  };
+  
   const deletHandler = (e) => {
-    axios({
-      method: "delete",
-      url: `http://localhost:9999/product/delete/${e?._id}`,
-      data: data,
-    })
-      .then((res) => {
-        console.log(res);
-        toast.success("delet succesfully");
-        refresHandler();
+    // if (confirm("are you sure") === true ) {
+      axios({
+        method: "delete",
+        url: `http://localhost:9999/product/delete/${e?._id}`,
+        data: data,
       })
-      .catch((err) => {
-        toast.error("somthing wrong");
-      });
+        .then((res) => {
+          console.log(res);
+          toast.success("delet succesfully");
+          refresHandler();
+        })
+        .catch((err) => {
+          toast.error("somthing wrong");
+        });
+    // // }
+    // else{
+    //   toast.warning("you are change your ducison")
+    // }
+    
   };
+  
   return (
     <Table>
       <thead>
@@ -118,10 +115,10 @@ export default function ProducttTable({
                 </div>
               </td>
               <td>
-                <Button onClick={() => updateHandler(e)}>Update</Button>
+                <Button color="warning"  onClick={() => updateHandler(e)}>Update</Button>
               </td>
               <td>
-                <Button onClick={() => deletHandler(e)}>Delet</Button>
+                <Button color="danger" onClick={() => deletHandler(e)}>Delet</Button>
               </td>
             </tr>
           );
