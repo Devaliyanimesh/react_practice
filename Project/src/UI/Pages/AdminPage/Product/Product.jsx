@@ -36,9 +36,8 @@ export default function Product() {
   return (
     <>
       <div className="d-flex gap-2 justify-content-end mx-4 mt-2">
-        <Input type="text" />
         <Button color="danger" onClick={toggle}>
-          Product
+         New Product
         </Button>
       </div>
       <ProducttModal
