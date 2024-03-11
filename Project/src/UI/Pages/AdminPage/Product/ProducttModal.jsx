@@ -1,24 +1,19 @@
-import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import InputProduct from './InputProduct';
+import React, { useState } from "react";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import InputProduct from "./InputProduct";
 
-function ProducttModal() {
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => setModal(!modal);
+function ProducttModal({modal,toggle,refresHandler,produc,setProduc}) {
+  
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
-        Click Me
-      </Button>
-      <Modal isOpen={modal} toggle={toggle} >
+
+      
+      <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-    <InputProduct/>
-         
+          <InputProduct togle={toggle} refresHandle={refresHandler} product={produc} setProduct={setProduc} />
         </ModalBody>
-        
       </Modal>
     </div>
   );

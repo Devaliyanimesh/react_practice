@@ -1,75 +1,132 @@
-import React from 'react'
+import { Button, Table } from "reactstrap";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+let sizeOptions = ["41", "42", "43", "44", "45"];
+export default function ProducttTable({
+  refresh,
+  refresHandler,
+  setProduct,
+  toggle,
+}) {
+  let [data, setData] = useState(null);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:9999/product/getAll",
+    })
+      .then((res) => setData(res.data.data))
+      .catch((err) => console.log(err.message));
+  }, [refresh]);
 
-export default function ProducttTable() {
-    
+  const updateHandler = (e) => {
+    toggle();
+    setProduct(e);
+  };
+
+  const updateADataHandler = () => {
+    console.log(e?._id);
+    axios({
+      method: "put",
+      url: `http://localhost:9999/product/update/${productt?._id}`,
+      data: data,
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  };
+  const deletHandler = (e) => {
+    axios({
+      method: "delete",
+      url: `http://localhost:9999/product/delete/${e?._id}`,
+      data: data,
+    })
+      .then((res) => {
+        console.log(res);
+        toast.success("delet succesfully");
+        refresHandler();
+      })
+      .catch((err) => {
+        toast.error("somthing wrong");
+      });
+  };
   return (
-    <Table striped>
-    <thead>
-      <tr>
-        <th>SR.</th>
-        <th>IMAGE</th>
-        <th>NAME</th>
-        <th>PRICE</th>
-        <th>COLOR</th>
-        <th>SIZE</th>
-      </tr>
-    </thead>
-    <tbody>
-      {allProduct?.map?.((e, i) => {
-        return (
-          <tr>
-            <td>{i + 1}</td>
-            <td>
-              <img style={{ height: "30px" }} src={e?.thumbnail} alt="" />
-            </td>
-            <td>{e?.title}</td>
-            <td>{e?.price}</td>
-            <td>
-              <div className="d-flex gap-2">
-                {e?.color.map((color) => {
-                  return (
-                    <div
-                      style={{
-                        height: "10px",
-                        width: "10px",
-                        border: "1px solid black",
-                        borderRadius: "50%",
-                        backgroundColor: color,
-                      }}
-                    ></div>
-                  );
-                })}
-              </div>
-            </td>
-            <td>
-              <div className="d-flex gap-2">
-                {[41, 42, 43, 44, 45].map((size) => {
-                  return (
-                    <div
-                      style={{ padding: "5px", border: "1px solid black" }}
-                    >
-                      {size}
-                    </div>
-                  );
-                })}
-              </div>
-            </td>
-            <td>
-              <Edit
-                role="button"
-                color="#81adef"
-                onClick={() => editHandler(e)}
-              />
-              <Trash
-                role="button"
-                color="#f22b2b"
-                onClick={() => deleteHandler(e?._id)}
-              />
-            </td>
-          </tr>
-        );
-      })}
-    </tbody>
-  </Table>
-  )
+    <Table>
+      <thead>
+        <tr>
+          <th>SR.</th>
+          <th>IMAGE</th>
+          <th>NAME</th>
+          <th>PRICE</th>
+          <th>COLOR</th>
+          <th>SIZE</th>
+          <th>Update</th>
+          <th>Delet</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data?.map?.((e, i) => {
+          return (
+            <tr key={i}>
+              <td>{i + 1}</td>
+              <td>
+                <img
+                  style={{ height: "30px" }}
+                  src={e?.thumbnail}
+                  alt="ajkkj"
+                />
+              </td>
+              <td>{e?.title}</td>
+              <td>{e?.price}</td>
+              <td>
+                <div className="d-flex gap-2">
+                  {e?.color.map((color, i) => {
+                    return (
+                      <div
+                        style={{
+                          height: "10px",
+                          width: "10px",
+                          border: "1px solid black",
+                          borderRadius: "50%",
+                          backgroundColor: color,
+                        }}
+                        key={i}
+                      ></div>
+                    );
+                  })}
+                </div>
+              </td>
+              <td>
+                <div className="d-flex gap-2">
+                  {sizeOptions.map((ee, i) => {
+                    return (
+                      <div
+                        key={i}
+                        style={
+                          e.size.includes(ee)
+                            ? { backgroundColor: "green", color: "white" }
+                            : { backgroundColor: "gray", color: "white" }
+                        }
+                      >
+                        {ee}
+                      </div>
+                    ); /* first  Task*/
+                  })}
+                </div>
+              </td>
+              <td>
+                <Button onClick={() => updateHandler(e)}>Update</Button>
+              </td>
+              <td>
+                <Button onClick={() => deletHandler(e)}>Delet</Button>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </Table>
+  );
 }

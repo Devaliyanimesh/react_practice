@@ -30,34 +30,52 @@ const categoryOptions = [
   { value: "party-Wear", label: "party Wear" },
 ];
 
-const intialProduct = {
-  title: "",
-  description: "",
-  brand: "",
-  gender: "",
-  price: "",
-  discountPercentage: "",
-  availableStock: "",
-  category: [],
-  thumbnail: "",
-  color: [],
-  size: [],
-};
 
-export default function Product() {
-  let [product, setProduct] = useState(intialProduct);
-  console.log(product);
-  
+
+export default function Product({togle,refresHandle,product,setProduct}) {
+
+
+
+
+console.log(product.lenght);
+
+
+  // data post----->
+  const dataTransfer = (e) => {
+    e.preventDefault();
+    axios({
+      method: "post",
+      url: "http://localhost:9999/product/create",
+      data: product,
+    }).then((res) => {
+      console.log(res);
+      refresHandle()
+      togle()
+      setProduct(intialProduct)
+      toast.success("Done");
+    }).catch((err)=>{
+      console.log(err);
+      toast.error("Somthing wrong")
+    })
+  };
+// <---------
+
+
+
   let selectHandler = (e, type) => {
     if (type === "color") {
-      let color = e.map((e) => e?.value);
+      let color = e.map((e) => e.value);
       setProduct({ ...product, color });
-    } else if (type === "category") {
-      let category = e.map((e) => e?.value);
-      setProduct({ ...product, category });
     }
   };
-
+  const checkHandler = (ee) => {
+    if (product.size.includes(ee)) {
+      let filter = product?.size((e) => e !== ee);
+      setProduct({ ...product, size: filter });
+    } else {
+      setProduct({ ...product, size: [...product.size, ee] });
+    }
+  };
   return (
     <div>
       <Form onSubmit={(e) => submitHandler(e)}>
@@ -135,11 +153,11 @@ export default function Product() {
           <Select
             id="color"
             isMulti
-            options={colorOptions}
             value={product.color?.map((color) => {
               return { value: color, label: color };
             })}
-            onChange={(e) => selectHandler(e)}
+            options={colorOptions}
+            onChange={(e) => selectHandler(e, "color")}
           />
         </FormGroup>
         <FormGroup>
@@ -187,17 +205,15 @@ export default function Product() {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="thumbnail">Image</Label>
-          <Input
-            id="thumbnail"
-            placeholder="Enter image"
-            value={product?.thumbnail}
-            type="text"
-            onChange={(e) =>
-              setProduct({ ...product, thumbnail: e?.target?.value })
-            }
-          />
-        </FormGroup>
+              <Label for="exampleEmail">Thumbnail</Label>
+              <Input
+                type="text"
+                value={product.thumbnail}
+                onChange={(e) =>
+                  setProduct({ ...product, thumbnail: e.target.value })
+                }
+              />
+            </FormGroup>
         <FormGroup>
           <Label for="availableStock">Available Stock</Label>
           <Input
@@ -212,7 +228,7 @@ export default function Product() {
         </FormGroup>
         <Label for="checkBox40">Size</Label>
         <FormGroup className="d-flex gap-2">
-          {["41", "42", "43", "44", "45"]?.map?.((e,i) => {
+          {["41", "42", "43", "44", "45"]?.map?.((e, i) => {
             return (
               <div key={i}>
                 <Input
@@ -228,7 +244,11 @@ export default function Product() {
           })}
         </FormGroup>
 
-        <Button color="danger" className="w-100">
+        <Button
+          color="danger"
+          className="w-100"
+          onClick={(e) => dataTransfer(e)}
+        >
           Submit
         </Button>
       </Form>
