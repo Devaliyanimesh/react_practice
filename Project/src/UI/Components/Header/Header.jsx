@@ -116,10 +116,10 @@ export default function Header() {
               <NavLink className="link" to="/dashboard">Dashboard</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/order">Product</NavLink>
+              <NavLink className="link" to="/order">Order </NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/product">Order</NavLink>
+              <NavLink className="link" to="/product">Product</NavLink>
             </li>
             <li className="relative">
               <NavLink className="link" to="/user">Users</NavLink>

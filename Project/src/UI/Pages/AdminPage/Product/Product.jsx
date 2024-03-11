@@ -1,7 +1,9 @@
 import React from 'react'
+  import ProducttModal from './ProducttModal'
 
 export default function Product() {
-  return (
-    <div>Product</div>
-  )
+  return <>
+    <ProducttModal/>
+  </>
+  
 }
