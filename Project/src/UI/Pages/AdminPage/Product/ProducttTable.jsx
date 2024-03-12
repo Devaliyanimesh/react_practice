@@ -8,7 +8,8 @@ export default function ProducttTable({
   refresHandler,
   setProduct,
   toggle,
-  UpdateHandler
+  UpdateHandler,
+  Preview
 }) {
   let [data, setData] = useState(null);
   useEffect(() => {
@@ -49,7 +50,8 @@ export default function ProducttTable({
     // }
     
   };
-  
+   
+
   return (
     <Table>
       <thead>
@@ -62,6 +64,8 @@ export default function ProducttTable({
           <th>SIZE</th>
           <th>Update</th>
           <th>Delet</th>
+          <th>Preview</th>
+
         </tr>
       </thead>
       <tbody>
@@ -115,11 +119,16 @@ export default function ProducttTable({
                 </div>
               </td>
               <td>
+              <Button color="success" onClick={() => Preview(e)}>Preview</Button>
+
+              </td>
+              <td>
                 <Button color="warning"  onClick={() => updateHandler(e)}>Update</Button>
               </td>
               <td>
                 <Button color="danger" onClick={() => deletHandler(e)}>Delet</Button>
               </td>
+             
             </tr>
           );
         })}

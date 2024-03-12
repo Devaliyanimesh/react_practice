@@ -18,11 +18,11 @@ const intialProduct = {
 
 export default function Product() {
   const [modal, setModal] = useState(false);
-
   const toggle = () => {
     setModal(!modal);
     setProduct(intialProduct);
     setUpdatemode(false);
+    setCheck(false)
   };
   let [refresh, setRefresh] = useState(true);
   const refresHandler = () => {
@@ -32,6 +32,14 @@ export default function Product() {
   let [updatemode, setUpdatemode] = useState(false);
   const UpdateHandler = () => {
     setUpdatemode(true);
+  };
+  let[previewdata,setPreviewData]=useState([])
+  let [chek, setCheck] = useState(false);
+
+  const Preview = (e) => {
+    setPreviewData([e])
+    toggle()
+    setCheck(true)
   };
   return (
     <>
@@ -49,6 +57,8 @@ export default function Product() {
         setProduc={setProduct}
         intialProduc={intialProduct}
         setUpdatemod={setUpdatemode}
+        previewdata={previewdata}
+        chek={chek}
       />
       <ProducttTable
         refresh={refresh}
@@ -56,6 +66,7 @@ export default function Product() {
         setProduct={setProduct}
         toggle={toggle}
         UpdateHandler={UpdateHandler}
+        Preview={Preview}
       />
     </>
   );

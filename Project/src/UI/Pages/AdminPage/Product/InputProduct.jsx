@@ -5,10 +5,6 @@ import Select from "react-select";
 import { toast } from "react-toastify";
 import {
   Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Table,
   FormGroup,
   Form,
   Label,
@@ -73,7 +69,6 @@ export default function Product({
       setProduct({ ...product, size: [...product.size, ee] });
     }
   };
-  console.log(product);
   const updateHandler =()=>{
     axios({
       method:"put",
@@ -89,7 +84,6 @@ export default function Product({
       toast.error("not found")
     })
   }
-  console.log(updatemode);
   return (
     <div>
       <Form onSubmit={(e) => submitHandler(e)}>
