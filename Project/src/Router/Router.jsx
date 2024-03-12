@@ -16,6 +16,7 @@ import Jwellery from "../UI/Pages/CommanPage/Jwellery/Jwellery";
 import GiftShop from "../UI/Pages/CommanPage/TheGiftShop/GiftShop";
 import NerArrivel from "../UI/Pages/CommanPage/NewArrivel/NerArrivel";
 import Profile from "../UI/Pages/CommanPage/Profile/Profile";
+import { ProtectedRoute } from "./ProtectedRouter";
 
 export default function Router() {
   return (
@@ -34,7 +35,7 @@ export default function Router() {
           <Route path="/jwellery" element={<Jwellery />} />
           <Route path="/giftshop" element={<GiftShop />} />
           <Route path="/newArrivel" element={<NerArrivel />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/protectedRoute" element={<ProtectedRoute profile={<Profile />}/>} />
 
 
 {/* ---------------------------------> */}

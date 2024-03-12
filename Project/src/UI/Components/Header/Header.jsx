@@ -108,6 +108,9 @@ export default function Header() {
             <li>
               <NavLink className="link" to="/newArrivel">New Arrivals</NavLink>
             </li>
+            <li>
+              <NavLink className="link" to="/protectedRoute">Profile</NavLink>
+            </li>
            
           </ul>
         ) : (

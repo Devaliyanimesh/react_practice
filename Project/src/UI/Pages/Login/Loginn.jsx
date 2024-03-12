@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { logi, loginn } from "../../../Reduxx/State/Statee";
+import {  loginn } from "../../../Reduxx/State/Statee";
 
 export default function Loginn({ loginTogg, registerTogg }) {
   const [value, setValue] = useState({

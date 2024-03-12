@@ -14,11 +14,13 @@ const creteSlicee = createSlice({
       localStorage.setItem("userlogin", JSON.stringify(action.payload.data));
       localStorage.setItem("token", JSON.stringify(action.payload.token));
     },
-    logout:(state,action)=>{
-console.log(state);
-console.log(action);
+    logOut:(state,action)=>{
+      console.log("585----->");
+      state.user = {};
+      state.token = "";
+      localStorage.clear();
     }
   },
 });
 export default creteSlicee.reducer;
-export const { loginn,logi } = creteSlicee.actions;
+export const { loginn,logOut } = creteSlicee.actions;
