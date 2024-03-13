@@ -9,6 +9,7 @@ const creteSlicee = createSlice({
   initialState: { user, token },
   reducers: {
     loginn: (state, action) => {
+      console.log("-->");
       state.user = action.payload.data;
       state.token = action.payload.token;
       localStorage.setItem("userlogin", JSON.stringify(action.payload.data));

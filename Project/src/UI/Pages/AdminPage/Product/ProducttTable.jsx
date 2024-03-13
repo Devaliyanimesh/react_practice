@@ -62,9 +62,9 @@ export default function ProducttTable({
           <th>PRICE</th>
           <th>COLOR</th>
           <th>SIZE</th>
+          <th>Preview</th>
           <th>Update</th>
           <th>Delet</th>
-          <th>Preview</th>
 
         </tr>
       </thead>

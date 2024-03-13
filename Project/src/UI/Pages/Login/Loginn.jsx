@@ -35,6 +35,7 @@ export default function Loginn({ loginTogg, registerTogg }) {
         toast.error("login Fail");
       });
     e.preventDefault();
+    
     // if (value.email.trim() === "" || value.password.trim() === "") {
     //   toast.error("Please fill up all fields");
     //   return;

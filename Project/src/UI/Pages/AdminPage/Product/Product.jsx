@@ -18,34 +18,37 @@ const intialProduct = {
 
 export default function Product() {
   const [modal, setModal] = useState(false);
+  let [product, setProduct] = useState(intialProduct);
+  let [updatemode, setUpdatemode] = useState(false);
+  let [refresh, setRefresh] = useState(true);
+  let [previewdata, setPreviewData] = useState([]);
+  let [chek, setCheck] = useState(false);
+
   const toggle = () => {
     setModal(!modal);
     setProduct(intialProduct);
     setUpdatemode(false);
-    setCheck(false)
+    setCheck(false);
   };
-  let [refresh, setRefresh] = useState(true);
+
   const refresHandler = () => {
     setRefresh(!refresh);
   };
-  let [product, setProduct] = useState(intialProduct);
-  let [updatemode, setUpdatemode] = useState(false);
+
   const UpdateHandler = () => {
     setUpdatemode(true);
   };
-  let[previewdata,setPreviewData]=useState([])
-  let [chek, setCheck] = useState(false);
 
   const Preview = (e) => {
-    setPreviewData([e])
-    toggle()
-    setCheck(true)
+    setPreviewData([e]);
+    toggle();
+    setCheck(true);
   };
   return (
     <>
       <div className="d-flex gap-2 justify-content-end mx-4 mt-2 mb-3">
         <Button color="danger" onClick={toggle}>
-         New Product
+          New Product
         </Button>
       </div>
       <ProducttModal
