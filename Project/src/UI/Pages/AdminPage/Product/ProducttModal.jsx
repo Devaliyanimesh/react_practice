@@ -96,6 +96,7 @@ function ProducttModal({
                         <p>discountPercentage:- {e?.discountPercentage} %</p>
                       </div>
                     </div>
+                    <Button className="w-100" style={{backgroundColor:"blue"}}>Order now</Button>
                   </div>
                 );
               })}{" "}

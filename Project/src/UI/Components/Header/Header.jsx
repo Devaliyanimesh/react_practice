@@ -52,6 +52,7 @@ export default function Header() {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 416 63"
           className="w-32 mt-1"
+          role="button"
         >
           <g fill="#2f343e">
             <path
@@ -91,25 +92,25 @@ export default function Header() {
         {dataa?.user?.userType !=="admin" ? (
           <ul className="flex gap-5 ">
             <li>
-              <NavLink className="link" to="/house">House & Home</NavLink>
+              <NavLink role="button" className="link" to="/house">House & Home</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/women">Women</NavLink>
+              <NavLink role="button" className="link" to="/women">Women</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/men">Men</NavLink>
+              <NavLink role="button" className="link" to="/men">Men</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/jwellery">Jwellery</NavLink>
+              <NavLink role="button" className="link" to="/jwellery">Jwellery</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/giftshop">The Gift Shop</NavLink>
+              <NavLink role="button" className="link" to="/giftshop">The Gift Shop</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/newArrivel">New Arrivals</NavLink>
+              <NavLink role="button" className="link" to="/newArrivel">New Arrivals</NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/protectedRoute">Profile</NavLink>
+              <NavLink role="button" className="link" to="/protectedRoute">Profile</NavLink>
             </li>
            
           </ul>
@@ -131,25 +132,25 @@ export default function Header() {
         )}
 
         <div className="flex items-center gap-5  textalign ">
-          <div className="">
+          <div className="" role="button">
             <IndianRupee size={16} />
             <p>INR</p>
           </div>
-          <div>
+          <div role="button">
             <Eye size={16} />
             <p>Viewed</p>
           </div>
 
-          <div>
+          <div role="button">
             <Search size={16} />
             <p>Search</p>
           </div>
-          <div>
+          <div role="button">
             <Heart size={16} />
             <p>wishlist</p>
           </div>
 
-          <div>
+          <div role="button">
             <ShoppingBag size={16} />
             <p>My Bag</p>
           </div>
