@@ -3,13 +3,7 @@ import { Edit, Trash } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
-import {
-  Button,
-  FormGroup,
-  Form,
-  Label,
-  Input,
-} from "reactstrap";
+import { Button, FormGroup, Form, Label, Input } from "reactstrap";
 
 const colorOptions = [
   { value: "red", label: "Red" },
@@ -33,7 +27,7 @@ export default function Product({
   setProduct,
   updatemode,
   intialProduct,
-  setUpdatemode
+  setUpdatemode,
 }) {
   // data post----->
   const dataTransfer = (e) => {
@@ -69,21 +63,23 @@ export default function Product({
       setProduct({ ...product, size: [...product.size, ee] });
     }
   };
-  const updateHandler =()=>{
+  const updateHandler = () => {
     axios({
-      method:"put",
+      method: "put",
       url: `http://localhost:9999/product/update/${product._id}`,
-      data:product
-    }).then((res)=>{
-      setProduct(intialProduct)
-      refresHandle()
-      togle()
-      setUpdatemode(false)
-      toast.success("update Done")
-    }).catch((err)=>{
-      toast.error("not found")
+      data: product,
     })
-  }
+      .then((res) => {
+        setProduct(intialProduct);
+        refresHandle();
+        togle();
+        setUpdatemode(false);
+        toast.success("update Done");
+      })
+      .catch((err) => {
+        toast.error("not found");
+      });
+  };
   return (
     <div>
       <Form onSubmit={(e) => submitHandler(e)}>
@@ -242,6 +238,7 @@ export default function Product({
                 <Input
                   id="checkBox40"
                   type="checkbox"
+                  value={product?.size}
                   checked={product?.size?.includes?.(e)}
                   onChange={() => checkHandler(e)}
                   className="me-2"
