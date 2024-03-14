@@ -15,6 +15,7 @@ export default function ProducttTable({
   let [data, setData] = useState(null);
   let [pagination, setpagination] = useState({
     totalproduct: 0,
+    
     limit: 10,
     page: 0,
   });
