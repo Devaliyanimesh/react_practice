@@ -27,14 +27,11 @@ export default function Header() {
     console.log("------reg------");
   };
 
-  let dataa=useSelector((state)=>state.athorsli)
+  let dataa = useSelector((state) => state.athorsli);
   return (
     <>
       <RegisterModal modal={modal} toggle={toggle} loginToggle={loginToggle} />
-      <LoginModal
-        modal={loginModal}
-        logintoggle={loginToggle}
-        regiserToggle={toggle}
+      <LoginModal modal={loginModal} logintoggle={loginToggle} regiserToggle={toggle}
       />
 
       <p className="w-100 text-center  text-white bg-blue-900 p-0 m-0 text-sm py-2">
@@ -89,44 +86,65 @@ export default function Header() {
             ></path>
           </g>
         </svg>
-        {dataa?.user?.userType !=="admin" ? (
+        {dataa?.user?.userType !== "admin" ? (
           <ul className="flex gap-5 ">
             <li>
-              <NavLink role="button" className="link" to="/house">House & Home</NavLink>
+              <NavLink role="button" className="link" to="/house">
+                House & Home
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/women">Women</NavLink>
+              <NavLink role="button" className="link" to="/women">
+                Women
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/men">Men</NavLink>
+              <NavLink role="button" className="link" to="/men">
+                Men
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/jwellery">Jwellery</NavLink>
+              <NavLink role="button" className="link" to="/jwellery">
+                Jwellery
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/giftshop">The Gift Shop</NavLink>
+              <NavLink role="button" className="link" to="/giftshop">
+                The Gift Shop
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/newArrivel">New Arrivals</NavLink>
+              <NavLink role="button" className="link" to="/newArrivel">
+                New Arrivals
+              </NavLink>
             </li>
             <li>
-              <NavLink role="button" className="link" to="/protectedRoute">Profile</NavLink>
+              <NavLink role="button" className="link" to="/protectedRoute">
+                Profile
+              </NavLink>
             </li>
-           
           </ul>
         ) : (
           <ul className="flex gap-5 ">
             <li>
-              <NavLink className="link" to="/dashboard">Dashboard</NavLink>
+              <NavLink className="link" to="/dashboard">
+                Dashboard
+              </NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/order">Order </NavLink>
+              <NavLink className="link" to="/order">
+                Order{" "}
+              </NavLink>
             </li>
             <li>
-              <NavLink className="link" to="/product">Product</NavLink>
+              <NavLink className="link" to="/product">
+                Product
+              </NavLink>
             </li>
             <li className="relative">
-              <NavLink className="link" to="/user">Users</NavLink>
+              <NavLink className="link" to="/user">
+                Users
+              </NavLink>
             </li>
           </ul>
         )}
@@ -154,7 +172,7 @@ export default function Header() {
             <ShoppingBag size={16} />
             <p>My Bag</p>
           </div>
-          
+
           <div role="button" onClick={toggle}>
             <User size={16} />
             <p>Sign in</p>

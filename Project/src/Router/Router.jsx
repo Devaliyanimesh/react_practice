@@ -45,7 +45,7 @@ export default function Router() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/order" element={<Order/>}/>
           <Route path="/product" element={<Product/>}/>
-          <Route path="/dashboard" element={<User/>}/>
+          <Route path="/user" element={<User/>}/>
         </Routes>
       </Provider>
 

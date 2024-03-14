@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import ReactPaginate from "react-paginate";
+import notFound from "./../../../../Images/imgnotFound.png";
 let sizeOptions = ["41", "42", "43", "44", "45"];
 export default function ProducttTable({
   refresh,
@@ -15,7 +16,7 @@ export default function ProducttTable({
   let [data, setData] = useState(null);
   let [pagination, setpagination] = useState({
     totalproduct: 0,
-    
+
     limit: 10,
     page: 0,
   });
@@ -24,7 +25,6 @@ export default function ProducttTable({
     refresHandler();
 
     console.log(e);
-
   };
   useEffect(() => {
     axios({
@@ -41,7 +41,7 @@ export default function ProducttTable({
         setpagination({ ...pagination, totalproduct: res.data.count });
       })
       .catch((err) => console.log(err.message));
-  },[refresh]);
+  }, [refresh]);
   const updateHandler = (e) => {
     toggle();
     setProduct(e);
@@ -70,7 +70,6 @@ export default function ProducttTable({
     // }
   };
 
-
   return (
     <>
       <Table className="h-100 bg-black">
@@ -96,7 +95,9 @@ export default function ProducttTable({
                   <img
                     style={{ height: "30px" }}
                     src={e?.thumbnail}
-                    alt="ajkkj"
+                    onError={(e) => {
+                      e.target.src = notFound; // Set the source to the placeholder image
+                    }}
                   />
                 </td>
                 <td>{e?.title}</td>
