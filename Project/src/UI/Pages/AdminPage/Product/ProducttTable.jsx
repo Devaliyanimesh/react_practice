@@ -21,7 +21,7 @@ export default function ProducttTable({
     page: 0,
   });
   const handlePageClick = (e) => {
-    setpagination({ ...pagination, page: e?.selected });
+    setpagination({ ...pagination, page: e?.selected +1});
     refresHandler();
 
     console.log(e);
@@ -42,6 +42,7 @@ export default function ProducttTable({
       })
       .catch((err) => console.log(err.message));
   }, [refresh]);
+  console.log(pagination.totalproduct);
   const updateHandler = (e) => {
     toggle();
     setProduct(e);
@@ -49,7 +50,7 @@ export default function ProducttTable({
   };
   console.log(data);
 
-  const deletHandler = (e) => {
+  const deleteHandler = (e) => {
     // if (confirm("are you sure") === true ) {
     axios({
       method: "delete",
@@ -72,7 +73,8 @@ export default function ProducttTable({
 
   return (
     <>
-      <Table className="h-100 bg-black">
+   
+      <Table className="h-100 bg-black" >
         <thead>
           <tr>
             <th>SR.</th>
@@ -83,7 +85,7 @@ export default function ProducttTable({
             <th>SIZE</th>
             <th>Preview</th>
             <th>Update</th>
-            <th>Delet</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -149,8 +151,8 @@ export default function ProducttTable({
                   </Button>
                 </td>
                 <td>
-                  <Button color="danger" onClick={() => deletHandler(e)}>
-                    Delet
+                  <Button color="danger" onClick={() => deleteHandler(e)}>
+                    Delete
                   </Button>
                 </td>
               </tr>
@@ -166,10 +168,10 @@ export default function ProducttTable({
         breakLabel="..."
         nextLabel="next "
         onPageChange={handlePageClick}
-        // pageRangeDisplayed={5}
         pageCount={pagination?.totalproduct / pagination?.limit}
         previousLabel=" previous"
         renderOnZeroPageCount={null}
+        
       />
     </>
   );

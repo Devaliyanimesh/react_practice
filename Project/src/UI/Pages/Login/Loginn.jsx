@@ -28,6 +28,7 @@ export default function Loginn({ loginTogg, registerTogg }) {
         toast.success("Login succecsfully")
         setValue({email:"",password:""})
         loginTogg()
+        navigate("/dashboard")
 
       })
       .catch((err) => {
